@@ -1,0 +1,107 @@
+<div id="portal-footer" metal:define-macro="portal_footer" i18n:domain="plone"
+    tal:define="portal_url context/@@plone_portal_state/portal_url">
+
+<div id="yesfooterlogo"></div>
+
+<div id="address-info-wrapper">
+
+<div id="address">
+	<tal:comment tal:condition="nothing">
+        Use hCard formatting for contact info.  See
+        http://microformats.org/wiki/hcard for more.
+    </tal:comment>
+
+    <div class="adr">
+        <span class="fn org org-name">YES! is published by the Positive Futures Network</span>,<br />
+        <span class="street-address">284 Madrona Way NE, Ste 116</span>,
+        <span class="locality">Bainbridge Island</span>,<br />
+        <span class="region">WA</span>
+        <span class="postal-code">98110-2870 800/937-4451</span>
+    </div>
+</div>
+
+<tal:comment tal:condition="nothing">
+    including the contents of the colophon due to odd placement in the design
+</tal:comment>
+
+<br />
+<span class="plone-site-info">
+  <span>
+      <a tal:attributes="href string:${portal_url}/about/site-credits"
+         title="Site Credits"
+         i18n:attributes="title title_site_credits">Site Credits</a>
+<a tal:attributes="href string:${portal_url}/about/privacy-policy"
+         title="Privacy Policy"
+         i18n:attributes="title title_privacy_policy"> :: Privacy Policy</a>
+  </span>
+<br /><br />
+<span i18n:translate="txt_powered_by_plone" id="powered-by-plone">
+  Powered by 
+  <span>
+      <a href="http://plone.org"
+         i18n:attributes="title title_this_site_is_plone"
+         title="This website is built on the Plone Content Management System. Click to learn more.">Plone</a>
+  </span>
+</span>
+
+<br /><br />
+<span>
+Please 
+  <span>
+      <a href="mailto:webmaster@yesmagazine.org"
+         i18n:attributes="title title_report_problems"
+         title="This website is in BETA state. Let us know if you come across a problem">report problems here</a>.
+  </span>
+</span>
+
+
+</span>
+
+</div>
+<div id="information"><h3>Information</h3>
+	<ul id="information-list">
+		<li><a tal:attributes="href string:${portal_url}/about">About Us</a></li>
+		<li><a tal:attributes="href string:${portal_url}/about/staff/board-staff">Board/Staff</a></li>	
+		<li><a tal:attributes="href string:${portal_url}/about/jobs-internships">Jobs &amp; Internships</a></li>
+		<li><a tal:attributes="href string:${portal_url}/about/faq">FAQ</a></li>
+		<li><a tal:attributes="href string:${portal_url}/about/press-room">Press Room</a></li>
+		<li><a tal:attributes="href string:${portal_url}/about/reprints">Reprints</a></li>	
+		<li><a tal:attributes="href string:${portal_url}/about/writers-guidelines">Writer's Guidelines</a></li>	
+                <li><a tal:attributes="href string:${portal_url}/about/contact-us">Contact Us</a></li>						
+	</ul>
+</div>
+	
+<div id="support"><h3>Support Our Work</h3>
+	<ul id="support-list">
+		<li><a href="http://store.yesmagazine.org/donate/?ica=Don_txt_DonateNow_multi&amp;icl=Footer_1750">Donate Now</a></li>
+		<li><a tal:attributes="href string:${portal_url}/support-yes/give-stock-to-yes">Give Stock</a></li>
+		<li><a tal:attributes="href string:${portal_url}/support-yes/invest-in-yes-through-workplace-giving">Workplace Giving</a></li>	
+		<li><a tal:attributes="href string:${portal_url}/support-yes/name-yes-in-your-will-or-retirement-plan">Planned Giving</a></li>
+                <li><a tal:attributes="href string:${portal_url}/support-yes/give-to-yes-in-tribute-to-someone-you-love">Give in Tribute</a></li>
+		<li><a tal:attributes="href string:${portal_url}/about/volunteer-opportunities">Volunteer</a></li>
+		
+							</ul>
+</div>
+<div id="services"><h3>Subscriber Services</h3>
+	<ul id="services-list">
+		<li><a href="http://www.yesmagazine.org/subscribe/?ica=FTI_txt_FREETrialIssue&amp;icl=Footer_1750">FREE Trial Issue</a></li>
+		<li><a href="http://store.yesmagazine.org/subscribe/?ica=Subs_txt_SubscribetoYES_15&amp;icl=Footer_1750">Subscribe to YES!</a></li>
+		<li><a href="http://store.yesmagazine.org/renew/?ica=Rnw_txt_Renew&amp;icl=Footer_1750">Renew</a></li>	
+		<li><a href="http://store.yesmagazine.org/gifts/?ica=Gift_txt_GiftSubscriptions_2for1&amp;icl=Footer_1750">Gift Subscriptions</a></li>
+		<li><a href="http://store.yesmagazine.org/back-issues/?ica=Back_txt_BuyBackIssues&amp;icl=Footer_1750">Buy Back Issues</a></li>
+		<li><a href="http://store.yesmagazine.org/account/login/?ica=Mnge_txt_ManageSubscription_multi&amp;icl=Footer_1750">Manage Subscription</a></li>	
+		<li><a tal:attributes="href string:${portal_url}/about/faq#faq-customer-service">Subscription FAQs</a></li>							
+	</ul>	
+</div>
+<div id="follow"><h3>Follow Us</h3>
+	<ul id="follow-list">
+		<li><a href="http://www.yesmagazine.org/whatcounts/signup.php?ica=Signup_txt_EmailNewsletter&amp;icl=Footer_1750">Email Newsletter</a></li>
+                <li><a tal:attributes="href string:${portal_url}/rss-feeds">RSS</a></li>
+		<li><a href="http://www.facebook.com/yesmagazine">Facebook</a></li>
+		<li><a href="http://twitter.com/yesmagazine">Twitter</a></li>	
+		<li><a href="http://www.flickr.com/groups/yesmagazine-peace/">Flickr</a></li>
+		
+	</ul>
+</div>
+
+</div>

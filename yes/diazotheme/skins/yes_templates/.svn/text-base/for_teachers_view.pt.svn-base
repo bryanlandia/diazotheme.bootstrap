@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+	<style metal:fill-slot="style_slot" type="text/css" media="screen">
+
+      .image-area {
+				clear:both;
+			}
+    </style>
+</head>
+
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+           tal:define="kssClassesView context/@@kss_field_decorator_view;
+                       getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                       templateId template/getId;
+                       text here/getText;
+                       portal context/@@plone_portal_state/portal">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+	<div id="portlet-for-teachers-title">
+		<span tal:define="titleBanner nocall:portal/for-teachers/topic-title-banner" tal:on-error="nothing">
+		    <div tal:replace="structure titleBanner/getText" />
+	    </span>	
+	</div>
+
+<!-- this is the save, print, etc. viewlet area -->
+<!--  <div tal:replace="structure provider:plone.belowcontenttitle" /> -->
+
+      <div tal:replace="structure provider:plone.abovecontentbody" />
+
+            <metal:field use-macro="python:here.widget('text', mode='view')">
+            Body text
+            </metal:field>
+
+<span class="visualClear"></span>
+
+
+<br style="clear:both" />
+<div id="footer_banner_ad">
+	<tal:defs tal:define="ad nocall:portal/topics/ad" tal:on-error="nothing">
+            <div tal:replace="structure ad/getText" />
+    </tal:defs>	
+</div>
+
+<div tal:condition="nothing" tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+

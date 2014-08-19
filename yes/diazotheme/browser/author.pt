@@ -1,0 +1,125 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+	<style metal:fill-slot="style_slot" type="text/css" media="screen">
+			.image-area {
+				clear:both;
+			}
+			.blogs-articles {
+				margin-left:80px;
+			}
+    </style>
+</head>
+
+<body>
+
+<metal:main fill-slot="main">
+<tal:main-macro metal:define-macro="main"
+    tal:define="author view/getAuthor;
+                folderContents view/getContent;
+                portal context/@@plone_portal_state/portal;">
+    <tal:hasAuthor condition="author">
+    <div tal:replace="structure provider:plone.abovecontenttitle" />
+        
+    <h1 class="documentFirstHeading">Also by
+        <span tal:replace="author">Sarah van Gelder</span>&hellip;
+    </h1>
+        
+    <div tal:replace="structure provider:plone.abovecontentbody" />
+    <p tal:condition="not:folderContents">
+        No content is available in the site by this author.
+    </p>
+    <div class="blog-listing"
+         tal:condition="python:len(folderContents)">
+
+        <div class="folder-listing"
+             tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                         b_size python:15;
+                         b_start request/b_start | python:0;
+                         batch python:Batch(folderContents, b_size, int(b_start), orphan=3);
+                         template_id string:@@also-by;
+                         normalizeString nocall:context/@@plone/normalizeString;
+                         toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                         wtool context/portal_workflow;
+                         ">
+
+        <tal:block tal:repeat="item batch">
+            <div class="tileItem visualIEFloatFix vevent" 
+                 tal:define="item_url item/getURL|item/absolute_url;
+                                   item_id item/getId|item/id;
+                                   item_title_or_id item/pretty_title_or_id;
+                                   item_description item/Description;
+                                   item_type item/portal_type;
+                                   item_type_title item/Type;
+                                   item_type_class python: 'contenttype-' + normalizeString(item_type);
+                                   item_modified item/ModificationDate;
+                                   item_created item/CreationDate;
+                                   item_date item/Date;
+                                   item_wf_state item/review_state|python: wtool.getInfoFor(item, 'review_state', '');
+                                   item_wf_state_class python:'state-' + normalizeString(item_wf_state);
+                                   item_creator item/Creator;
+                                   item_start item/start/ISO|item/StartDate|nothing;
+                                   item_end item/end/ISO|item/EndDate|nothing;
+                                   item_object item/getObject;
+                               "
+                 tal:attributes="class string:tileItem visualIEFloatFix vevent ${item_type_class}">
+
+				<div class="image-area">
+                 <tal:image
+                     tal:condition="python:item.portal_type in ('Article', 'Blog Entry')">
+                         <img tal:condition="item_object/getImage"
+                             tal:replace="structure python:item_object.tag(scale='tile', css_class='image-left')"
+                             />
+                 </tal:image>
+			</div>
+			<div class="blogs-articles">
+                <a class="blog-title"
+                   tal:attributes="href item_object/absolute_url"
+                   tal:content="item_object/Title">[Program Title]</a><br />
+                <span tal:content="item_description">Lorem ipsum dolor sit
+                    amet, consectetur adipiscing elit.</span><br />
+                <span class="blogdate">Posted 
+                    <span tal:replace="python:toLocalizedTime(item_date)">
+                        August 16, 2001
+                    </span>
+                </span>
+            </div>
+        </div>
+        </tal:block>
+        <div metal:use-macro="here/batch_macros/macros/navigation" />
+        </div>
+    </div>
+
+    <br style="clear:both" />
+    <div id="footer_banner_ad">
+    	<tal:defs tal:define="ad nocall:portal/topics/ad" tal:on-error="nothing">
+                <div tal:replace="structure ad/getText" />
+        </tal:defs>
+    </div>
+
+    <div tal:condition="nothing" tal:replace="structure provider:plone.belowcontentbody" />
+    </tal:hasAuthor>
+    <tal:noAuthor condition="not:author">
+    <h1 class="documentFirstHeading">Author not specified</h1>
+    <p>You probably are here in error.</p>
+    <div tal:replace="structure provider:plone.abovecontentbody" />
+    <div id="footer_banner_ad">
+        <tal:defs tal:define="ad nocall:portal/topics/ad" tal:on-error="nothing">
+                <div tal:replace="structure ad/getText" />
+        </tal:defs>
+    </div>
+    
+    </tal:noAuthor>
+    </tal:main-macro>
+    
+</metal:main>
+
+</body>
+</html>
+

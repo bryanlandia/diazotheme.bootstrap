@@ -1,0 +1,141 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+	<style metal:fill-slot="style_slot" type="text/css" media="screen">
+			.image-area {
+				clear:both;
+			}
+			.blogs-articles {
+				margin-left:80px;
+			}
+    </style>
+</head>
+
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+           tal:define="kssClassesView context/@@kss_field_decorator_view;
+                       getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                       templateId template/getId;
+                       text here/getText;
+                       normalizeString nocall:context/@@plone/normalizeString;
+                       toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                       portal context/@@plone_portal_state/portal;
+                       wtool context/portal_workflow;">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <!-- this is the save, print, etc. viewlet area -->
+        <div tal:condition="nothing" tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+            </metal:field>
+        </p>
+
+      <div tal:replace="structure provider:plone.abovecontentbody" />
+
+
+        <metal:field use-macro="python:here.widget('text', mode='view')">
+        Body text
+        </metal:field>
+
+<span class="visualClear"></span>
+
+<tal:comment tal:condition="nothing">
+    List articles at the end. We're trying to grab a collection living in this section
+    that has the same id as the section itself. So for instance if the current context is
+    /planet/planet-home, then we're looking for a collection at /planet/planet and
+    iterating over its contents (specifically, items 1-15). Link to the collection itself
+    at the end for "More".
+</tal:comment>
+
+<div id="topic-slot-three"
+    tal:define="parent python:context.aq_parent;
+                collection python:parent.restrictedTraverse(parent.getId());"
+    tal:condition="python: collection is not None and collection.portal_type == 'Topic'">
+    <div class="blog-listing"
+        tal:define="folderContents collection/queryCatalog"
+        tal:condition="python:len(folderContents) > 1">
+
+        <metal:listingmacro define-macro="listing">
+        <div class="folder-listing">
+
+        <tal:block tal:repeat="item python:folderContents[0:15]">
+            <div class="tileItem visualIEFloatFix vevent" 
+                 tal:define="item_url item/getURL|item/absolute_url;
+                                   item_id item/getId|item/id;
+                                   item_title_or_id item/pretty_title_or_id;
+                                   item_description item/Description;
+                                   item_type item/portal_type;
+                                   item_type_title item/Type;
+                                   item_type_class python: 'contenttype-' + normalizeString(item_type);
+                                   item_modified item/ModificationDate;
+                                   item_created item/CreationDate;
+                                   item_date item/Date;
+                                   item_wf_state item/review_state|python: wtool.getInfoFor(item, 'review_state', '');
+                                   item_wf_state_class python:'state-' + normalizeString(item_wf_state);
+                                   item_creator item/Creator;
+                                   item_start item/start/ISO|item/StartDate|nothing;
+                                   item_end item/end/ISO|item/EndDate|nothing;
+                                   item_object item/getObject;
+                               "
+                 tal:attributes="class string:tileItem visualIEFloatFix vevent ${item_type_class}">
+        
+				<div class="image-area">
+                 <tal:image
+                     tal:condition="python:item.portal_type in ('Article', 'Blog Entry')">
+                         <img tal:condition="item_object/getImage"
+                             tal:replace="structure python:item_object.tag(scale='tile', css_class='image-left')"
+                             />
+                 </tal:image>
+				</div>
+			<div class="blogs-articles">
+            <a class="blog-title"
+               tal:attributes="href item_object/absolute_url"
+               tal:content="item_object/Title">[Program Title]</a><br />
+            <span tal:content="item_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span><br />
+            <span class="blogdate">Posted 
+                <span tal:replace="python:toLocalizedTime(item_date)">
+                    August 16, 2001
+                </span>
+            </span>
+			</div>
+        
+        </div>
+        
+        </tal:block>
+</div>      
+        
+        </metal:listingmacro>
+        <div id="topic-slot-three-more"
+            class="visualClear">
+            <a class="topictitle"
+               tal:attributes="href string:${collection/absolute_url}?b_start:int=15;">More On This Topic</a>
+        </div>
+</div>
+</div>
+
+<br style="clear:both" />
+<div id="footer_banner_ad">
+	<tal:defs tal:define="ad nocall:portal/topics/ad" tal:on-error="nothing">
+            <div tal:replace="structure ad/getText" />
+  </tal:defs>	
+</div>
+
+<div tal:condition="nothing" tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+

@@ -1,0 +1,1 @@
+<tal:comment condition="nothing">Make sure comments are not tracked</tal:comment>

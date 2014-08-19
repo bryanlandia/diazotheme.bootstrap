@@ -1,0 +1,53 @@
+<div tal:omit-tag=""
+     i18n:domain="plone">
+
+    <div class="visualClear"><!-- --></div>
+
+    <div class="documentActions">
+        <tal:docactions tal:condition="view/actions">
+
+            <h5 class="hiddenStructure" i18n:translate="heading_document_actions">
+              Document Actions
+            </h5>
+
+            <ul tal:define="normalizeString nocall: context/@@plone/normalizeString">
+                  
+                  <li id="document-action-tweet">
+                      <a tal:attributes="data-url string:${context/absolute_url}?ica=Tweet&amp;icl=ShareBar_Art_UR;"
+                          href="http://twitter.com/share"
+                         class="twitter-share-button"
+                         data-count="none">
+                         Tweet
+                      </a><script type="text/javascript"
+                                  src="http://platform.twitter.com/widgets.js"></script>
+                  </li>
+                  
+                  <li tal:repeat="daction view/actions"
+                      tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
+                      <a href=""
+                         tal:attributes="href daction/url;
+                                         target daction/link_target|nothing;
+                                         title daction/description">
+                        <img tal:condition="daction/icon|nothing" 
+                        tal:attributes="src daction/icon; alt daction/title; title daction/title"/>
+                        <tal:action tal:content="daction/title" i18n:translate="">
+                         Action name
+                        </tal:action>
+                      </a>
+                  </li>
+                  
+                  <li id="document-action-share">
+                      <a href="http://www.addthis.com/bookmark.php" 
+                              onmouseover="return addthis_open(this, '', '[URL]', '[TITLE]');"
+                              onmouseout="addthis_close();"
+                              onclick="return addthis_sendto();"
+                      ><img tal:attributes="src string:${context/portal_url}/addthis.gif" width="16" height="16" style="border: 0;" alt="Share"/>&nbsp;Share</a>
+                  </li>
+                                    
+            </ul>
+        </tal:docactions>
+
+        <div tal:replace="structure provider:plone.documentactions" />
+
+    </div>
+</div>

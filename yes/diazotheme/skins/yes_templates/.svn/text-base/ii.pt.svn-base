@@ -1,0 +1,5 @@
+TITLE   <tal tal:replace="here/title_or_id|nothing">Title or ID</tal>
+URL     <tal tal:replace="here/absolute_url|nothing">URL</tal>
+AUTHOR  <tal tal:replace="here/Creator|nothing">Author</tal>
+EXCERPT <tal tal:replace="here/Description|nothing">Excerpt</tal>
+TEXT    <tal tal:replace="here/getText"></tal>

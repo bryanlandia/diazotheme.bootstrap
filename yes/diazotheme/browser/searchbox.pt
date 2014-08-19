@@ -1,0 +1,32 @@
+<div id="portal-searchbox"
+     i18n:domain="plone">
+
+    <form id="cse-search-box"
+              action="search"
+              tal:attributes="action string:${view/site_url}/google_results">
+      <div class="LSBox">
+        <input type="hidden" name="cx" value="002462454192717542835:kl54clhhklw" />
+        <input type="hidden" name="cof" value="FORID:10" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input type="text" name="q" size="20" class="inputLabel" />
+        <input type="image"
+		   class="searchButton"
+		   name="submit"
+		   alt="submit" 
+		   tal:attributes="src string:${view/portal_url}/search_btn.gif;" />
+      </div>
+    </form>
+    <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
+
+    <div id="portal-advanced-search"
+        class="hiddenStructure">
+        <a href="#"
+        tal:attributes="href string:${view/site_url}/search_form"
+        i18n:translate="label_advanced_search"
+        accesskey="5"> Advanced Search&hellip;
+        </a>
+    </div>
+
+</div>
+

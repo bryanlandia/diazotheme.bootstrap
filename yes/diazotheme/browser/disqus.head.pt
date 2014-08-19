@@ -1,0 +1,11 @@
+<tal:comment condition="nothing">
+JavaScript variables for Disqus comments.
+Must be included before Disqus embed.
+Make sure Disqus always uses www.yesmagazine.org as base url
+</tal:comment>
+
+<script language="Javascript" type="text/javascript" tal:on-error="">
+
+	var disqus_url = "<span tal:replace="view/getCanonicalLink" />";
+
+</script>

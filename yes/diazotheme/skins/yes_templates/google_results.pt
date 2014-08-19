@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<head>
+    <metal:block metal:fill-slot="head_slot">
+        <link rel="alternate" title="RSS 1.0" type="application/rss+xml"
+              tal:condition="request/SearchableText|nothing"
+              tal:define="here_url context/@@plone_context_state/object_url;"
+              tal:attributes="href string:$here_url/search_rss?${request/QUERY_STRING}"/>
+    </metal:block>
+
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1)" />
+    <metal:block fill-slot="column_one_slot" />
+    <metal:block fill-slot="column_two_slot" />
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     tal:define="use_types_blacklist request/use_types_blacklist | python:True;
+                 use_navigation_root request/use_navigation_root | python:True;
+                 Batch python:modules['Products.CMFPlone'].Batch;">
+
+
+    <form id="cse-search-box" method="get" action="" >
+      <div class="LSBox">
+        <input type="hidden" name="cx" value="002462454192717542835:kl54clhhklw" />
+        <input type="hidden" name="cof" value="FORID:10" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input type="text" name="q" size="30" class="searchPage"
+               title="Search Site"
+               i18n:attributes="title title_search_title;"
+               value="Search Term"
+               tal:attributes="value request/q|nothing;" />
+        <input class="searchPage searchButton"
+		type="submit" 
+		value="Search"
+		i18n:attributes="value label_search;"/>
+      </div>
+    </form>
+    <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
+    <div class="LSBox">
+        <p class="discreet"
+           i18n:translate="search_results_advanced">
+            Did you not find what you were looking for? Try the
+            <span i18n:name="advanced_search">
+                <a href="http://www.google.com/support/websearch/bin/answer.py?hl=en&amp;answer=134479" target="_blank">Google Search Hints</a>
+                and refine your search.
+            </span>
+        </p>
+    </div>
+
+    <div id="cse-search-results"></div>
+    <script type="text/javascript">
+		var googleSearchIframeName = "cse-search-results";
+		var googleSearchFormName = "cse-search-box";
+		var googleSearchFrameWidth = 600;
+		var googleSearchDomain = "www.google.com";
+		var googleSearchPath = "/cse";
+    </script>
+    <script type="text/javascript" src="http://www.google.com/afsonline/show_afs_search.js"></script>
+
+</div>
+</body>
+</html>
+

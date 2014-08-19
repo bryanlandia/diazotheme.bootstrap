@@ -1,0 +1,18 @@
+<div id="vocabulary" 
+    tal:define="portal_url context/@@plone_portal_state/portal_url;
+                topics context/portal_vocabularies/categories/contentValues;
+                topics python:[t for t in topics if t.Title() not in ('Education', 'Arts', 'For Teachers', 'Commonomics')]">
+	<ul>
+	    <tal:block tal:repeat="topic topics">
+    	    <li>
+    	        <a tal:attributes="href string:${portal_url}/${topic/getId}"
+    	           tal:content="topic/getTermValue">
+    	           Power
+    	        </a>
+    		</li>
+    	</tal:block>
+	</ul>
+
+</div>
+
+<span class="visualClear"></span>

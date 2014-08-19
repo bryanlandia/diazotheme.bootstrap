@@ -1,4 +1,4 @@
 include *.txt
 include *.rst
-recursive-include diazotheme *
+recursive-include yes *
 global-exclude *pyc

@@ -1,0 +1,30 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="onenorthwest">
+<body>
+<div metal:define-macro="portlet">
+
+    <dl class="portlet" id="portlet-people-power-subtopics"
+    tal:define="portal context/@@plone_portal_state/portal;">
+
+        <dt class="portletSubtopicsHeader">
+            <span i18n:translate="people-power_topics">People Power Topics</span>
+        </dt>
+        
+        <dd class="portletItem even">
+
+<!-- just create a page in the root of your site under the topics/people-power folder and give it a shortname of subtopics. make sure it's published, then go to the section where you want it and go to @@manage-portlets to add it. -->
+
+           	<tal:defs tal:define="peoplepowersubtopics nocall:portal/topics/people-power/subtopics" tal:on-error="nothing">
+	        	<div tal:replace="structure peoplepowersubtopics/getText" />
+	    	</tal:defs>
+        </dd>
+
+        <dd class="portletFooter">
+        </dd>
+    </dl>
+
+</div>
+</body>
+</html>
+

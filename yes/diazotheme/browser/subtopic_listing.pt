@@ -1,0 +1,17 @@
+<dl class="subtopicListing">
+    <tal:block tal:repeat="topic view/topics">
+
+        <dt class="subtopic">
+            <a href=""
+                tal:attributes="href topic/href"
+                tal:content="topic/title">
+                Subtopic
+            </a>
+        </dt>
+        <dd tal:content="topic/description">
+            Description
+        </dd>
+    
+    </tal:block>
+</dl>
+<hr/>

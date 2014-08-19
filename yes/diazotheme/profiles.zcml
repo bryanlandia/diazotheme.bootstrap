@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="yes.diazotheme">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="YES! Magazine theme"
+      directory="profiles/default"
+      description='Extension profile for the "YES! Magazine theme" Plone theme.'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="migrate"
+      title="Remove remnants of old yes.plonetheme"
+      directory="profiles/migrate"
+      description='Temporary migration profile to remove old yes.plonetheme'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+</configure>

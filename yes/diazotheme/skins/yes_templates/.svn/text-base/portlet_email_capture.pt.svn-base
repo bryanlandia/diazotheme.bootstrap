@@ -1,0 +1,64 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="onenorthwest">
+<body>
+<div metal:define-macro="portlet">
+
+    <dl class="portlet" id="portlet-email-capture"
+      tal:define="portal_url context/@@plone_portal_state/portal_url">
+
+        <dt class="portletHeader">
+            <span class="portletTopLeft"></span>
+            <span i18n:translate="box_email_capture">YES! by Email</span>
+            <span class="portletTopRight"></span>
+        </dt>
+        
+        <dd class="portletItem even">
+
+            <div i18n:translate="box_email_capture_flappage">Join over 78,000 others already signed up for FREE YES! news. <br /><span style="line-height:140%;">[<a href=""
+               tal:attributes="href string:${portal_url}/newsletters/current/sample_yesnews.html" style="font-size:80%; color:#293e5c;">SAMPLE</a>]<tal:comment tal:replace="nothing">&nbsp;&nbsp;[<a href=""
+               tal:attributes="href string:${portal_url}/whatcounts/archive.html" style="font-size:80%; color:#293e5c;">ARCHIVE</a>]</tal:comment></span></div>
+            <form method="GET"
+                  tal:attributes="action string:$portal_url/whatcounts/signup.php;">
+
+               <input type="text"
+                      name="email"
+                      size="20"
+                      tal:define="your_email python:context.translate('box_your_email', domain='onenorthwest', default='e-mail address')"
+                      tal:attributes="onFocus python:'if(this.value==\'%s\'){this.value=\'\'}' % your_email;
+                                      onBlur python:'if(this.value==\'\'){this.value=\'%s\'}'  % your_email;
+                                      value your_email"
+                       />
+
+                    <input type="image"
+                                    class="emailSubmit"
+                                    name="submit"
+                                    alt="submit"                             
+                                    tal:attributes="src string:$portal_url/email_btn.gif;" />
+
+               <input type="hidden"
+                      name="referralAddress"
+                      tal:attributes="value request/URL" />
+               <input type="hidden"
+                      name="ica"
+                      value="Sign_port_txt_YESbyEmail" />
+               <input type="hidden"
+                      name="icl"
+                      value="All_460" />
+            </form>
+        </dd>
+
+        <dd class="portletFooter">
+            <tal:comment replace="nothing">Hiding this for now
+            <a href=""
+               tal:attributes="href string:${portal_url}/about/privacy"
+               i18n:translate="box_privacy_policy">Privacy Policy</a>
+            </tal:comment>
+            <span class="portletBottomLeft"></span>
+            <span class="portletBottomRight"></span>
+        </dd>
+    </dl>
+
+</div>
+</body>
+</html>

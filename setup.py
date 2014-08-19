@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.4.dev0'
+version = '0.1'
 
-setup(name='diazotheme.bootstrap',
+setup(name='yes.diazotheme',
       version=version,
       description="Plone theme based on Twitter's Bootstrap CSS",
       long_description=open("README.rst").read() + "\n" +
@@ -14,12 +14,12 @@ setup(name='diazotheme.bootstrap',
         "Programming Language :: Python",
         ],
       keywords='plone diazo theme',
-      author='Izhar Firdaus',
-      author_email='izhar@inigo-tech.com',
-      url='https://github.com/kagesenshi/diazotheme.bootstrap',
+      author='Bryan Wilson (based on diazotheme.bootstrap by Izhar Firdaus)',
+      author_email='bryanlandia@gmail.com',
+      url='http://yesmagazine.org',
       license='Apache License 2.0',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['diazotheme'],
+      namespace_packages=['yes'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[

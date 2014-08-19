@@ -1,0 +1,67 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="onenorthwest">
+<body>
+<div metal:define-macro="portlet">
+
+    <dl class="portlet" id="portlet-free-trial"
+    tal:define="portal_url context/@@plone_portal_state/portal_url">
+
+        <dd class="portletItem even">
+
+            <div i18n:translate="box_email_capture_flappage"></div>
+
+
+
+
+            <form method="POST"
+                  tal:attributes="action string:http://store.yesmagazine.org/subscribe/subscribe-and-get-a-free-issue?ica=Subs_port_GetFreeIssue_15&amp;icl=TopLeft_300;" style="background-color:#e1d390;">
+
+            <input type="image"
+                                class="emailSubmit"
+                                name="submit"
+                                alt="submit"                                 
+                                tal:attributes="src string:$portal_url/fti_hdr_getfreeissue_e1d390.gif;" /><br/>
+               <input type="checkbox" class="checkbox" style="margin-left:5px;  padding-top:4px;" checked /><span style="color:#000000; font-weight:bold;">YES!</span> I want to try YES! <br/>
+
+<input type="image"
+                                class="emailSubmit"
+                                name="submit"
+                                alt="submit" 
+                                style="margin-right:10px;text-align:right" 
+                                tal:attributes="src string:$portal_url/fti_btn_e1d390.gif;" />Magazine.
+               
+
+<br />
+			   <div style="text-align:right; margin-right: 20px">
+
+                 
+            <input type="image"
+                                class="emailSubmit"
+                                name="submit"
+                                alt="submit"                                 
+                                tal:attributes="src string:$portal_url/fti_ftr_getfreeissue_e1d390_covers_nogo.gif;" />
+
+               <input type="hidden"
+                      name="referralAddress"
+                      tal:attributes="value request/URL" />
+				</div>
+          </form>
+
+
+        </dd>
+
+        <dd class="portletFooter">
+            <tal:comment replace="nothing">
+            <a href=""
+               tal:attributes="href string:${portal_url}/about/privacy"
+               i18n:translate="box_privacy_policy">Privacy Policy</a>
+            </tal:comment>
+            <span class="portletBottomLeft"></span>
+            <span class="portletBottomRight"></span>
+        </dd>
+    </dl>
+
+</div>
+</body>
+</html>

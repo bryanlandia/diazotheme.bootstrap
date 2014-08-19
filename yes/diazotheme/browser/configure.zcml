@@ -1,0 +1,380 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="yes.diazotheme">
+
+    <interface
+      interface=".interfaces.IThemeSpecific" 
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="YES! Magazine Diazo theme"
+      />
+
+    <include package="z3c.jbot" file="meta.zcml" />
+    <browser:jbot
+        directory="jbot-template_overrides"
+        layer=".interfaces.IThemeSpecific" />
+
+    <!-- custom Carousel template -->
+    <browser:page
+      for="*"
+      name="features"
+      template="features.pt"
+      permission="zope.Public"
+      />
+      
+    <!-- remove some copyright elements not wanted by YES! and render html -->  
+    <browser:page
+       name="copyright_byline_view"
+       for="collective.contentlicensing.DublinCoreExtensions.interfaces.ILicensable"
+       class="collective.contentlicensing.browser.copyrightbyline.CopyrightBylineView"
+       template="copyright_byline.pt"
+       layer=".interfaces.IThemeSpecific"
+       permission="zope2.View"
+       />
+
+    <!-- selectable view for top-level topic collections -->
+    <browser:page
+        name="toplevel_topic_view"
+        for="Products.ATContentTypes.interface.topic.IATTopic"
+        class=".toplevel_topic_view.TopLevelTopicView"
+        permission="zope.Public"
+        menu="plone.app.contentmenu.interfaces.IDisplayViewsMenu"
+        title="Top-Level Topic View"
+        />
+
+    <browser:page
+        name="also-by"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".author.AuthorView"
+        template="author.pt"
+        permission="zope.Public"
+        />
+
+    <!-- Viewlets registration -->
+    
+    <!-- customize the RSS links -->
+    <browser:viewlet
+        name="plone.links.RSS"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+        class=".common.RSSViewlet"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />
+    
+
+    <!-- <browser:viewlet
+        name="plone.htmlhead.title"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        class=".common.YESTitleViewlet"
+    layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        /> -->
+
+	  <!-- Render the custom browser title based on qSEOptimizer -->        
+    <browser:viewlet
+        name="plone.htmlhead.title"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        class=".viewlets.YESTitleCommentNoframeViewlet"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View"
+        />
+
+
+    <!-- addthis javascript in head -->
+    <browser:viewlet
+        name="yes.adthis.head"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        template="addthis.head.pt"
+        permission="zope.Public"
+        layer=".interfaces.IThemeSpecific"
+        />
+
+    <!-- Google Analytics javascript in head -->
+    <browser:viewlet
+        name="yes.ga.head"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+        template="ga.head.pt"
+        permission="zope.Public" 
+	      layer=".interfaces.IThemeSpecific"
+        />
+
+    <!-- customized GA tracking viewlet brought in from p_view_customizations 
+     of Plone 3.3.5 site -->
+    <browser:viewlet  
+        name="collective.googleanalytics.tracking"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+        class="collective.googleanalytics.viewlets.tracking.AnalyticsTrackingViewlet"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View" 
+        />
+
+    <!-- The top right box of links and magazine cover -->
+    <browser:viewlet
+        name="yes.topright"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        template="topright.pt"
+        permission="zope2.View" 
+		layer=".interfaces.IThemeSpecific"
+        />
+
+    <!-- The top-level topic links -->
+    <browser:viewlet
+        name="yes.vocabulary"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        template="topics.pt"
+        permission="zope2.View" 
+		layer=".interfaces.IThemeSpecific"
+        />
+
+    <!-- The global sections -->
+    <browser:viewlet
+        name="plone.global_sections"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class=".viewlets.GlobalSectionsViewlet"
+        permission="zope2.View" 
+		layer=".interfaces.IThemeSpecific"
+        />
+
+    <!-- The breadcrumbs -->
+    <browser:viewlet
+        name="plone.path_bar"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class=".viewlets.PathBarViewlet"
+        permission="zope2.View" 
+		layer=".interfaces.IThemeSpecific"
+        />
+
+    <!-- The personal bar -->
+    <browser:viewlet
+        name="plone.personal_bar"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        class="plone.app.layout.viewlets.common.PersonalBarViewlet"
+        permission="zope2.View" 
+		layer=".interfaces.IThemeSpecific"
+        />
+
+    <!-- The search box -->
+    <browser:viewlet
+        name="plone.searchbox"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.SearchBoxViewlet"
+        permission="zope2.View" 
+		layer=".interfaces.IThemeSpecific"
+        />
+
+    <!-- Footer -->
+    <browser:viewlet
+        name="plone.footer"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        template="footer.pt"
+        permission="zope.Public"
+		layer=".interfaces.IThemeSpecific"
+        />
+        
+    <!-- TOP-LEVEL TOPIC VIEW -->
+    <browser:viewlet
+        name="yes.diazotheme.viewlets.subtopic_listing"
+        for="*"
+        view="yes.diazotheme.browser.interfaces.ITopLevelTopicView"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope.Public"
+        class=".toplevel_topic_view.SubtopicListing"
+        template="subtopic_listing.pt"
+        />
+    
+    <!-- ARTICLE PAGE -->
+
+    <!-- language selector above title -->
+    <browser:viewlet
+      name="plone.app.i18n.locales.languageselector"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+      class=".language_selector.TranslatableLanguageSelector"
+      permission="zope2.View"
+      />
+
+    <!-- document actions viewlet on article page -->
+    <browser:viewlet
+        name="yes.diazotheme.viewlets.article_document_actions"
+        view="plone.app.layout.globals.interfaces.IViewView"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        permission="zope2.View"
+        class="plone.app.layout.viewlets.content.DocumentActionsViewlet"
+        template="document_actions.pt"
+        />
+    
+    <!-- language selector view for use within document actions -->
+    <browser:view
+        name="language-selector"
+        for="*"
+        class=".language_selector.TranslatableLanguageSelector"
+        permission="zope.Public"
+        />
+    
+    <!-- customized keywords viewlet -->
+    <browser:viewlet
+        name="yes.diazotheme.viewlets.keywords"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        template="keywords.pt"
+        />
+
+    <!-- issue banner viewlet -->
+    <browser:viewlet
+        name="yes.diazotheme.viewlets.issue_banner"
+        for="yes.content.interfaces.IArticle"
+        view="plone.app.layout.globals.interfaces.IViewView"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        class=".issue_banner.IssueBannerViewlet"
+        template="issue_banner.pt"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />
+
+
+    
+    <!-- donation banner viewlet -->
+    <browser:viewlet
+        name="yes.diazotheme.viewlets.donation_banner"
+        for="yes.content.interfaces.IArticle"
+        view="plone.app.layout.globals.interfaces.IViewView"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        template="donation_banner.pt"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />
+
+    <!-- free trial banner viewlet -->
+    <browser:viewlet
+        name="yes.diazotheme.viewlets.freetrial_banner"
+        for="yes.content.interfaces.IArticle"
+        view="plone.app.layout.globals.interfaces.IViewView"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+        template="freetrial_banner.pt"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />
+        
+  <!-- Move like button to the below content body viewlet -->
+  
+  <browser:viewlet
+    name="collective.simplesocial.likebutton"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+    class="collective.simplesocial.likebutton.likebutton.LikeButtonViewlet"
+    permission="zope2.View"
+	  layer=".interfaces.IThemeSpecific"
+	  view="plone.app.layout.globals.interfaces.IViewView"
+    />
+        
+  <!-- Like button viewlet for document actions -->
+  
+    <browser:viewlet
+      name="yes.documentactions.likebutton"
+      manager="plone.app.layout.viewlets.interfaces.IDocumentActions"
+      class=".viewlets.DocumentActionsLikeButtonViewlet"
+      permission="zope2.View"
+		  layer=".interfaces.IThemeSpecific"
+      />
+
+  <!-- Disqus viewlet to belowcontentbody -->    
+  <browser:viewlet
+      name="collective.disqus"
+      for="Products.CMFCore.interfaces.IContentish"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      view="plone.app.layout.globals.interfaces.IViewView"
+      class="collective.disqus.viewlets.content.DisqusViewlet"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />      
+			
+    <browser:viewlet
+      name="plone.htmlhead.disqusjs"
+      manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+			class=".viewlets.DisqusJSHeadViewlet"
+      template="disqus.head.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View" 
+      />
+			
+<!-- custom Scrawl blogentry_view -->
+  <browser:page
+      for="*"
+      name="blogentry_view"
+      template="blogentry_view.pt"
+	    layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+      
+<!-- image captioning output filter needs to handle caption and credit -->
+  <adapter
+    provides="plone.outputfilters.interfaces.IFilter"
+    name="resolveuid_and_caption"
+    for="* .interfaces.IThemeSpecific"
+    factory=".captions.YesResolveUIDAndCaptionFilter"
+    />
+      
+  <!-- custom image caption template now based on page template in 
+  plone.outputfilters, not Products.kupu.  allows rich text captionining-->
+  <browser:page
+    name="plone.outputfilters_captioned_image"
+    for="*"
+    class="plone.outputfilters.browser.captioned_image.CaptionedImageView"
+    template="captioned_image.pt"
+    layer=".interfaces.IThemeSpecific"
+    permission="zope.Public"
+    />   
+    
+  <!-- override the events portlet renderer -->
+  <plone:portletRenderer
+     portlet="plone.app.portlets.portlets.events.IEventsPortlet"
+     template="events_portlet.pt"
+     layer=".interfaces.IThemeSpecific"
+     />       
+     
+   <!-- override collective.googleanalytics' comment plugin to use an 
+     empty template -->
+
+   <adapter
+       for="* .interfaces.IThemeSpecific"
+       name="Comments"
+       factory=".analytics.AnalyticsCommentPlugin"
+       />
+       
+  <!-- add top center portlet manager -->
+  <adapter 
+    factory=".portletmanagers.TopCenterPortletManagerRenderer"
+    provides="plone.portlets.interfaces.IPortletManagerRenderer"
+    />
+    
+  <!-- and a management page -->  
+  <browser:page
+  	for="*"
+  	class="plone.app.portlets.browser.manage.ManageContextualPortlets"
+  	name="manage-topcenter-portlets"
+  	template="manage-topcenter-portlets.pt"
+  	permission="plone.app.portlets.ManagePortlets"
+   layer=".interfaces.IThemeSpecific"	
+  />  
+
+  <!-- add above content title portlet manager -->
+  <adapter 
+    factory=".portletmanagers.AboveContentTitlePortletManagerRenderer"
+    provides="plone.portlets.interfaces.IPortletManagerRenderer"
+    />
+    
+  <!-- and a management page -->  
+  <browser:page
+    for="*"
+    class="plone.app.portlets.browser.manage.ManageContextualPortlets"
+    name="manage-above-content-title-portlets"
+    template="manage-above-content-title-portlets.pt"
+    permission="plone.app.portlets.ManagePortlets"
+   layer=".interfaces.IThemeSpecific" 
+  />    
+       
+      
+</configure>

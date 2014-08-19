@@ -1,0 +1,31 @@
+<span tal:define="portal_url context/@@plone_portal_state/portal_url;">
+
+<a tal:condition="nothing" href="http://store.yesmagazine.org/gifts/?ica=Gift_gifttag_animation_2for1&icl=TopRight_Banner"><img width="85" class="gift" tal:attributes="src string:${portal_url}/homepage/homepageimages/topbanner_gifttag.jpg" alt="" /></a>
+<a tal:condition="nothing" tal:attributes="href string:${portal_url}/people-power/occupywallstreet?ica=occupyWallStreet&icl=TopRight_Banner"><img width="85" class="gift" tal:attributes="src string:${portal_url}/homepage/homepageimages/we-are-the-99" alt="" /></a>
+<a tal:condition="nothing" tal:attributes="href string:http://supportyourmedia.razoo.com/story/Yes-Magazine-S-Corporate-Power-Issue"><img height="85" class="gift" src="http://www.yesmagazine.org/wc_img/support-your-media-day/image" alt="" /></a>
+<a tal:condition="nothing" href="http://supportyourmedia.razoo.com/story/Yes-Magazine-S-Corporate-Power-Issue"><img height="85" style="display:block;position:absolute;background-color:#000;right:265px;top:10px;height:85px;z-index:1000;" src="http://www.yesmagazine.org/wc_img/support-your-media-day/image" alt="" /></a>
+<a tal:condition="nothing" href="http://supportyourmedia.razoo.com/story/Yes-Magazine-S-Corporate-Power-Issue?referral_code=sw"><img alt="Online fundraising for YES! Magazine" src="http://assets3.razoo.com/status/supportyourmedia/mini/Yes-Magazine-S-Corporate-Power-Issue.png" style="display:block;position:absolute;background-color:#000;right:180px;top:10px;height:85px;z-index:1000;" /></a>
+<a tal:condition="nothing" tal:attributes="href string:${portal_url}/people-power/occupy-may-day?ica=media99&icl=TopRight_Banner"><img width="85" class="gift" tal:attributes="src string:${portal_url}/homepage/homepageimages/top-banner/media-for-the-99" alt="" /></a>
+<a tal:attributes="href string:${portal_url}/about/awards-and-recognition/yes-magazine-nominated-for-top-award-in-2013-utne-media-awards?ica=utneaward&icl=TopRight_Banner"><img width="85" class="gift" tal:attributes="src string:${portal_url}/homepage/homepageimages/top-banner/utne-media-awards" alt="YES! Magazine Nominated for General Excellence. Read All About It." /></a>
+<a tal:condition="nothing" tal:attributes="href string:${portal_url}/about/givingtuesday-join-us-for-a-national-day-of-grassroots-philanthropy?ica=givingtuesday&icl=TopRight_Banner"><img width="85" class="gift" tal:attributes="src string:${portal_url}/homepage/homepageimages/top-banner/save-the-date-for-giving-tuesday" alt="#GivingTuesday. SAVE THE DATE: December 3, 2013." /></a>
+<a tal:condition="nothing" href="https://store.yesmagazine.org/donate/?ica=givingtuesday&icl=TopRight_Banner"><img width="85" class="gift" tal:attributes="src string:${portal_url}/homepage/homepageimages/top-banner/save-the-date-for-giving-tuesday" alt="#GivingTuesday. SAVE THE DATE: December 3, 2013." /></a>
+<a tal:condition="nothing" tal:attributes="href string:${portal_url}/newsletters/appeal/appeal_2013-05/appeal_2013-05_web.html?ica=townhall&icl=TopRight_Banner"><img class="gift" tal:attributes="src string:${portal_url}/homepage/homepageimages/top-banner/givebig-2013" alt="Logo of giveBIG 2013 The Seattle Foundation with YES! Magazine" /></a>
+<a tal:condition="nothing" tal:attributes="href string:${portal_url}/about/town-hall-2012?ica=townhall&icl=TopRight_Banner"><img width="85" class="gift" tal:attributes="src string:${portal_url}/homepage/homepageimages/top-banner/2nd-annual-celebration-of-people-power-banner" alt="" /></a><a tal:condition="nothing" href="https://store.yesmagazine.org/donate/?ica=Donate&icl=TopRight_Banner"><img height="81" class="gift" tal:attributes="src string:${portal_url}/homepage/homepageimages/top-banner/end-of-year-donate" alt="" /></a>
+<a tal:condition="nothing" tal:attributes="href string:${portal_url}/newsletters/appeal/appeal_2013-05/appeal_2013-05_web.html?ica=townhall&icl=TopRight_Banner"><img class="gift" tal:attributes="src string:${portal_url}/homepage/homepageimages/top-banner/givebig-2013" alt="Logo of giveBIG 2013 The Seattle Foundation with YES! Magazine" /></a>
+
+<div id="topright">
+    <ul style="line-height:80%;" id="links">
+        <li><a href="http://store.yesmagazine.org/subscribe/?ica=Subs_txt_SubscribeGetFreeIssue_15&icl=TopRight_19">Subscribe<br />
+        and get a<br /><span style="color:#b2382a; font-weight:bold;">FREE</span> Issue</a></li>
+        <li><a href="https://store.yesmagazine.org/account/login/?goto=renew&ica=Rnw_txt_Renew&icl=TopRight_60">Renew</a></li>
+                <li><a href="https://store.yesmagazine.org/gifts/?ica=Gift_txt_GiveGifts_2for1&icl=TopRight_80">Give Gifts</a></li>
+        <li tal:condition="nothing"><a href="http://store.yesmagazine.org/back-issues/?ica=Back_txt_BackIssues&icl=TopRight_100">Back Issues</a></li>
+        <li><a href="http://store.yesmagazine.org/donate/?ica=Don_txt_SupportUs&icl=TopRight_40">Donate</a></li>
+        
+    </ul>
+<a tal:condition="nothing" href="http://store.yesmagazine.org/gifts/?ica=Gift_giftboxes_animation_2for1&icl=TopRight_magcvr"><img class="magazinecover" tal:attributes="src string:${portal_url}/homepage/homepageimages/gift-box-ad-animated" alt=""></a>
+<a tal:condition="nothing" href="http://store.yesmagazine.org/products/books/15/this-changes-everything/?ica=TCEbk_magcvr_2ways&icl=TopRight_magcvr"><img class="magazinecover" tal:attributes="src string:${portal_url}/homepage/homepageimages/top-banner/tce-book-mini-ad" alt=""></a>
+<a href="http://www.yesmagazine.org/issues/education-uprising?ica=69_magcvr&icl=TopRight_magcvr"><img class="magazinecover" tal:attributes="src string:${portal_url}/issues/education-uprising/image_preview" width="86" height="108" alt=""></a>
+</div>
+
+</span>
