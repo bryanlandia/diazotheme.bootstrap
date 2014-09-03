@@ -25,9 +25,8 @@ $(document).ready(function () {
     })
 
     $('#searchinput').on('hide.bs.collapse', function (e) {
-        $('#nav li + li a').removeClass('narrow');
+        $('#nav li a').removeClass('narrow');
         $search = $(this).find('input');
-        console.log($search.val());
         if ($search.val() != '') {
             $(this).parent('form').submit();
         }

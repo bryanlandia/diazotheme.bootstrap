@@ -57,6 +57,10 @@ button.icon {
   background: transparent;
 }
 
+.navbar-form {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
 .navbar-form .form-group.collapse {
   display: none;
@@ -75,10 +79,31 @@ button.icon {
   transition: width 0.35s ease;
 }
 
-#searchinput.collapse input {
-
+#searchinput.collapse.in  {
+  display: inline-block;
 }
 
+#topsearchbox button {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#topsearchbox {
+  padding-right: 0;
+}
+
+#searchinput input {
+  width: 150px;
+}
+
+#topsearchbox {
+  max-height: 24px;
+}
+
+.navbar-form .form-group-sm .form-control {
+  padding: 2px 5px;
+  max-height: 22px;
+}
 
 
 @media screen and (min-width: 767px) {
@@ -186,6 +211,10 @@ button.icon {
     text-decoration: underline;
   } 
 
+  #tertiarynav {
+    margin-right: 57px;
+  }
+
   #tertiarynav li a {
     padding: 5px 15px 5px 10px;
     text-transform: uppercase;
@@ -194,14 +223,6 @@ button.icon {
 
   #tertiarynav li + li a:before {
     content: "|  ";
-  }
-
-  #topsearchbox {
-    padding-right: 0;
-  }
-
-  #searchinput input {
-    width: 180px;
   }
 
   #issuenav {
