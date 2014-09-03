@@ -26,11 +26,12 @@
       <!-- CSS concatenated and minified via ant build script-->
       <link rel="stylesheet" href="css/public.css"/>
       <link rel="stylesheet" href="css/reset.css"/>
-      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
-      <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" media="screen"/>
+      <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/> -->
+      <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
 
       <link rel="stylesheet" href="openid-selector/css/openid.css"/>
       <link rel="stylesheet" href="css/basetheme.css"/>
+      <link rel="stylesheet" href="css/yes.css"/>
       <link rel="stylesheet" href="jqueryui/css/eggplant/jquery-ui-1.8.5.custom.css"/>
       <!-- end CSS-->
 
@@ -41,117 +42,103 @@
          For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
          <script src="js/libs/modernizr-2.0.6.min.js"></script>
 
+
       </head>
 
-      <body>
-
-         <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-               <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse"
-                   data-target="#topnav-collapse">
+      <body data-responsejs='{ 
+        "create": [{ 
+          "prop": "width",
+          "prefix": "min-width- r src",
+          "breakpoints": [0, 767, 982]
+        }]
+      }' class="yes">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topnav-collapse">
+                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                </a>
-               <a class="brand" href="/dashboard"><img src="img/home.png"/></a>
+              </button>
+              <a class="navbar-brand" href="/"
+              ><div data-min-width-0='<img src="++theme++yes.diazotheme/img/yes/yes_logo_lg.png" width="130"
+                    alt="Yes! Magazine logo" title="Yes! Magazine: Powerful Ideas, Practical Solutions" />' 
+                    data-min-width-767='<img src="++theme++yes.diazotheme/img/yes/yes_logo_lg.png" width="356" height="160" />'>Yes! Magazine</div></a>
+
+            </div><!-- /navbar-header -->
+
+            <div class="collapse navbar-collapse row" id="topnav-collapse">
+
+              <!-- multiple nav sections within this div -->
+              <div id="navbar-top">
+                <div id="navbar-top-border-inset"></div>
+
+                <div id="issuenavimg" 
+                  data-min-width-767='<a href="#"><img src="++theme++yes.diazotheme/img/yes/yes_issue_img.jpg" 
+                  width="115" height="146" alt="Cover of current issue" title="Yes! Magazine current issue Education Uprising "/></a>'>
+                </div>  
 
 
-               <div class="nav-collapse" id="topnav-collapse">
-                  <ul id="nav" class="nav">
-                     <li><a href="#about">About</a></li>
-                     <li class="dropdown" data-dropdown='dropdown'>
-                     <a href="#" class="dropdown-toggle">Services</a>
-                     <ul class="dropdown-menu">
-                        <li><a href="#item1">Plone Development</a></li>
-                     </ul>
-                     </li>
-                     <li><a href="#contact">Contact</a></li>
-                  </ul>
-                  <ul id="secondary-nav" class="nav pull-right">
-                     <li class="dropdown" data-dropdown="dropdown">
-                     <a class="dropdown-toggle" href="#">
-                        <span id="personaltool-menuheader">User</span>
-                        <b class="caret"></b></a>
-                     <ul class="dropdown-menu" id="personaltool-menu">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Logout</a></li>
-                     </ul>
-                     </li>
-                  </ul>
-                  <form id="topsearchbox" class="navbar-search pull-right">
-                     <input class="search-query" name="SearchableText" placeholder="Search"/>
-                  </form>
-               </div>
-               </div>
-            </div>
+                <ul id="issuenav" class="nav navbar-nav navbar-right navbar-stacked">
+                  <li><small><a href="#">Current Issue</a></small></li>
+                  <li><small><a href="#">Give a Gift</a></small></li>
+                  <li><small><a href="#">My Subscription</a></small></li>
+                </ul>
 
-         </div>
 
-         <div id="container" class="container">
-            <div id="header">
-               <img id="logo" src="img/logo.png"/>
-            </div>
+                <ul id="topbuttonsnav" class="nav navbar-nav nav-tabs navbar-left">
+                  <li><a href="#">Subscribe</a></li>
+                  <li><a href="#">Donate</a></li>
+                </ul>
+              </div>
+
+              <div id="navbar-bottom">
+                <ul id="nav" class="nav navbar-nav navbar-left">
+                  <li class="active"><a href="#">Peace &amp; Justice</a></li>
+                  <li><a href="#">Planet</a></li>
+                  <li><a href="#">New Economy</a></li>
+                  <li><a href="#">People Power</a></li>
+                  <li><a href="#">Happiness</a></li>
+                  <li><a href="#">Voices</a></li>
+                </ul>
+
+                <form id="topsearchbox" class="navbar-form navbar-right form-horizontal" role="search">
+                  <div class="form-group-sm collapse width" id="searchinput">
+                    <input class="form-control" name="SearchableText" placeholder="Search"/>
+                  </div>
+                  <button type="button" class="icon" data-toggle="collapse" data-target="#searchinput"
+                    ><img src="img/yes/search_icon.png" /></button>
+                </form>
+
+                <ul id="tertiarynav" class="nav navbar-nav navbar-right">
+                  <li><a href="#">Infographics</a></li>
+                  <li><a href="#">Magazine Issues</a></li>
+                  <li><a href="#">For Teachers</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Store</a></li>  
+                </ul>  
+              </div><!-- /navbar-bottom -->
+
+            </div><!-- /topnav-collapse -->
+          </div>
+
+         </nav><!--/navbar-default -->
+
+         <div id="container" class="container"><!-- span all 12 cols -->
+
 
             <div id="main" role="main" class="icons-on">
-               <div>
-                  <ul class="breadcrumb">
-                     <li><a href="#">Home</a><span class="divider">/</span></li>
-                     <li class="active">Plone</li>
-                  </ul>
-               </div>
                <div id="content-columns">
                   <div class="row">
-                     <div id="left-column" class="span3">
-                        <div id="left-column-content">
-                        <section>
-                           <h4 class="portlet-header">Navigation</h4>
-                           <div>
-                              <ul class="navTree navTreeLevel0">
-                                 <li class="navTreeItem navTreeTopNode">
-                                 <div>
-                                    <a title="" class="contenttype-plone-site " href="#">
-                                       Home
-                                    </a>
-                                 </div>
-                                 </li>
-                                 <li class="navTreeItem visualNoMarker navTreeFolderish section-news">
-                                 <a title="Site News" class="state-published navTreeFolderish contenttype-folder" href="#">
-                                    <span>News</span>
-                                 </a>
-                                 </li>
-                                 <li class="navTreeItem visualNoMarker navTreeCurrentNode navTreeFolderish section-events">
-                                 <a title="Site Events" class="state-published navTreeCurrentItem navTreeCurrentNode navTreeFolderish contenttype-folder" href="#">
-                                    <span>Events</span>
-                                 </a>
-                                 <ul class="navTree navTreeLevel1">
-                                    <li class="navTreeItem visualNoMarker section-fedora-activity-day">
-                                    <a title="" class="state-private contenttype-event" href="#">
-                                       <span>Fedora Activity Day</span>
-                                    </a>
-                                    </li>
-                                 </ul>
-                                 </li>
-                                 <li class="navTreeItem visualNoMarker navTreeFolderish section-members">
-                                 <a title="Site Users" class="state-published navTreeFolderish contenttype-folder" href="#">
-                                    <span>Users</span>
-                                 </a>
-                                 </li>
-                                 <li class="navTreeItem visualNoMarker navTreeFolderish section-services">
-                                 <a title="" class="state-private navTreeFolderish contenttype-folder" href="#">
-                                    <span>Services</span>
-                                 </a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </section>
-                        </div>
-                     </div>
-                     <div id="center-column">
+                     
+                     <div id="center-column" class="col-sm-8">
                         <div id="center-column-content">
                         <article>
                            <div id="content">
                               <!-- Example row of columns -->
+                              <h1>Example title</h1>
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis erat dolor,
                               ut tristique ante. Ut rutrum diam et odio interdum luctus. Curabitur convallis
                               dolor non lacus auctor vitae varius odio dignissim. Pellentesque aliquam
@@ -163,19 +150,6 @@
                               turpis egestas. Maecenas leo erat, ullamcorper eget venenatis eu, porttitor nec
                               orci. Praesent rhoncus auctor nulla. Nulla dictum semper ornare.</p>
                               <p>
-                              Vestibulum volutpat scelerisque accumsan. Aliquam euismod felis eu erat
-                              lobortis vestibulum. Nullam accumsan, orci non dignissim tempus, risus erat
-                              porta dolor, at viverra magna sapien non lacus. Aliquam scelerisque varius
-                              erat, ac placerat felis ultricies quis. Nunc vel imperdiet lorem. Curabitur
-                              consectetur urna in ipsum mollis elementum. Praesent vitae metus justo.
-                              Vestibulum eu ipsum nec justo semper posuere at id lectus. Quisque nulla augue,
-                              congue vitae hendrerit id, euismod nec orci. Class aptent taciti sociosqu ad
-                              litora torquent per conubia nostra, per inceptos himenaeos. Sed feugiat massa
-                              varius libero sodales eget lacinia odio ultrices. Vestibulum ante ipsum primis
-                              in faucibus orci luctus et ultrices posuere cubilia Curae; Duis accumsan
-                              egestas metus id iaculis. Aliquam ut diam massa. Morbi viverra tortor non massa
-                              congue facilisis.</p>
-                              <p>
                               Suspendisse id condimentum mauris. Curabitur suscipit diam enim, vel
                               consectetur mi. Curabitur quis est a justo malesuada condimentum laoreet et
                               orci. Nullam commodo, libero et ultrices interdum, tellus tellus ultrices elit,
@@ -185,7 +159,7 @@
                         </article>
                         </div>
                      </div>
-                     <div id="right-column" class="span3">
+                     <div id="right-column" class="col-sm-4">
                         <div id="right-column-content">
                         <section>
                            <h4 class="portlet-header">Calendar</h4>
@@ -226,73 +200,9 @@
                      </div>
                   </div>
                </div>
-               <div id="portletBelowContentManager" class="row">
-                  <div id="portletBelowContentA" class="span4">
-                     <p id="companycode">
-                     <img src="img/inigologo.png"/><br/>
-                     (846624A)</p>
-                  </div>
-                  <div id="portletBelowContentB" class="span4">
-                     <h2>Who are we?</h2>
-                     <p>Inigo Consulting is a Malaysian based fully employee owned
-                     company that
-                     provides consultancy services for non-profits, government agencies and
-                     companies to help them deliver their goals in a cost effective manner.
-                     </p>
-                  </div>
-                  <div id="portletBelowContentC" class="span4">
+               <footer class="row">
+               </footer> 
 
-                     <h2>Contact Us</h2>
-                     <p>Inigo Consulting Sdn Bhd <br/>
-                     B-05-20, Subang Empire SOHO,<br/>
-                     Subang Jaya, Malaysia
-                     </p>
-                     <p>Phone: 0172792765</p>
-                  </div>
-               </div>
-               <div class="row">
-                  <div id="portletBelowContentD" class="offset1 span10">
-                  </div>
-               </div>
-            <div style="clear:both">&nbsp;</div>
-
-            </div>
-
-            <div style="clear:both">&nbsp;</div>
-            <div class="footer container">
-               <div id="portletFooterManager" class="row">
-                  <div id="portletFooterA" class="span2">
-                     Inigo Consulting is a Malaysian based fully employee owned
-                     company that provides consultancy services for non-profits, government agencies and
-                     companies to help them deliver their goals in a cost effective manner.
-                  </div>
-                  <div id="portletFooterB" class="span2">
-                     Inigo Consulting is a Malaysian based fully employee owned
-                     company that provides consultancy services for non-profits, government agencies and
-                     companies to help them deliver their goals in a cost effective manner.
-                  </div>
-                  <div id="portletFooterC" class="span2">
-                     Inigo Consulting is a Malaysian based fully employee owned
-                     company that provides consultancy services for non-profits, government agencies and
-                     companies to help them deliver their goals in a cost effective manner.
-                  </div>
-                  <div id="portletFooterD" class="span2">
-                     Inigo Consulting is a Malaysian based fully employee owned
-                     company that provides consultancy services for non-profits, government agencies and
-                     companies to help them deliver their goals in a cost effective manner.
-                  </div>
-                  <div id="portletFooterE" class="span2">
-                     Inigo Consulting is a Malaysian based fully employee owned
-                     company that provides consultancy services for non-profits, government agencies and
-                     companies to help them deliver their goals in a cost effective manner.
-                  </div>
-                  <div id="portletFooterF" class="span2">
-                     Inigo Consulting is a Malaysian based fully employee owned
-                     company that provides consultancy services for non-profits, government agencies and
-                     companies to help them deliver their goals in a cost effective manner.
-                  </div>
-               </div>
-            </div>
          </div> <!--! end of #container -->
 
 
@@ -300,25 +210,21 @@
 
          <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline 
          <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-         <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+         <script>window.jQuery || document.write('<script src="js/libs/jquery-1.9.1.min.js"><\/script>')</script>
+         -->
 
-            -->
-
-
-            <!-- scripts concatenated and minified via ant build script-->
-            <script>
-               var jQuery14 = jQuery;
-            </script>
-            <script src="jquery-1.7.1.min.js"></script>
+            <script src="js/libs/jquery-1.9.1.js"></script>
+            <!-- <script src="jquery-1.9.1.min.js"></script> -->
             <script src="bootstrap/js/bootstrap.js"></script>
             <script>
-               var jQuery17 = jQuery;
-               $ = jQuery14;
-               jQuery = jQuery14;
-               jQuery17(document).ready(function () {
-                  jQuery17('.dropdown-toggle').dropdown();
-               });
+               // var jQuery17 = jQuery;
+               // $ = jQuery14;
+               // jQuery = jQuery14;
+               // jQuery17(document).ready(function () {
+               //    jQuery17('.dropdown-toggle').dropdown();
+               // });
             </script>
+            <script defer src="js/response.min.js"></script>
             <script defer src="js/plugins.js"></script>
             <script defer src="openid-selector/js/openid-jquery.js"></script>
             <script defer src="js/openid-providers.js"></script>

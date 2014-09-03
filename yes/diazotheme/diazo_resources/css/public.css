@@ -173,27 +173,6 @@ input.searchField {
 /* @end */
 
 
-/* @group Path indicator (breadcrumbs) */
-
-#portal-breadcrumbs {
-    margin-bottom: 1em;
-    margin-left: 0.25em;
-}
-#portal-breadcrumbs a {
-    border-bottom: none;
-    display: inline-block;
-}
-
-.breadcrumbSeparator {
-      color: #666666;
-}
-
-/* @end */
-
-
-
-
-
 /* @group Site actions */
 
 #portal-siteactions {
@@ -309,41 +288,6 @@ a.managePortletsFallback {
 
 /* @end */
 
-/* @group Navigation portlet */
-
-dl.portlet ul.navTree li a {
-    border: none;
-    display: block;
-    zoom: 1;
-}
-
-dl.portlet ul.navTree li a:hover {
-
-}
-
-dl.portletNavigationTree dd.portletItem {
-    padding: 0;
-}
-
-dl.portlet ul.navTreeLevel0 > .navTreeItem {
-    padding: 0.25em 1em;
-    border-bottom: 0.1em dotted #ddd;
-    line-height: 2em;
-}
-
-dl.portlet ul.navTreeLevel1 .navTreeItem {
-    padding-left: 0.5em;
-    line-height: 2em;
-}
-
-dl.portlet ul.navTree .navTreeCurrentItem {
-    background-color: #ddd;
-    border-left: 1em solid #ddd;
-    margin-left: -1em;
-    margin-right: -1em;
-}
-
-/* @end */
 
 /* @group Content Area */
 
@@ -1161,45 +1105,6 @@ dl.collapsedInlineCollapsible dt.collapsibleHeader {
 
 /* @end */
 
-/* @group Comments */
-
-.comment {
-    margin-top: 1.5em;
-}
-
-.comment .documentByLine {
-    margin-left: 1em;
-}
-
-.comment .formControls {
-    margin-left: 0;
-}
-
-.commentTime {
-    color: #666;
-}
-
-.commentBody {
-    padding: 1em;
-    margin: 0.5em 0;
-    border-radius: 0.5em;
-    -webkit-border-radius: 0.5em;
-    -moz-border-radius: 0.5em;
-    box-shadow: 0 0 1em 0 #888;
-    -moz-box-shadow: 0 0 0.5em 0 #888;
-    -webkit-box-shadow: 0 0 0.5em #888;
-}
-
-.comment h1,
-.comment h2,
-.comment h3,
-.comment h4,
-.comment h5,
-.comment h6 {
-    font-weight: normal;
-}
-
-/* @end */
 
 .reviewHistory,
 .contentHistory {
@@ -1618,29 +1523,6 @@ margin-left: 0.25em;
 
 /* @end */
 
-/* @group Table of Contents */
-
- /*Table of Contents styling - essentially a portlet with smaller fonts and aligned right + limited in width*/
-
-dl.toc {
-    float: right;
-    width: 35%;
-    margin: 1em 0 0.5em 1.5em;
-}
-dl.toc dt {
-    margin-left: 1em;
-    font-weight: normal;
-    text-transform: uppercase;
-}
-dl.toc dd {
-    margin-bottom: 0;
-    padding-left: 2em;
-}
-dl.toc dd ol {
-    margin-left: 1.5em;
-}
-
-/* @end */
 
 /* @group Footer */
 
@@ -1696,50 +1578,6 @@ dl.toc dd ol {
     font-weight: normal;
     margin-bottom: 0;
     padding: 0.25em 0;
-}
-
-/* @end */
-
-/* @group Album view classes */
-.photoAlbumEntry {
-    float: left;
-    position:relative;
-    overflow: hidden;
-    height: 185px;
-    width: 143px;
-    margin: 0em;
-    padding: 0px 6px 0px 9px;
-    text-align: center;
-    background-image: url(../img/polaroid-single.png);
-    background-repeat: no-repeat;
-}
-.photoAlbumEntry img {
-    border: 1px solid #ccc;
-    display: block;
-    margin: 0 auto;
-}
-.photoAlbumEntryWrapper {
-    /*display: block;*/
-    height: 130px;
-    width: 128px;
-    margin-bottom: 7px;
-}
-.photoAlbumEntry a {
-    display: block;
-    text-decoration: none;
-    height: 169px;
-    width: 130px;
-    margin: 16px auto 0px;
-}
-.photoAlbumFolder {
-    background-image: url(../img/polaroid-multi.png);
-    background-repeat: no-repeat;
-}
-.photoAlbumEntryTitle {
-    color: #76797c;
-    display: block;
-    width: 128px;
-    height: 3.6em;
 }
 
 /* @end */

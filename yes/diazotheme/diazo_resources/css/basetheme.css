@@ -65,7 +65,6 @@ label .required {
 
 #center-column-content {
     padding:0 5px;
-    border-bottom:1px solid #eee;
     vertical-align:top;
 }
 
@@ -218,24 +217,6 @@ input[type="button"]{cursor:pointer;display:inline-block;background-color:#e6e6e
 input[type="button"]:focus{outline:1px dotted #666;}
 
 
-
-.UserRatings {
-    padding-top:10px;
-    padding-right:5px;
-    padding-left:5px;
-    background:#fff;
-    margin:10px;
-}
-
-.UserRatings label {
-    width:auto;
-}
-
-#portal-breadcrumbs {
-    display:none;
-}
-
-
 #commenting legend {
     padding:0;
 }
@@ -288,46 +269,15 @@ div.row {
    padding-top:20px;
 }
 
-.faceted-top-search legend {
-   display:none;
-}
-
-.faceted-top-search .faceted-textwidget-place-all,
-.faceted-top-search .faceted-textwidget-place-current {
-    display:inline-block;
-}
-
-#content .faceted-top-search fieldset {
-   border:none;
-   padding:0;
-   margin:0;
-}
 
 #content dl.portalMessage  {
     display:none;
-}
-
-.faceted-top-search input[type="text"] {
-    width:800px;
-    margin:5px 0;
-}
-
-#faceted-edit-addwidget {
-    max-height:400px;
-}
-
-.faceted-widget-edit {
-    max-height:400px;
 }
 
 #content fieldset { 
    padding-left:20px;
    padding-right:20px;
    border:none;
-}
-
-.ArchetypesCalendarWidget select {
-    width:80px;
 }
 
 .dialog-wrapper fieldset {
