@@ -21,6 +21,13 @@ nav, header, footer {
   font-family: "Open Sans", Helvetica, sans-serif;
 }
 
+footer {
+  font-size: 11px;
+  border-top: 2px solid #e4e4e5;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
 #right-column h1, 
 #right-column h2,
 #right-column h3,
@@ -138,18 +145,6 @@ button.icon {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 @media screen and (min-width: 767px) {
 
   .lt767 {
@@ -253,8 +248,8 @@ button.icon {
 
   #topbuttonsnav {
     position: relative;
-    left: 189px;
-    top: 124px;
+    left: 271px;
+    top: 74px;
     font-size: 110%;
     border: none;
   }
@@ -345,6 +340,18 @@ button.icon {
 
   #center-column-content {
     border-bottom: 0;
+  }
+
+}
+
+
+
+
+@media screen and (min-width: 992px) {
+
+  #topbuttonsnav {
+    left: 189px;
+    top: 124px;    
   }
 
 }
