@@ -12,6 +12,11 @@ body {
   background-color: #ffffff;
 }
 
+.gte767 {
+  display: none !important;
+}
+
+
 nav, header, footer {
   font-family: "Open Sans", Helvetica, sans-serif;
 }
@@ -33,12 +38,43 @@ nav, header, footer {
   color: #231f20;
 }
 
+.navbar-static-top {
+  border-bottom: 2px solid #ccc;
+}
+
+.navbar-collapse {
+  border-top: 2px solid #ccc;
+}
+
 .navbar-header {
   background: #fff;
 }
 
-#nav {
+.navbar-header .navbar-toggle,
+.yes .navbar-default {
+  background-color: #f3f3f3;
+}
+
+.yes .navbar-brand {
+  padding-top: 6px;
+}
+
+#nav, #navmobilequick {
   text-transform: uppercase;
+}
+
+#navmobilequick {
+  float: left;
+}
+
+#topbuttonsnav, #topbuttonsnavmobile {
+    border-top: 2px solid #ccc;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+}
+
+#navbar-bottom {
+  clear: both;
 }
 
 .yes .navbar-static-top {
@@ -83,30 +119,47 @@ button.icon {
   display: inline-block;
 }
 
-#topsearchbox button {
-  padding-left: 0;
-  margin-left: 0;
+#topsearchbox.mobile  {
+  position: relative;
+  float: right;
+  margin-right: 0px;
+  border: none;
 }
 
-#topsearchbox {
-  padding-right: 0;
-}
-
-#searchinput input {
-  width: 150px;
-}
-
-#topsearchbox {
-  max-height: 24px;
+#topsearchbox button.navbar-toggle {
+  margin-top: -2px;
+  margin-right: 0;
 }
 
 .navbar-form .form-group-sm .form-control {
   padding: 2px 5px;
-  max-height: 22px;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (min-width: 767px) {
+
+  .lt767 {
+    display: none !important;
+  }
+
+  .gte767 {
+    display: block !important;
+  }
+
 
   body {
     padding-top: 24px;
@@ -114,9 +167,22 @@ button.icon {
 
   /* TOP NAV */
 
-  .navbar-default {
+  .navbar-nav {
+  /* restore bootstrap margins for tablet/desktop */
+    margin: 7.5px -10;
+  }
+
+  .navbar-static-top {
+    border-bottom-width: 1px;
+  }
+
+  .yes .navbar-default {
     background-color: transparent;
     border-top-width: 0;
+  }
+
+  .navbar-collapse {
+    border: none
   }
 
   .navbar-stacked li {
@@ -190,8 +256,9 @@ button.icon {
     left: 189px;
     top: 124px;
     font-size: 110%;
-    font-weight: 600;
+    border: none;
   }
+
 
   .yes .navbar-static-top .nav-tabs a,
   .yes .navbar-static-top .nav-tabs a:hover,
@@ -210,6 +277,30 @@ button.icon {
   .yes .navbar-static-top .nav-tabs a:hover {
     text-decoration: underline;
   } 
+
+
+  .navbar-form .form-group-sm .form-control {
+    max-height: 22px;
+  }
+
+
+  #searchinput input {
+    width: 150px;
+  }
+
+  #topsearchbox {
+    max-height: 24px;
+  }
+
+  #topsearchbox button {
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  #topsearchbox {
+    padding-right: 0;
+    margin-right: 0;
+  }
 
   #tertiarynav {
     margin-right: 57px;

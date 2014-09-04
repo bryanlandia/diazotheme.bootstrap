@@ -56,16 +56,33 @@
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
+
+              <a class="navbar-brand" href="/"
+              ><div 
+              data-min-width-0='<img src="++theme++yes.diazotheme/img/yes/yes_logo_sm.png" width="160"
+              height="49" alt="Yes! Magazine logo" title="Yes! Magazine: Powerful Ideas, Practical Solutions" />'
+              data-min-width-767='<img src="++theme++yes.diazotheme/img/yes/yes_logo_lg.png" width="356" height="160" />'>Yes! Magazine</div></a>              
+
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topnav-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/"
-              ><div data-min-width-0='<img src="++theme++yes.diazotheme/img/yes/yes_logo_lg.png" width="130"
-                    alt="Yes! Magazine logo" title="Yes! Magazine: Powerful Ideas, Practical Solutions" />' 
-                    data-min-width-767='<img src="++theme++yes.diazotheme/img/yes/yes_logo_lg.png" width="356" height="160" />'>Yes! Magazine</div></a>
+
+              <div data-min-width-767=""
+                data-min-width-0='  
+                <form id="topsearchbox" class="mobile navbar-form navbar-right form-horizontal" role="search">
+                  <div class="form-group-sm collapse" id="searchinput">
+                    <input class="form-control" name="SearchableText" placeholder="Search"/>
+                  </div>
+                  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#searchinput"
+                    ><span class="glyphicon glyphicon-search"></button>
+                </form>'>
+              </div> 
+
+
+
 
             </div><!-- /navbar-header -->
 
@@ -81,38 +98,63 @@
                 </div>  
 
 
-                <ul id="issuenav" class="nav navbar-nav navbar-right navbar-stacked">
+                <ul id="issuenav" class="gte767 nav navbar-nav navbar-right navbar-stacked">
                   <li><small><a href="#">Current Issue</a></small></li>
                   <li><small><a href="#">Give a Gift</a></small></li>
                   <li><small><a href="#">My Subscription</a></small></li>
                 </ul>
 
-
+                <div data-min-width-767='
                 <ul id="topbuttonsnav" class="nav navbar-nav nav-tabs navbar-left">
                   <li><a href="#">Subscribe</a></li>
                   <li><a href="#">Donate</a></li>
-                </ul>
+                </ul>'></div>
+
               </div>
 
               <div id="navbar-bottom">
-                <ul id="nav" class="nav navbar-nav navbar-left">
-                  <li class="active"><a href="#">Peace &amp; Justice</a></li>
-                  <li><a href="#">Planet</a></li>
-                  <li><a href="#">New Economy</a></li>
-                  <li><a href="#">People Power</a></li>
-                  <li><a href="#">Happiness</a></li>
-                  <li><a href="#">Voices</a></li>
+
+                <ul id="navmobilequick" class="lt767 nav navbar-nav navbar-left col-xs-6">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/most-popular">Most Popular</a></li>
+                  <li><a href="/current-issue">Current Issue</a></li>
+                  <li><a href="/for-teachers">For Teachers</a></li>
+                  <li><a href="/about">About</a></li>
                 </ul>
 
-                <form id="topsearchbox" class="navbar-form navbar-right form-horizontal" role="search">
-                  <div class="form-group-sm collapse width" id="searchinput">
-                    <input class="form-control" name="SearchableText" placeholder="Search"/>
-                  </div>
-                  <button type="button" class="icon" data-toggle="collapse" data-target="#searchinput"
-                    ><img src="img/yes/search_icon.png" /></button>
-                </form>
+                <ul id="nav" class="nav navbar-nav navbar-left col-xs-6 col-sm-12">
+                  <li class="active"><a href="/peace-justice">Peace &amp; Justice</a></li>
+                  <li><a href="/planet">Planet</a></li>
+                  <li><a href="/new-economy">New Economy</a></li>
+                  <li><a href="/people-power">People Power</a></li>
+                  <li><a href="/happiness">Happiness</a></li>
+                  <li class="gte767"><a href="/voices">Voices</a></li>
+                </ul>
 
-                <ul id="tertiarynav" class="nav navbar-nav navbar-right">
+                <div data-min-width-767='
+                  <form id="topsearchbox" class="navbar-form navbar-right form-horizontal" role="search">
+                    <div class="form-group-sm collapse width" id="searchinput">
+                      <input class="form-control" name="SearchableText" placeholder="Search"/>
+                    </div>
+                    <button type="button" class="icon" data-toggle="collapse" data-target="#searchinput"
+                      ><img src="++theme++yes.diazotheme/img/yes/search_icon.png" /></button>
+                  </form>
+                </div>'></div>
+
+                <div data-min-width-0='<div id="buttonsnavmobilewrapper">
+                <ul id="topbuttonsnav" class="nav navbar-nav navbar-left col-xs-6">
+                  <li><a href="#">Subscribe</a></li>
+                  <li><a href="#">Donate</a></li>
+                </ul>
+
+                <ul id="topbuttonsnavmobile" class="lt767 nav navbar-nav navbar-left col-xs-6">
+                  <li><a href="#">Yes! By Email</a></li>
+                  <li><a href="#">Store</a></li>
+                </ul></div>'
+                data-min-width-767=''></div>  
+
+
+                <ul id="tertiarynav" class="gte767 nav navbar-nav navbar-right">
                   <li><a href="#">Infographics</a></li>
                   <li><a href="#">Magazine Issues</a></li>
                   <li><a href="#">For Teachers</a></li>
