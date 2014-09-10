@@ -362,8 +362,8 @@ dl.portlet a:hover {
 }
 
 #content ul {
-    list-style-type: disc;
-    margin-left: 2em;
+    /*list-style-type: disc;*/
+    /*margin-left: 2em;*/
 }
 
 #content ol,

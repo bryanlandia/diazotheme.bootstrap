@@ -199,8 +199,8 @@
                                   <figure class="article-lead-image">
                                     <img class="img-responsive" src="img/yes/mockup_article_lead_img.jpg"
                                     width="637" height="478" />
-                                    <figcaption class="caption col-xs-6">
-                                      <div class="col-xs-offset-1 col-xs-11">Let's start using captions for our photos.<br/>
+                                    <figcaption class="caption col-sm-6">
+                                      <div class="col-sm-offset-1 col-sm-11">Let's start using captions for our photos.<br/>
                                       YES! photos by Paul Dunn.
                                       </div>
                                     </figcaption>  
@@ -228,12 +228,26 @@
                               <div class="row">  
                                 <div id="story-content" class="col-sm-offset-1 col-sm-10">
 
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis erat dolor,
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis erat dolor,
                                 ut tristique ante. Ut rutrum diam et odio interdum luctus. Curabitur convallis
                                 dolor non lacus auctor vitae varius odio dignissim. Pellentesque aliquam
                                 condimentum magna, et placerat orci pretium et. Cras et erat sit amet elit
                                 ultrices scelerisque. Etiam vehicula mauris ac tortor convallis id mollis urna
-                                egestas. Proin lobortis diam sit amet diam ultrices facilisis vitae volutpat
+                                egestas.</p>
+
+                                <aside class="col-sm-5 issue-article-inset">
+                                  <header><h4>From Winter 2014 Issue</h4>How to Eat Like Our Lives Depend On It</header>
+                                  <img src="http://lorempixel.com/132/172" />
+                                  <div><h6>More from this issue:</h6>
+                                  <ul class="list-unstyled">
+                                    <li><a href="">A popular article title goes here</a></li>
+                                    <li><a href="">Another popular article title goes here</a></li>
+                                    <li><a href="">And one more here</a></li>
+                                  </ul>
+                                  </div>                                      
+                                </aside>  
+
+                                <p>Proin lobortis diam sit amet diam ultrices facilisis vitae volutpat
                                 ligula. Quisque nec tellus ac libero pellentesque viverra. Cras at elit justo.
                                 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
                                 turpis egestas. <a href="#">Maecenas leo erat</a>, ullamcorper eget venenatis eu, porttitor nec
@@ -285,6 +299,9 @@
                               <div class="col-sm-offset-8 col-sm-4">
                                 <ul id="pagination" class="pagination" data-total-pages="4"></ul>
                                 <div><a href="javascript:void(0);">View as single page</a></div>
+                                <noscript><!-- provide a way for search engines to get the rest of the content -->
+                                  <a rel="next" href="#">Next page</a>
+                                </noscript>  
                               </div>
                             </div>
 
@@ -294,29 +311,41 @@
                             </aside>
                           </div>
 
-                          <div class="row">
+                          <div class="row" id="belowcontentportlets">
                             <!-- below content portlets -->
                             <aside class="col-sm-offset-1 col-sm-10" style="text-align:center">
-                              <img src="http://lorempixel.com/409/89" width="409" height="89"/>
+                              <img data-src767="http://lorempixel.com/409/89"
+                                   data-src0="http://lorempixel.com/320/70"
+                                   src="http://lorempixel.com/320/70"
+                                   />
                             </aside>
                           </div>   
 
                           <aside class="row more-on-category">
-                            <header class="col-xs-offset-1"><h5>More on People Power</h5></header>
+                            <header class="col-sm-offset-1"><h5>More on People Power</h5></header>
                             <!-- more from category -->
-                            <div class="col-xs-offset-1 col-sm-3">
-                              <img src="http://lorempixel.com/183/112" width="183" height="112" />
+                            <div class="col-xs-10 col-sm-offset-1 col-sm-3">
+                              <figure
+                              ><img src="http://lorempixel.com/183/112" width="183" height="112" />
+                              <figcaption>Worker Owned Window Factory Opens For Business</figcaption>
+                              </figure>
                             </div>
-                            <div class="col-sm-3">
-                              <img src="http://lorempixel.com/183/112" width="183" height="112" />
+                            <div class="col-xs-10 col-sm-3">
+                              <figure
+                              ><img src="http://lorempixel.com/183/112" width="183" height="112" />
+                              <figcaption>Green Housing: In Buffalo, It's Not Just for Rich People Anymore</figcaption>
+                              </figure>
                             </div>
-                            <div class="col-sm-3">
-                              <img src="http://lorempixel.com/183/112" width="183" height="112" />
+                            <div class="col-xs-10 col-sm-3">
+                              <figure
+                              ><img src="http://lorempixel.com/183/112" width="183" height="112" />
+                              <figcaption>Co-op Academy Teaches Workers to Build Green and Sustainable Businesses</figcaption>
+                              </figure>
                             </div>
                           </aside> 
 
                           <aside class="row disqus">
-                            <div class="col-xs-offset-1 col-sm-10">
+                            <div class="col-sm-offset-1 col-sm-10">
                               <header><h4>Comment on This Article</h4></header>
                               <div id="disqus_thread"></div>
                               <script type="text/javascript">
