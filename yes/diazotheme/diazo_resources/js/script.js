@@ -3,6 +3,11 @@
 */
 MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
+function prepPagination() {
+  $("#pagination .active a").wrapInner('<span></span>');
+  $("#pagination .active a").prepend('PAGE ');
+  $("#pagination .active a").append(' OF '+$('#pagination').data("total-pages") );
+}
 
 $(document).ready(function () {
     console.log('jquery document ready');
@@ -13,6 +18,24 @@ $(document).ready(function () {
     });
 
     jQuery('.carousel').carousel();
+
+    $('#pagination').twbsPagination({
+        totalPages: $('#pagination').data("total-pages"),
+        visiblePages: 1,
+        href: 'javascript:void(0);',
+        hrefVariable: 'Page {{number}}',
+        first: 'First',
+        prev: '&lt;',
+        next: '&gt;',
+        last: 'Last',
+        onPageClick: function (event, page) {
+            $('#content').html('Sample Lipsum');
+            prepPagination();
+        }
+    });
+
+    prepPagination();
+
 
 });
 

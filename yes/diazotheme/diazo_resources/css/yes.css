@@ -16,6 +16,15 @@ h1 {
   font-size: 27px;
 }
 
+blockquote {
+  color: rgb(144,147,147);
+  font-size: 90%;
+  border-left: none;
+  margin-left: 8.33333%;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
 .pull-gutter {
   margin-left: -10px;
 }
@@ -24,11 +33,11 @@ h1 {
   margin-right: -10px;
 }
 
-nav, header, footer {
+nav, footer {
   font-family: "Open Sans", Helvetica, sans-serif;
 }
 
-footer {
+footer[role=navigation] {
   font-size: 11px;
   border-top: 2px solid #e4e4e5;
   padding-top: 20px;
@@ -91,6 +100,10 @@ footer {
   clear: both;
 }
 
+/*  .navbar-static-top {
+    border-bottom-width: 0px;
+  }*/
+
 .yes .navbar-static-top {
   margin-bottom: 0;
 }
@@ -151,17 +164,119 @@ button.icon {
 
 .article-description {
   font-style: italic;
+  color: #939598;
+  font-size: 115%;
 }
 
 .article-lead-image {
   margin-top: 10px;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .article-lead-image img {
   width: 100%;
   height: auto;
+  position: relative;
 }
+
+figcaption, .caption {
+  padding: 1em 0;
+}
+
+.article-lead-image .caption {
+  background-color: rgba(35, 31, 32, 0.6);
+  color: #fff;
+  bottom: 0;
+  position: absolute;
+  font-size: 90%;
+}
+
+.share-bar {
+  padding: 1em 0;
+  margin: 2em 0;
+}
+
+.byline address,
+.byline [rel="author"] {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.byline time,
+.byline .pubdate {
+  display: inline-block;
+  color: #939598;
+}
+
+#main a,
+article a {
+  text-decoration: underline;
+  color: rgb(144,147,147);
+}
+
+#story-content {
+  line-height: 1.7;
+}
+
+article #content {
+  margin-bottom: 2em;
+}
+
+article footer address {
+  font-family: Merriweather, Times, serif;
+  font-style: italic;
+}
+
+#content footer img.photo {
+  float: left;
+}
+
+.paging {
+  text-transform: uppercase;
+}
+
+.paging #pagination  {
+  margin-bottom: 0px;
+}
+
+.paging a,
+#pagination a {
+  text-decoration: none !important;  
+  padding: 6px 6px;
+}
+
+
+#pagination .prev a,
+#pagination .next a {
+  border: none;
+}
+
+#pagination .page.active a {
+  background: transparent;
+  border: none;
+}
+
+#pagination .page.active a span {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 0 0.25em;
+  font-weight: bold;
+}
+
+/*#pagination .page.active a:before {
+  content: 'PAGE ';
+}
+
+#pagination .page.active a:after {
+  content: ' OF ';
+}*/
+
+#pagination .first, 
+#pagination .last {
+  display: none;
+}
+
 
 @media screen and (min-width: 767px) {
 
@@ -177,7 +292,7 @@ button.icon {
   }
 
   .navbar-static-top {
-    border-bottom-width: 1px;
+    border-bottom-width: 0px;
   }
 
   .yes .navbar-default {
@@ -360,9 +475,10 @@ button.icon {
     margin-bottom: 20px;
   }
 
-
-}
-
+  .share-bar {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
 
 
 
