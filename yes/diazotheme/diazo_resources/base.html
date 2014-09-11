@@ -35,13 +35,13 @@
       <link rel="stylesheet" href="jqueryui/css/eggplant/jquery-ui-1.8.5.custom.css"/>
       <!-- end CSS-->
 
+
       <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
          <!-- All JavaScript at the bottom, except for Modernizr / Respond.
          Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
          For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
          <script src="js/libs/modernizr-2.0.6.min.js"></script>
-
 
       </head>
 
@@ -65,9 +65,9 @@
 
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topnav-collapse">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar">&nbsp;</span>
+                <span class="icon-bar">&nbsp;</span>
+                <span class="icon-bar">&nbsp;</span>
               </button>
 
               <div data-min-width-767=""
@@ -176,7 +176,7 @@
                   
                      <div id="center-column" class="col-sm-8">
 
-                        <main><div id="main" role="main" class="icons-on">
+                        <div id="main" role="main" class="icons-on">
                           <article>
                             <div id="content">
 
@@ -372,49 +372,77 @@
 
                         </article>
 
-                      </div></main><!-- /#main -->
+                      </div><!-- /#main -->
                       
                      </div><!-- /#center-column -->
                      
                       <div id="right-column" class="col-sm-4">
-                        <div id="right-column-content">
-                        <section>
-                           <h4 class="portlet-header">Calendar</h4>
-                           <div>
-                              <table summary="Calendar" class="ploneCalendar">
-                                 <caption
-                                    class="hiddenStructure">November</caption>
-                                 <thead>
-                                    <tr
-                                       class="weekdays"><th
-                                          scope="col">Su</th><th
-                                          scope="col">Mo</th><th
-                                          scope="col">Tu</th><th
-                                          scope="col">We</th><th
-                                          scope="col">Th</th><th
-                                          scope="col">Fr</th><th
-                                          scope="col">Sa</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
-                                    </tr>
-                                    <tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
-                                    </tr>
-                                    <tr><td>13</td><td>14</td><td>15</td><td>16</td><td
-                                          class="todaynoevent"><strong>17</strong></td><td>18</td><td>19</td>
-                                    </tr>
-                                    <tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
-                                    </tr>
-                                    <tr><td>27</td><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td>
-                                    </tr>
-                                 </tbody>
 
-                              </table>
-                           </div>
-                        </section>
+                        <aside id="right-column-content">
 
-                        </div><!-- /#right-column-content -->
+                          <div id="rightcolcolumns">
+
+                            <div class="yestagline row">
+                              <div class="col-sm-offset-1 col-sm-10">
+                                Nonprofit.  Independent.  Reader-supported.
+                              </div>
+                            </div>
+
+
+                            <div class="tabbedportlets row">
+                              <div class="col-sm-offset-1 col-sm-10">
+
+                                <ul class="nav nav-tabs" role="tablist">
+                                  <li class="active"><a href="#mostpopular" role="tab" data-toggle="tab"
+                                    >Most Popular</a></li>
+                                  <li><a href="#mostrecent" role="tab" data-toggle="tab">Most Recent</a></li>
+                                </ul>
+
+                                <div class="tab-content">
+
+                                  <div class="tab-pane active" id="mostpopular">
+                                    <ul class="list-unstyled">
+                                      <li>
+                                        <a href="#">This Couple's Marriage Healed the Planet and Cost Just $3K</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">When Her Photo Became an Anti-Feminist Meme, This College
+                                          Woman Fought Back&mdash;And Thousands Joined Her</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">How an American Lama Finds Joy in Turbulent Times</a>
+                                      </li>
+                                    </ul>
+                                  </div><!-- /#mostpopular -->
+
+                                  <div class="tab-pane" id="mostrecent">
+                                    <ul class="list-unstyled">
+                                      <li>
+                                        <a href="#">Beyond Keystone XL: 8 Reasons for Optimism on Climate Change</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">"Human Libraries" and Classes Taught By Babies?  They're all
+                                          Part of the</a>
+                                      </li>                            
+                                    </ul>
+                                  </div><!-- /#mostrecent -->
+
+                                </div><!-- /.tab-content -->
+
+                              </div><!-- /.tabbedportlets -->  
+                            
+                            </div><!-- /.col-sm-10 -->
+                             
+
+                            <div id="voicesfromyes">
+
+
+                            </div>  
+
+                          </div><!-- /#rightcolcolumns -->
+
+                        
+                        </aside><!-- /#right-column-content -->
 
                      </div><!-- /#right-column -->
                   </div><!--/#content-columns -->
@@ -431,18 +459,14 @@
                     </div>
 
                     <div id="address">
-                      
-
-                        <div class="adr">
-                            <span class="fn org org-name">YES! is published by the Positive Futures Network</span>,
-                            <span class="street-address">284 Madrona Way NE, Ste 116</span>,
-                            <span class="locality">Bainbridge Island</span>,<br>
-                            <span class="region">WA</span>
-                            <span class="postal-code">98110-2870 800/937-4451</span>
-                        </div>
+                      <div class="adr">
+                          <span class="fn org org-name">YES! is published by the Positive Futures Network</span>,
+                          <span class="street-address">284 Madrona Way NE, Ste 116</span>,
+                          <span class="locality">Bainbridge Island</span>,<br>
+                          <span class="region">WA</span>
+                          <span class="postal-code">98110-2870 800/937-4451</span>
+                      </div>
                     </div>
-
-
 
                     <br/>
                     <span class="plone-site-info hidden-xs">
@@ -451,16 +475,14 @@
                         <a title="Privacy Policy" href="http://www.yesmagazine.org/about/privacy-policy"> :: Privacy Policy</a>
                       </span>
 
-                    <br/><br/
-                    >
-                    <span id="powered-by-plone" class="hidden-xs">
-                      Powered by <a href="http://plone.org" title="This website is built on the Plone Content Management System. Click to learn more.">Plone</a> 
+                      <br/><br/>
+                      <span id="powered-by-plone" class="hidden-xs">
+                        Powered by <a href="http://plone.org" title="This website is built on the Plone Content Management System. Click to learn more.">Plone</a> 
 
-                      <br><br>
-                      Please <span> <a href="mailto:webmaster@yesmagazine.org" title="Let us know if you come across a problem">report problems here</a>. </span>
-
-
-                    </span>
+                        <br><br>
+                        Please <span> <a href="mailto:webmaster@yesmagazine.org" title="Let us know if you come across a problem">report problems here</a>. </span>
+                      </span>
+                   </span> 
 
                   </div>
 
