@@ -538,6 +538,9 @@ h4.dog-eared {
   #topsearchbox {
     padding-right: 0;
     margin-right: 0;
+    position: relative;
+    top: -28px;
+    margin-bottom: -28px;
   }
 
   #tertiarynav {
