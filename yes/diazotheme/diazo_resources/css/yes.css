@@ -364,10 +364,36 @@ article footer address {
   font-family: Merriweather, Times, serif;
 }
 
-.media a {
-  font-size: 90%;
+.media-heading, .media-body a {
+  font-size: 85%;
 }
 
+.media-heading {
+  font-weight: bold;
+}
+
+
+.dog-eared,
+.nav-tabs li {
+  background: rgb(227,225,209) url(../img/yes/dogear.png) top right no-repeat;
+}
+
+.nav-tabs li.active {
+  background-image: none;
+}
+
+h4.dog-eared {
+  text-align: center;
+  height: 40px;
+  border-bottom: 1px solid  #e4e4e5;
+  padding-top: 0.6em;
+
+}
+
+#right-column-content h4 {
+  font-weight: 600;
+  font-size: 110%;
+}
 
 @media screen and (min-width: 767px) {
 
