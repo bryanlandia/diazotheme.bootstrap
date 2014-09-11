@@ -33,6 +33,11 @@ blockquote {
   margin-right: -10px;
 }
 
+.no-gutter-pad {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 nav, footer {
   font-family: "Open Sans", Helvetica, sans-serif;
 }
@@ -47,9 +52,7 @@ footer[role=navigation] {
 #right-column h1, 
 #right-column h2,
 #right-column h3,
-#right-column h4,
-#right-column h5,
-#right-column h6 {
+#right-column h4 {
   font-family: "Open Sans", Helvetica, sans-serif;
 }
 
@@ -357,6 +360,14 @@ article footer address {
   margin-bottom: 24px;
 }
 
+.media h4, .media h5, .media h6 {
+  font-family: Merriweather, Times, serif;
+}
+
+.media a {
+  font-size: 90%;
+}
+
 
 @media screen and (min-width: 767px) {
 
@@ -562,10 +573,10 @@ article footer address {
 
   .article-lead-image .caption {
     font-size: 90%;
-    background-color: rgba(35, 31, 32, 0.6);
     color: #fff;
     bottom: 0;
     position: absolute;
+    background-color: rgba(35, 31, 32, 0.6);
   }
 
 
@@ -605,6 +616,7 @@ article footer address {
   .tab-pane li {
     margin-bottom: 1em;
   }
+
 
 
 @media screen and (min-width: 992px) {
