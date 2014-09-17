@@ -1,6 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,700italic,700,600,600italic);
-@import url(http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic);
-
 html {
   font-size: 14px;
   line-height: 1.42857143;
@@ -115,7 +112,7 @@ footer[role=navigation] {
   margin-top: 0;
 }
 
-button.icon {
+.icon {
   -webkit-appearance: icon;
   -moz-appearance: icon;
   appearance: icon;
@@ -193,9 +190,29 @@ figcaption, .caption {
 
 .share-bar {
   padding: 0;
-  margin: 0 0 1em 0;
+  margin: 0.75em 0 1em 0;
 }
 
+.share-bar .like-block, .share-bar .like-block div {
+    display: inline-block;
+    text-transform: uppercase;
+    color: #939598;
+    font-size: 95%;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+  }
+
+.share-bar div .counter {
+  display: none;
+}
+
+#below-content-sharebar {
+    padding: 1em 0;
+}
+
+/*#shareTw .box {
+  background: url(../img/yes/share_tw.png) no-repeat;
+}
+*/
 .byline {
   margin-bottom: 1.5em;
 }
@@ -331,7 +348,7 @@ article footer address {
 .more-on-category,
 .disqus {
   margin-top: 1.5em;
-  padding: 1.5em 0;
+  padding: 1.5em 0 0 0;
   border-top: 2px solid #e4e4e5;
 }
 
@@ -397,6 +414,10 @@ h4.dog-eared {
   font-size: 110%;
 }
 
+
+
+
+
 @media screen and (min-width: 767px) {
 
   body {
@@ -411,7 +432,7 @@ h4.dog-eared {
   }
 
   .navbar-static-top {
-    border-bottom-width: 0px;
+    border-bottom-width: 0;
   }
 
   .yes .navbar-default {
@@ -441,7 +462,8 @@ h4.dog-eared {
     position: absolute; display: block; content: '';
     top: 175px; height: 11px;
     border-left: 17px solid rgb(193, 63, 28);;
-    box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+    box-sizing: border-box;
   }
 
   #navbar-bottom {
@@ -504,10 +526,10 @@ h4.dog-eared {
     color: #fff;
     text-transform: uppercase;
     border-width: 0;
-    border-radius: 0;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     -ms-border-radius: 0;
+    border-radius: 0;    
     padding-top: 5px;
     padding-bottom: 25px;
   }
@@ -607,6 +629,7 @@ h4.dog-eared {
     color: #fff;
     bottom: 0;
     position: absolute;
+    background-color: rgb(35, 31, 32);
     background-color: rgba(35, 31, 32, 0.6);
   }
 
@@ -616,6 +639,12 @@ h4.dog-eared {
     border-bottom: 1px solid #ccc;
     padding: 1em 0;
     margin: 2em 0;    
+  }
+
+  .share-bar div .counter {
+    display: inline-block;
+    margin-left: 0.25em;
+    margin-right: 0.5em;
   }
 
   .nav-tabs {
@@ -633,6 +662,12 @@ h4.dog-eared {
 
   .nav-tabs li.active {
     background-color: #fff;
+  }
+
+.rightcolplainsection {
+    margin-bottom: 24px; 
+    /*padding-top: 10px;*/
+    padding-bottom: 24px;
   }
 
   .rightcolborderedsection {
@@ -658,7 +693,7 @@ h4.dog-eared {
     margin-bottom: 1em;
   }
 
-
+}
 
 @media screen and (min-width: 992px) {
 

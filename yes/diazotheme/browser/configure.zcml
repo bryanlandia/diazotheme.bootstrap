@@ -374,7 +374,26 @@
     template="manage-above-content-title-portlets.pt"
     permission="plone.app.portlets.ManagePortlets"
    layer=".interfaces.IThemeSpecific" 
-  />    
-       
+  />  
+
+  <!-- Google+ share/follow intermediary javascript helper -->
+  <browser:page
+       name="googleplusshares"
+       for="*"
+       class=".helpers.GooglePlusGetter"
+       permission="zope2.View"
+       attribute="get_shares"
+       />  
+
+<browser:page
+       name="googleplusones"
+       for="*"
+       class=".helpers.GooglePlusGetter"
+       permission="zope2.View"
+       attribute="get_plusones"
+       />         
+
+
+
       
 </configure>

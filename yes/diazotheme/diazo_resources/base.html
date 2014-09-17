@@ -24,9 +24,10 @@
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
       <!-- CSS: implied media=all -->
-      <!-- CSS concatenated and minified via ant build script-->
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,700italic,700,600,600italic" />
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic"/>
       <link rel="stylesheet" href="css/public.css"/>
-      <link rel="stylesheet" href="css/reset.css"/>
+      <!-- <link rel="stylesheet" href="css/reset.css"/> -->
       <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/> -->
       <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
 
@@ -210,7 +211,55 @@
 
                                 <div class="row">  
                                   <aside class="col-sm-offset-1 col-sm-10">
-                                    <div class="share-bar">Share icons here</div>
+                                    <div id="content-sharebar" class="share-bar row">
+                                      <div class='like-block'>
+                                        <div data-min-width-0='
+                                          <img class="like-button share"
+                                            src="++theme++yes.diazotheme/img/yes/share_fb_big.png"
+                                            width="35" height="32"  alt="Share on Facebook" />'
+                                          data-min-width-767='
+                                          <img class="like-button share s_facebook"
+                                            src="++theme++yes.diazotheme/img/yes/share_fb.png"
+                                            alt="Share on Facebook" />'
+                                        />
+                                        <div class='like-counter counter c_facebook'></div>
+                                      </div>
+                                      <div class='like-block'>                                        
+                                        <div data-min-width-0='
+                                          <img class="like-button share"
+                                            src="++theme++yes.diazotheme/img/yes/share_tw_big.png"
+                                            width="35" height="32" alt="Tweet this" />'
+                                          data-min-width-767='
+                                          <img class="like-button share s_twitter"
+                                            src="++theme++yes.diazotheme/img/yes/share_tw.png"
+                                            alt="Tweet this" />'
+                                        />
+                                        <div class='like-counter counter c_twitter'></div>
+                                      </div>
+                                      <div class='like-block'>
+                                        <div data-min-width-0='
+                                          <img class="like-button share"
+                                            src="++theme++yes.diazotheme/img/yes/share_g+_big.png"
+                                            width="35" height="32" alt="Share on Google+" />'
+                                          data-min-width-767='
+                                          <img class="like-button share s_plus"
+                                            src="++theme++yes.diazotheme/img/yes/share_g+.png"
+                                            alt="Share on Google+" />'
+                                        />
+                                        <div class='like-counter counter c_plus'></div>
+                                      </div>
+                                      <div class='like-block'>
+                                        <a rel="overlay" href="sendto-form"><div data-min-width-0='
+                                          <img class="like-button share"
+                                            src="++theme++yes.diazotheme/img/yes/share_email_big.png"
+                                            width="35" height="35" alt="Share in email" />'
+                                          data-min-width-767='
+                                          <img class="like-button share"
+                                            src="++theme++yes.diazotheme/img/yes/share_email.png"
+                                            alt="Share in email" />'
+                                        /></a>
+                                      </div>
+                                    </div>
                                   </aside>
                                 </div>
 
@@ -236,7 +285,8 @@
                                 ultrices scelerisque. Etiam vehicula mauris ac tortor convallis id mollis urna
                                 egestas.</p>
 
-                                <aside class="col-sm-5 issue-article-inset">
+                                <aside class="hidden-xs col-sm-5 issue-article-inset"
+                                  data-min-width-767='
                                   <header><h4>From Winter 2014 Issue</h4>How to Eat Like Our Lives Depend On It</header>
                                   <img src="http://lorempixel.com/132/172" alt="" />
                                   <div><h6>More from this issue:</h6>
@@ -245,8 +295,8 @@
                                     <li><a href="#">Another popular article title goes here</a></li>
                                     <li><a href="#">And one more here</a></li>
                                   </ul>
-                                  </div>                                      
-                                </aside>  
+                                  </div>'>                        
+                                </aside>
 
                                 <p>Proin lobortis diam sit amet diam ultrices facilisis vitae volutpat
                                 ligula. Quisque nec tellus ac libero pellentesque viverra. Cras at elit justo.
@@ -280,12 +330,12 @@
                           <footer>
                             <div class="vcard row">
                               <address rel="author" class="author">
-                                <div class="col-sm-offset-1 col-xs-2">
+                                <div class="col-sm-offset-1 col-xs-4 col-sm-2">
                                   <a rel="author" class="url" href="http://newurbanhabitat.com"><img 
                                     class="photo" src="http://lorempixel.com/g/78/93/people" 
                                  width="78" height="93" alt="photo of Abby Quillen" /></a>
                                </div>
-                               <div class="col-xs-9 col-sm-8">
+                               <div class="col-xs-8">
                                 <span class="fn">Abby Quillen</span> wrote this article for 
                                 <a href="#">How to Eat Like Our Lives Depended On It</a>, the Winter
                                 2014 issue of <span class="org">YES! Magazine</span>. Abby is a 
@@ -308,7 +358,10 @@
 
                           <div class="row">  
                             <aside class="col-sm-offset-1 col-sm-10">
-                              <div class="share-bar">Share icons here</div>
+                            <div id="below-content-sharebar" class="share-bar">
+                              <!-- jquery fill in with html from above share-bar -->  
+                            </div>
+
                             </aside>
                           </div>
 
@@ -316,30 +369,35 @@
                             <!-- below content portlets -->
                             <aside class="col-sm-offset-1 col-sm-10" style="text-align:center">
                               <img data-src767="http://lorempixel.com/409/89"
-                                   data-src0="http://lorempixel.com/320/70"
-                                   src="http://lorempixel.com/320/70" alt=""
+                                   data-src0="" alt=""
                                    />
                             </aside>
                           </div>   
 
-                          <aside class="row more-on-category">
-                            <header class="col-sm-offset-1"><h5>More on People Power</h5></header>
+                          <aside class="more-on-category row">
+                            <header class="col-sm-offset-1 col-xs-10"><h5>More on People Power</h5></header>
                             <!-- more from category -->
                             <div class="col-xs-10 col-sm-offset-1 col-sm-3">
-                              <figure
-                              ><img src="http://lorempixel.com/183/112" width="183" height="112" alt="" />
+                              <figure>
+                              <div class="hidden-xs" data-min-width-767='
+                                <img data-src="http://lorempixel.com/183/112" width="183" height="112" alt="" />
+                              '></div>
                               <figcaption>Worker Owned Window Factory Opens For Business</figcaption>
                               </figure>
                             </div>
                             <div class="col-xs-10 col-sm-3">
-                              <figure
-                              ><img src="http://lorempixel.com/183/112" width="183" height="112" alt="" />
+                              <figure>
+                                <div class="hidden-xs" data-min-width-767='
+                                  <img src="http://lorempixel.com/183/112" width="183" height="112" alt="" />
+                                '></div>
                               <figcaption>Green Housing: In Buffalo, It's Not Just for Rich People Anymore</figcaption>
                               </figure>
                             </div>
                             <div class="col-xs-10 col-sm-3">
-                              <figure
-                              ><img src="http://lorempixel.com/183/112" width="183" height="112" alt="" />
+                              <figure>
+                                <div class="hidden-xs" data-min-width-767='
+                                <img src="http://lorempixel.com/183/112" width="183" height="112" alt="" />
+                                '></div>
                               <figcaption>Co-op Academy Teaches Workers to Build Green and Sustainable Businesses</figcaption>
                               </figure>
                             </div>
@@ -384,10 +442,45 @@
                           <div id="rightcolcolumns">
 
                             <div class="yestagline row">
-                              <div class="no-gutter-pad col-sm-offset-1 col-sm-10">
+                              <div class="no-gutter-pad hidden-xs col-sm-offset-1 col-sm-10">
                                 Nonprofit.  Independent.  Reader-supported.
                               </div>
                             </div>
+
+                            <div id="newsletterform" class="row rightcolplainsection" >
+                              <div class="no-gutter-pad col-sm-offset-1 col-sm-10">
+                                <h4 style="text-align:center"><big>Get Our Newsletter</big></h4>
+                                <h6 style="text-align:center">Powerful Ideas, Practical Actions Weekly</h6>
+                                form
+                              </div>
+                            </div>
+
+
+                            <div class="share-bar share-bar-large rightcolborderedsection row">
+                              <div class="no-gutter-pad col-sm-offset-1 col-sm-10">
+                                <div class="row">
+                                  <h4 style="text-align:center"><big>Follow Us</big></h4>
+                                    <div class="like-block col-xs-4 no-gutter-pad">
+                                      <a href="https://facebook.com/yesmagazine"><img
+                                        src="img/yes/follow_fb.png" width="46" height="42" alt="Like us on Facebook"/>
+                                      </a>
+                                      <div class='like-counter counter f_facebook'></div>
+                                    </div>
+                                    <div class='like-block col-xs-4 no-gutter-pad'>
+                                      <a href="https://twitter.com/intent/user?screen_name=yesmagazine"><img
+                                        src="img/yes/follow_tw.png" width="46" height="42" alt="Follow us on Twitter"/>
+                                      </a>
+                                      <div class='like-counter counter f_twitter'></div>
+                                    </div>
+                                    <div class='like-block col-xs-4 no-gutter-pad'>
+                                      <a href="https://plus.google.com/yesmagazine"><img
+                                        src="img/yes/follow_g+.png" width="46" height="42" alt="Plus One us on Google+"/>
+                                      </a>
+                                      <div class='like-counter counter f_plus'></div>
+                                    </div>
+                                  </div>                                  
+                              </div> 
+                            </div>  
 
 
                             <div class="tabbedportlets rightcolborderedsection row">
@@ -606,9 +699,11 @@
             <script defer src="js/response.min.js"></script>
             <script defer src="js/plugins.js"></script>
             <script defer src="js/libs/jquery.twbsPagination.min.js"></script>
-            <script defer src="openid-selector/js/openid-jquery.js"></script>
-            <script defer src="js/openid-providers.js"></script>
-            <script defer src="js/openid-wrapper.js"></script>
+            <!-- <script defer src="openid-selector/js/openid-jquery.js"></script> -->
+            <!-- <script defer src="js/libs/jquery.sharrre.js"></script> -->
+            <script defer src="js/libs/SocialShare.js"></script/>
+            <!-- <script defer src="js/openid-providers.js"></script> -->
+            <!-- <script defer src="js/openid-wrapper.js"></script> -->
             <script defer src="js/script.js"></script>
             <div id="site-scripts"></div>
 

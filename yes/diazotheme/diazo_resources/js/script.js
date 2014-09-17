@@ -9,10 +9,39 @@ function prepPagination() {
   $("#pagination .active a").append(' OF '+$('#pagination').data("total-pages") );
 }
 
+/* adapted from http://stackoverflow.com/questions/8929177/getting-counts-for-twitter-links-facebook-likes-and-google-1-with-jquery-and-a */
+function getfbcount(url){
+     var fblikes;
+     $.getJSON('http://graph.facebook.com/?ids=' + url, function(data){
+        fblikes = data[url].shares;
+        $('.f_facebook').html(fblikes);
+     });
+}
+
+function gettwcount(url){
+   var tweets;
+   $.getJSON('http://urls.api.twitter.com/1/urls/count.json?url=' + url + '&callback=?', function(data){
+      tweets = data.count;
+      $('.f_twitter').html(tweets);
+   });
+}
+
+function getplusone(url){
+  $.ajax({
+    type: 'GET',
+    url: '@@googleplusones?page_url='+url,
+  })
+  .done(function (data){
+    $('.f_plus').html(data);
+  })
+  .fail(function(){
+  });
+}
+
 $(document).ready(function () {
     console.log('jquery document ready');
     $('.field.error').each(function (idx, el) {
-        if ($.trim($(el).text()) == '') {
+        if ($.trim($(el).text()) === '') {
             $(el).remove();
         }
     });
@@ -36,7 +65,23 @@ $(document).ready(function () {
 
     prepPagination();
 
+    // get followers/likes/plusones
+    var url = "http://www.yesmagazine.org";
+    getfbcount(url);
+    gettwcount(url);
+    getplusone(url);
 
+    $('#below-content-sharebar').html($('#content-sharebar').html());
+
+    $('.share').ShareLink({
+      title: document.title,
+      text: document.title,
+      url: 'http://www.yesmagazine.org/happiness/an-astronomer-explains-why-this-is-the-best-moment-in-cosmic-history-to-be-alive'
+    });
+    $('.counter').ShareCounter({
+      url: 'http://www.yesmagazine.org/happiness/an-astronomer-explains-why-this-is-the-best-moment-in-cosmic-history-to-be-alive'
+    });
+    
 });
 
 
@@ -46,21 +91,21 @@ function bindSearchInput() {
   $('#searchinput').on('hidden.bs.collapse', function () {
       console.log('hidden.bs.collapse');
       $(this).next().attr('type', 'button');
-  })
+  });
 
   $('#searchinput').on('hide.bs.collapse', function (e) {
       console.log('hide.bs.collapse');
       $('#nav li a').removeClass('narrow');
       $search = $(this).find('input');
-      if ($search.val() != '') {
+      if ($search.val() !== '') {
           $(this).parent('form').submit();
       }
-  })
+  });
 
   $('#searchinput').on('show.bs.collapse', function () {
       console.log('show.bs.collapse');
       $('#nav li a').addClass('narrow');
-  })
+  });
 }
 
 
@@ -70,7 +115,7 @@ Response.crossover(function(){
 }, "width");
 
 
-if (MutationObserver != undefined) {
+if (MutationObserver !== undefined) {
 
     var observer = new MutationObserver(function( mutations ) {
       mutations.forEach(function( mutation ) {
@@ -87,19 +132,19 @@ if (MutationObserver != undefined) {
             }
           });
         }
-      });    
+      });
     });
 
-    var config = { 
-      attributes: true, 
-      childList: true, 
+    var config = {
+      attributes: true,
+      childList: true,
       characterData: true,
       subtree: true
     };
      
     observer.observe(window.document, config);
 
-} 
+}
 
 else {
     $(document).on("DOMNodeInserted", function (e) {
@@ -108,6 +153,5 @@ else {
         bindSearchInput();
         $(document).off("DOMNodeInserted");
       }
-    })
+    });
 }
-

@@ -37,7 +37,7 @@
     <meta name="generator" content="Plone - http://plone.org" />
     <meta name="google-site-verification" content="D-swTPHf3ceP43dYgvW7wJATjR6OZ_Z--Y-wm7kQ2TY" />
     <meta name="msvalidate.01" content="DA355B70C969236324D132B644A05C20" />
-    <meta name="y_key" content="f980e223a84dbfbc">
+    <meta name="y_key" content="f980e223a84dbfbc" />
 
     <metal:baseslot define-slot="base">
       <base tal:attributes="href plone_view/renderBase" /><!--[if lt IE 7]></base><![endif]-->
