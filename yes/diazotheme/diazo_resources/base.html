@@ -212,7 +212,7 @@
                                 <div class="row">  
                                   <aside class="col-sm-offset-1 col-sm-10">
                                     <div id="content-sharebar" class="share-bar row">
-                                      <div class='like-block'>
+                                      <div class='like-block col-xs-3 col-sm-2 no-gutter-pad'>
                                         <div data-min-width-0='
                                           <img class="like-button share"
                                             src="++theme++yes.diazotheme/img/yes/share_fb_big.png"
@@ -224,7 +224,7 @@
                                         />
                                         <div class='like-counter counter c_facebook'></div>
                                       </div>
-                                      <div class='like-block'>                                        
+                                      <div class='like-block col-xs-3 col-sm-2 no-gutter-pad'>
                                         <div data-min-width-0='
                                           <img class="like-button share"
                                             src="++theme++yes.diazotheme/img/yes/share_tw_big.png"
@@ -236,7 +236,7 @@
                                         />
                                         <div class='like-counter counter c_twitter'></div>
                                       </div>
-                                      <div class='like-block'>
+                                      <div class='like-block col-xs-3 col-sm-2 no-gutter-pad'>
                                         <div data-min-width-0='
                                           <img class="like-button share"
                                             src="++theme++yes.diazotheme/img/yes/share_g+_big.png"
@@ -248,7 +248,7 @@
                                         />
                                         <div class='like-counter counter c_plus'></div>
                                       </div>
-                                      <div class='like-block'>
+                                      <div class='like-block col-xs-3 col-sm-2 no-gutter-pad'>
                                         <a rel="overlay" href="sendto-form"><div data-min-width-0='
                                           <img class="like-button share"
                                             src="++theme++yes.diazotheme/img/yes/share_email_big.png"
@@ -289,12 +289,12 @@
                                   data-min-width-767='
                                   <header><h4>From Winter 2014 Issue</h4>How to Eat Like Our Lives Depend On It</header>
                                   <img src="http://lorempixel.com/132/172" alt="" />
-                                  <div><h6>More from this issue:</h6>
-                                  <ul class="list-unstyled">
-                                    <li><a href="#">A popular article title goes here</a></li>
-                                    <li><a href="#">Another popular article title goes here</a></li>
-                                    <li><a href="#">And one more here</a></li>
-                                  </ul>
+                                  <div class><h6>More from this issue:</h6>
+                                    <ul class="list-unstyled">
+                                      <li><a href="#">A popular article title goes here</a></li>
+                                      <li><a href="#">Another popular article title goes here</a></li>
+                                      <li><a href="#">And one more here</a></li>
+                                    </ul>                                  
                                   </div>'>                        
                                 </aside>
 
@@ -347,7 +347,7 @@
                             </div>
 
                             <div class="row paging">
-                              <div class="col-sm-offset-8 col-sm-4">
+                              <div class="col-xs-offset-1 col-xs-10 col-sm-offset-8 col-sm-4">
                                 <ul id="pagination" class="pagination" data-total-pages="4"></ul>
                                 <div><a href="javascript:void(0);">View as single page</a></div>
                                 <noscript><!-- provide a way for search engines to get the rest of the content -->
@@ -358,7 +358,7 @@
 
                           <div class="row">  
                             <aside class="col-sm-offset-1 col-sm-10">
-                            <div id="below-content-sharebar" class="share-bar">
+                            <div id="below-content-sharebar" class="share-bar row">
                               <!-- jquery fill in with html from above share-bar -->  
                             </div>
 
@@ -370,62 +370,90 @@
                             <aside class="col-sm-offset-1 col-sm-10" style="text-align:center">
                               <img data-src767="http://lorempixel.com/409/89"
                                    data-src0="" alt=""
+                                   src=""
                                    />
                             </aside>
                           </div>   
 
-                          <aside class="more-on-category row">
-                            <header class="col-sm-offset-1 col-xs-10"><h5>More on People Power</h5></header>
-                            <!-- more from category -->
-                            <div class="col-xs-10 col-sm-offset-1 col-sm-3">
-                              <figure>
-                              <div class="hidden-xs" data-min-width-767='
-                                <img data-src="http://lorempixel.com/183/112" width="183" height="112" alt="" />
-                              '></div>
-                              <figcaption>Worker Owned Window Factory Opens For Business</figcaption>
-                              </figure>
-                            </div>
-                            <div class="col-xs-10 col-sm-3">
-                              <figure>
-                                <div class="hidden-xs" data-min-width-767='
-                                  <img src="http://lorempixel.com/183/112" width="183" height="112" alt="" />
-                                '></div>
-                              <figcaption>Green Housing: In Buffalo, It's Not Just for Rich People Anymore</figcaption>
-                              </figure>
-                            </div>
-                            <div class="col-xs-10 col-sm-3">
-                              <figure>
-                                <div class="hidden-xs" data-min-width-767='
-                                <img src="http://lorempixel.com/183/112" width="183" height="112" alt="" />
-                                '></div>
-                              <figcaption>Co-op Academy Teaches Workers to Build Green and Sustainable Businesses</figcaption>
-                              </figure>
-                            </div>
-                          </aside> 
 
-                          <aside class="row disqus">
-                            <div class="col-sm-offset-1 col-sm-10">
-                              <header><h4>Comment on This Article</h4></header>
-                              <div id="disqus_thread"></div>
-                              <script type="text/javascript">
-                                var disqus_url = "http://www.yesmagazine.org/issues/the-end-of-poverty/the-antidote-to-mansplaining/";
-                                var disqus_identifier = '2eb843d58d1d4241b699fcfeadddafb2';
-                                var disqus_developer = 1;
-                                (function() {
-                                 var dsq = document.createElement('script'); 
-                                 dsq.type = 'text/javascript'; dsq.async = true;
-                                 dsq.src = 'http://yesmagazine.disqus.com/embed.js';
-                                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                                })();
-                              </script>
-                              <noscript>Please enable JavaScript to view the comments powered by
-                                <a href="http://disqus.com/?ref_noscript=yesmagazine"
-                                   >Disqus</a>.</noscript>
-                              <footer>       
-                                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-                              </footer>
-                            </div>  
-                          </aside>  
+                          <div class="flexcontainer">
+
+                            <aside class="visible-xs col-sm-5 issue-article-inset"
+                              data-min-width-0='
+                              <header class="row">
+                                <div class="col-xs-10">
+                                  <h5>More from the Winter 2014 Issue, How to Eat Like Our Lives Depend On It</h5>
+                                </div>
+                              </header>
+                              <div class="row">
+                                <div class="col-xs-10"><a href="#">A popular article title goes here</a></div>
+                                <div class="col-xs-10"><a href="#">Another popular article title goes here</a></div>
+                                <div class="col-xs-10"><a href="#">And one more here</a></div>
+                              </div>'
+                              data-min-width-767=''>                        
+                              
+                            </aside>
+
+                            <aside class="more-on-category row">
+                              <header class="col-sm-offset-1 col-xs-10"><h5>More on People Power</h5></header>
+                              <!-- more from category -->
+                              <div class="col-xs-10 col-sm-offset-1 col-sm-3">
+                                <figure>
+                                <div class="hidden-xs" data-min-width-767='
+                                  <a href="#"><img src="http://lorempixel.com/183/112" width="183" height="112" alt="" /></a>
+                                '></div>
+                                <figcaption><a href="#">Worker Owned Window Factory Opens For Business</a></figcaption>
+                                </figure>
+                              </div>
+                              <div class="col-xs-10 col-sm-3">
+                                <figure>
+                                  <div class="hidden-xs" data-min-width-767='
+                                    <a href="#"><img src="http://lorempixel.com/183/112" width="183" height="112" alt="" /></a>
+                                  '></div>
+                                <figcaption><a href="#">Green Housing: In Buffalo, It's Not Just for Rich People Anymore</a></figcaption>
+                                </figure>
+                              </div>
+                              <div class="col-xs-10 col-sm-3">
+                                <figure>
+                                  <div class="hidden-xs" data-min-width-767='
+                                  <a href="#"><img src="http://lorempixel.com/183/112" width="183" height="112" alt="" /></a>
+                                  '></div>
+                                <figcaption><a href="#">Co-op Academy Teaches Workers to Build Green and Sustainable Businesses</a></figcaption>
+                                </figure>
+                              </div>
+                            </aside> 
+
+                            <aside class="row disqus">
+                              <div class="col-sm-offset-1 col-sm-10">
+                                <header>
+                                  <div data-min-width-0='
+                                  <h4 class="toggler" data-toggle="collapse" data-target="#disqus_thread">Comment on This Article
+                                    <span class="arrowtoggle"></span></h4>'
+                                  data-min-width-767='
+                                  <h4>Comment on This Article</h4>'
+                                  ></div>
+                                </header>
+                                <div id="disqus_thread" class="collapse collapse-mobile"></div>
+                                <script type="text/javascript">
+                                  var disqus_url = "http://www.yesmagazine.org/issues/the-end-of-poverty/the-antidote-to-mansplaining/";
+                                  var disqus_identifier = '2eb843d58d1d4241b699fcfeadddafb2';
+                                  var disqus_developer = 1;
+                                  (function() {
+                                   var dsq = document.createElement('script'); 
+                                   dsq.type = 'text/javascript'; dsq.async = true;
+                                   dsq.src = 'http://yesmagazine.disqus.com/embed.js';
+                                   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                                  })();
+                                </script>
+                                <noscript>Please enable JavaScript to view the comments powered by
+                                  <a href="http://disqus.com/?ref_noscript=yesmagazine"
+                                     >Disqus</a>.</noscript>
+                                <!-- <footer>       
+                                  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                                </footer> -->
+                              </div>  
+                            </aside>  
+                          </div><!-- /.flexcontainer -->
 
                           </footer>
 
@@ -441,13 +469,13 @@
 
                           <div id="rightcolcolumns">
 
-                            <div class="yestagline row">
-                              <div class="no-gutter-pad hidden-xs col-sm-offset-1 col-sm-10">
+                            <div class="yestagline row hidden-xs">
+                              <div class="no-gutter-pad col-sm-offset-1 col-sm-10">
                                 Nonprofit.  Independent.  Reader-supported.
                               </div>
                             </div>
 
-                            <div id="newsletterform" class="row rightcolplainsection" >
+                            <div id="newsletterform" class="hidden-xs row rightcolplainsection" >
                               <div class="no-gutter-pad col-sm-offset-1 col-sm-10">
                                 <h4 style="text-align:center"><big>Get Our Newsletter</big></h4>
                                 <h6 style="text-align:center">Powerful Ideas, Practical Actions Weekly</h6>
@@ -456,23 +484,26 @@
                             </div>
 
 
-                            <div class="share-bar share-bar-large rightcolborderedsection row">
+                            <div class="share-bar follow-bar rightcolborderedsection row">
                               <div class="no-gutter-pad col-sm-offset-1 col-sm-10">
                                 <div class="row">
-                                  <h4 style="text-align:center"><big>Follow Us</big></h4>
-                                    <div class="like-block col-xs-4 no-gutter-pad">
+                                    <div class="col-xs-5 col-sm-12">
+                                      <h4><big>Follow Us</big></h4>
+                                    </div>  
+                                    <div class="like-block col-xs-2 col-sm-4 no-gutter-pad">
+                                      
                                       <a href="https://facebook.com/yesmagazine"><img
                                         src="img/yes/follow_fb.png" width="46" height="42" alt="Like us on Facebook"/>
                                       </a>
                                       <div class='like-counter counter f_facebook'></div>
                                     </div>
-                                    <div class='like-block col-xs-4 no-gutter-pad'>
+                                    <div class='like-block col-xs-2 col-sm-4 no-gutter-pad'>
                                       <a href="https://twitter.com/intent/user?screen_name=yesmagazine"><img
                                         src="img/yes/follow_tw.png" width="46" height="42" alt="Follow us on Twitter"/>
                                       </a>
                                       <div class='like-counter counter f_twitter'></div>
                                     </div>
-                                    <div class='like-block col-xs-4 no-gutter-pad'>
+                                    <div class='like-block col-xs-2 col-sm-4 no-gutter-pad'>
                                       <a href="https://plus.google.com/yesmagazine"><img
                                         src="img/yes/follow_g+.png" width="46" height="42" alt="Plus One us on Google+"/>
                                       </a>
@@ -483,7 +514,7 @@
                             </div>  
 
 
-                            <div class="tabbedportlets rightcolborderedsection row">
+                            <div class="hidden-xs tabbedportlets rightcolborderedsection row">
                               <div class="col-sm-offset-1 col-sm-10 no-gutter-pad">
 
                                 <ul class="nav nav-tabs" role="tablist">
@@ -528,7 +559,7 @@
                             </div><!-- /.col-sm-10 -->
                              
 
-                            <div id="voicesfromyes" class="row rightcolborderedsection">
+                            <div id="voicesfromyes" class="hidden-xs row rightcolborderedsection">
                               <div class="no-gutter-pad col-sm-offset-1 col-sm-10">
                                 <h4 class="dog-eared">Voices from YES!</h4>
 
@@ -664,7 +695,7 @@
                   <div id="follow" class="col-sm-2 hidden-xs"><h5>Follow Us</h5>
                     <ul id="follow-list">
                       <li><a href="http://www.yesmagazine.org/whatcounts/signup.php?ica=Signup_txt_EmailNewsletter&amp;icl=Footer_1750">Email Newsletter</a></li>
-                                  <li><a href="http://www.yesmagazine.org/rss-feeds">RSS</a></li>
+                      <li><a href="http://www.yesmagazine.org/rss-feeds">RSS</a></li>
                       <li><a href="http://www.facebook.com/yesmagazine">Facebook</a></li>
                       <li><a href="http://twitter.com/yesmagazine">Twitter</a></li> 
                       <li><a href="http://www.flickr.com/groups/yesmagazine-peace/">Flickr</a></li>

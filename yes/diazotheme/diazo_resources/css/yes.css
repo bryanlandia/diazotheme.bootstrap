@@ -41,7 +41,7 @@ nav, footer {
 
 footer[role=navigation] {
   font-size: 11px;
-  border-top: 2px solid #e4e4e5;
+  border-top: 0;
   padding-top: 20px;
   padding-bottom: 30px;
 }
@@ -201,7 +201,19 @@ figcaption, .caption {
     font-family: 'Open Sans', Helvetica, sans-serif;
   }
 
-.share-bar div .counter {
+.share-bar .like-block {
+  text-align: center;
+}
+
+.share-bar .like-block:first-child {
+  text-align: left;
+}
+
+.follow-bar {
+  margin-bottom: 0;
+}
+
+.share-bar.follow-bar .counter {
   display: none;
 }
 
@@ -243,7 +255,7 @@ article a:hover,
 aside a:hover,
 #right-column-content a:hover {
   text-decoration: none;
-  color: #c03d27;; 
+  color: #c03d27; 
 }
 
 .byline .author {
@@ -287,12 +299,14 @@ article #content {
   margin-top: 15px;
 }
 
-#main .issue-article-inset a {
-  text-decoration: none;
-}
-
 .issue-article-inset li {
   margin-bottom: 0.6em;
+}
+
+
+.visible-xs.issue-article-inset div.row div {
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 article footer address {
@@ -306,6 +320,9 @@ article footer address {
 
 .paging {
   text-transform: uppercase;
+  font-size: 125%;
+  border: 1px 0 1px solid #e4e4e5;
+  text-align: center;
 }
 
 .paging #pagination  {
@@ -318,23 +335,10 @@ article footer address {
   padding: 6px 6px;
 }
 
-
-#pagination .prev a,
-#pagination .next a {
-  border: none;
-}
-
-#pagination .page.active a {
-  background: transparent;
-  border: none;
-}
-
-#pagination .page.active a span {
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 0 0.25em;
-  font-weight: bold;
-}
+ #pagination .page.active a {
+    background: transparent;
+    border: none;
+  }
 
 #pagination .first, 
 #pagination .last {
@@ -346,23 +350,21 @@ article footer address {
 }
 
 .more-on-category,
-.disqus {
+.disqus,
+.visible-xs.issue-article-inset {
   margin-top: 1.5em;
   padding: 1.5em 0 0 0;
   border-top: 2px solid #e4e4e5;
 }
 
-.more-on-category header h5 {
+.more-on-category header h5,
+.issue-article-inset header.row h5 {
   text-transform: uppercase;
 }
 
 #right-column-content a {
   text-decoration: none;
   color: #231f20;
-}
-
-#right-column-content {
-  padding-top: 24px;
 }
 
 #right-column-content > div {
@@ -404,7 +406,7 @@ article footer address {
 h4.dog-eared {
   text-align: center;
   height: 40px;
-  border-bottom: 1px solid  #e4e4e5;
+  border-bottom: 1px solid #e4e4e5;
   padding-top: 0.6em;
 
 }
@@ -414,7 +416,19 @@ h4.dog-eared {
   font-size: 110%;
 }
 
+.disqus .toggler {
+  cursor: hand;
+  cursor: pointer;
+  text-decoration: underline;
+}
 
+.disqus .toggler:hover {
+  color: #c03d27;;
+}
+
+#disqus_thread.collapse.in:before {
+  content: '';
+}
 
 
 
@@ -633,6 +647,9 @@ h4.dog-eared {
     background-color: rgba(35, 31, 32, 0.6);
   }
 
+  #main .issue-article-inset a {
+    text-decoration: none;
+  }
 
   .share-bar {
     border-top: 1px solid #ccc;
@@ -641,10 +658,26 @@ h4.dog-eared {
     margin: 2em 0;    
   }
 
+  .share-bar .like-block {
+    text-align: left;
+  }
+
   .share-bar div .counter {
     display: inline-block;
     margin-left: 0.25em;
     margin-right: 0.5em;
+  }
+
+  .follow-bar {
+    margin-bottom: inherit;
+  }
+
+  .share-bar.follow-bar .counter {
+    display: inline-block;
+  }
+
+  .follow-bar h4 {
+    text-align: center;
   }
 
   .nav-tabs {
@@ -664,7 +697,7 @@ h4.dog-eared {
     background-color: #fff;
   }
 
-.rightcolplainsection {
+  .rightcolplainsection {
     margin-bottom: 24px; 
     /*padding-top: 10px;*/
     padding-bottom: 24px;
@@ -693,6 +726,36 @@ h4.dog-eared {
     margin-bottom: 1em;
   }
 
+  .paging {
+    font-size: 100%;
+  }
+
+  #pagination .prev a,
+  #pagination .next a {
+    border: none;
+  }
+
+ 
+
+  #pagination .page.active a span {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 0 0.25em;
+    font-weight: bold;
+  }
+
+  #right-column-content {
+    padding-top: 24px;
+  }
+
+  .collapse-mobile {
+    display: block;
+  }
+
+  footer[role='navigation'] {
+    border-top: 2px solid #e4e4e5;
+  }
+
 }
 
 @media screen and (min-width: 992px) {
@@ -702,4 +765,61 @@ h4.dog-eared {
     top: 124px;    
   }
 
+}
+
+@media (max-width: 766px) {
+
+  .flexcontainer {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    /* optional */
+    /*-webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;*/
+  }
+
+  /* swap order of disqus and more on...  for mobile.  supported in:
+  http://caniuse.com/#search=flex; */
+
+  .flexcontainer .more-on-category {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+    padding-bottom: 1em;
+    border-bottom: 2px solid #e4e4e5;
+  }
+
+  .flexcontainer .issue-article-inset {
+    -webkit-box-ordinal-group: 3;
+    -moz-box-ordinal-group: 3;
+    -ms-flex-order: 3;
+    -webkit-order: 3;
+    order: 3;
+    border-top-width: 0;
+    margin-top: 0;
+    padding-bottom: 1em;
+  }
+
+  .flexcontainer .disqus {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+    border-top-width: 0;
+    margin-top: 0;
+    padding-top: 0;
+  }
 }
