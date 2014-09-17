@@ -151,7 +151,13 @@ footer[role=navigation] {
   float: right;
   margin-right: 0px;
   border: none;
+  color: #aaa;
 }
+
+#topsearchbox.mobile #searchinput input {
+  margin-right: 105px;
+}
+
 
 #topsearchbox button.navbar-toggle {
   margin-top: -2px;
