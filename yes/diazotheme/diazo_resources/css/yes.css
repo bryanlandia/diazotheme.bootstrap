@@ -151,7 +151,7 @@ footer[role=navigation] {
   float: right;
   margin-right: 0px;
   border: none;
-  color: #aaa;
+  color: #777;
 }
 
 #topsearchbox.mobile #searchinput input {
@@ -227,10 +227,6 @@ figcaption, .caption {
     padding: 1em 0;
 }
 
-/*#shareTw .box {
-  background: url(../img/yes/share_tw.png) no-repeat;
-}
-*/
 .byline {
   margin-bottom: 1.5em;
 }
@@ -315,7 +311,9 @@ article #content {
   padding-bottom: 1em;
 }
 
-article footer address {
+article footer address,
+article .author,
+article time {
   font-family: Merriweather, Times, serif;
   font-style: italic;
 }
@@ -429,13 +427,48 @@ h4.dog-eared {
 }
 
 .disqus .toggler:hover {
-  color: #c03d27;;
+  color: #c03d27;
 }
 
 #disqus_thread.collapse.in:before {
   content: '';
 }
 
+.carousel-indicators {
+  top: 72%;
+}
+
+.carousel-indicators li {
+  border: none;
+  background-color: rgb(99,103,103);
+  width: 10px;
+  height: 10px;
+  margin: 0 7px;
+}
+
+.carousel-indicators li.active {
+  background-color: #c03d27;
+  width: 10px;
+  height: 10px;
+  margin: 0 7px;
+}
+
+.carousel figcaption {
+  height: 130px;
+}
+
+.carousel figcaption {
+  margin-top: 22px;
+}
+
+#main .carousel .item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#main .carousel .item a:hover {
+  color: #c03d27;
+}
 
 
 @media screen and (min-width: 767px) {
@@ -616,7 +649,7 @@ h4.dog-eared {
 
   /* CONTENT AREA */
 
-  #content {
+  .content {
     padding-top: 23px;
   }
 
@@ -761,6 +794,14 @@ h4.dog-eared {
   footer[role='navigation'] {
     border-top: 2px solid #e4e4e5;
   }
+
+
+  /* HOME PAGE SPECIFIC */
+
+  #homepage-content {
+    padding-top: 56px;
+  }
+
 
 }
 
