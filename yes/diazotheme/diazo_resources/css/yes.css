@@ -27,7 +27,7 @@ blockquote {
 }
 
 .push-gutter {
-  margin-right: -10px;
+  margin-right: -20px;
 }
 
 .no-gutter-pad {
@@ -454,11 +454,19 @@ h4.dog-eared {
 }
 
 .carousel figcaption {
-  height: 130px;
+  height: 150px;
 }
 
 .carousel figcaption {
   margin-top: 22px;
+}
+
+.carousel figcaption h5 {
+  text-transform: uppercase;
+  color: #c03d27;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 75%;
+  font-weight: 600;
 }
 
 #main .carousel .item a {
@@ -468,6 +476,26 @@ h4.dog-eared {
 
 #main .carousel .item a:hover {
   color: #c03d27;
+}
+
+.category-header {
+  text-transform: uppercase; 
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  color: #fff;
+  font-weight: bold;
+  font-size: 155%;
+  height: 100px;
+}
+
+.category-header.planet {
+  background-color: rgb(163,191,88);
+}
+
+.category-header div.cell {
+  display: table-cell;
+  vertical-align: bottom;
+  height: 100px;
+  padding-bottom: 0.5em;
 }
 
 
