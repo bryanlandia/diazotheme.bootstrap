@@ -64,7 +64,8 @@
               ><div 
               data-min-width-0='<img src="++theme++yes.diazotheme/img/yes/yes_logo_sm.png" width="150"
               height="46" alt="Yes! Magazine logo" title="Yes! Magazine: Powerful Ideas, Practical Solutions" />'
-              data-min-width-767='<img src="++theme++yes.diazotheme/img/yes/yes_logo_lg.png" width="356" height="160" />'>Yes! Magazine</div></a>              
+              data-min-width-767='<img src="++theme++yes.diazotheme/img/yes/yes_logo_lg.png" width="356" height="160" />'><img src="++theme++yes.diazotheme/img/yes/yes_logo_sm.png" width="150"
+              height="46" alt="Yes! Magazine logo" title="Yes! Magazine: Powerful Ideas, Practical Solutions" /></div></a>              
 
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topnav-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -176,10 +177,10 @@
 
                         <div id="main" role="main" class="icons-on">
 
-                          <div class="category-header planet row">
+                          <div class="topic-header planet row">
                             <div class="col-sm-11 no-gutter-pad">
                               <div class="row">
-                                <div class="no-gutter-pad col-sm-offset-1">
+                                <div class="no-gutter-pad col-xs-offset-1">
                                   <div class="row">
                                     <div class="cell">Planet</div>
                                   </div>
@@ -189,10 +190,35 @@
                           </div>
 
                           <div id="homepage-content" class="content">
+
+                            <div class="visible-xs row" style="max-width: 300px">
+                              <!-- phones don't display Carousel, only full-width first article -->  
+                            
+                              <div>
+                                <article>
+                                  <figure>
+                                    <a href="#"><img class="img-responsive" src="http://lorempixel.com/572/355/people" alt="" width="572" height="535" /></a>
+                                    <figcaption>
+                                      <h5 class="from-current">From the Current Issue</h5>
+                                      <h4><a href="#">Why the Kings of Bhutan Ride Bicycles</a></h4>
+                                      <a href="#">Bhutanese Prime Minister Jigmi Y. Thinley on Gross National Happiness,
+                                      his country's traditions, and the ideal of democracy.
+                                      <span class="author" rel="author">
+                                      Madhu Suri Prakash
+                                      </span> 
+                                      <time pubdate class="published updated" datetime="2014-02-16" title="June 19, 2014">6/19/2014</time></a>
+                                    </figcaption>
+                                  </figure>                                      
+                                </article>
+                              </div>
+
+                            </div>
+                            
+
                             <div class="row">
 
                             
-                              <div id="homepage-carousel" class="carousel slide col-sm-offset-0.5 col-sm-11" data-ride="carousel">                                      
+                              <div id="homepage-carousel" class="hidden-xs carousel slide col-sm-offset-0.5 col-sm-11" data-ride="carousel">                                      
 
                                 <div class="carousel-inner">
 
@@ -205,7 +231,7 @@
                                   <div class="item active">
                                     <article>
                                       <figure>
-                                        <a href="#"><img class="img-responsive" src="http://lorempixel.com/572/355/people" alt="" /></a>
+                                        <a href="#"><img class="img-responsive" src="http://lorempixel.com/572/355/people" alt="" width="572" height="535" /></a>
                                         <figcaption>
                                           <h5 class="from-current">From the Current Issue</h5>
                                           <h4><a href="#">Why the Kings of Bhutan Ride Bicycles</a></h4>
@@ -223,7 +249,7 @@
                                   <div class="item">
                                     <article>
                                       <figure>
-                                        <a href="#"><img class="img-responsive" src="http://lorempixel.com/g/572/355" alt="" /></a>
+                                        <a href="#"><img class="img-responsive" src="http://lorempixel.com/g/572/355" alt="" width="572" height="535" /></a>
                                         <figcaption>                                                  
                                           <h4>Lorem ipsum dolor sit amet</h4>
                                           Ut enim ad minim veniam,
@@ -237,7 +263,7 @@
                                   <div class="item">
                                     <article>
                                       <figure>
-                                        <a href="#"><img class="img-responsive" src="http://lorempixel.com/572/355" alt="" /></a>
+                                        <a href="#"><img class="img-responsive" src="http://lorempixel.com/572/355" alt="" width="572" height="535" /></a>
                                         <figcaption>
                                           <h5 class="from-current">From the Current Issue</h5>
                                           <h4>Ut enim ad minim veniam,
@@ -259,15 +285,21 @@
 
                             <div class="row leftcolborderedsection">
 
-                              <div class="col-sm-offset-0.5 col-sm-11"> 
+                              <div class="col-sm-offset-0.5 col-sm-11 xs-no-gutter-pad"> 
 
                                 <article class="media row">
-                                  <div class="col-sm-5">
+                                  <div class="col-xs-5 xs-no-gutter-pad">
                                     <a href="#">
+                                      <div data-min-width-0='
+                                      <img class="media-object img-responsive" src="http://lorempixel.com/159/99/people" 
+                                      alt="image caption">'
+                                      data-min-width-767='
                                       <img class="media-object img-responsive" src="http://lorempixel.com/448/278/people" 
-                                      alt="image caption"></a>
+                                      alt="image caption">
+                                      '></div>
+                                    </a>
                                   </div>
-                                  <div class="media-body col-sm-7">
+                                  <div class="media-body col-xs-7">
                                     <header><a href="#">This Couple's Marriage Healed the Planet and Cost Just $3K</a></header>
                                     <p>Produce auctions are getting fresh vegetables into food deserts, building community, and helping rural farmers earn a living.</p>
                                     <span class="author" rel="author">Roman Krznaric</span>
@@ -276,12 +308,18 @@
                                 </article>
 
                                 <article class="media row">
-                                  <div class="col-sm-5">
+                                  <div class="col-xs-5 xs-no-gutter-pad">
                                     <a href="#">
+                                      <div data-min-width-0='
+                                      <img class="media-object img-responsive" src="http://lorempixel.com/159/99/people" 
+                                      alt="image caption">'
+                                      data-min-width-767='
                                       <img class="media-object img-responsive" src="http://lorempixel.com/448/278/people" 
-                                      alt="image caption"></a>
+                                      alt="image caption">
+                                      '></div>
+                                    </a>
                                   </div>
-                                  <div class="media-body col-sm-7">
+                                  <div class="media-body col-xs-7">
                                     <h5 class="from-current">From the Current Issue</h5>
                                     <header><a href="#">This Couple's Marriage Healed the Planet and Cost Just $3K</a></header>
                                     <p>Produce auctions are getting fresh vegetables into food deserts, building community, and helping rural farmers earn a living.</p>
@@ -291,12 +329,18 @@
                                 </article>                                            
 
                                 <article class="media row">
-                                  <div class="col-sm-5">
+                                  <div class="col-xs-5 xs-no-gutter-pad">
                                     <a href="#">
+                                      <div data-min-width-0='
+                                      <img class="media-object img-responsive" src="http://lorempixel.com/159/99/people" 
+                                      alt="image caption">'
+                                      data-min-width-767='
                                       <img class="media-object img-responsive" src="http://lorempixel.com/448/278/people" 
-                                      alt="image caption"></a>
+                                      alt="image caption">
+                                      '></div>
+                                    </a>
                                   </div>
-                                  <div class="media-body col-sm-7">
+                                  <div class="media-body col-xs-7">
                                     <header><a href="#">This Couple's Marriage Healed the Planet and Cost Just $3K</a></header>
                                     <p>Produce auctions are getting fresh vegetables into food deserts, building community, and helping rural farmers earn a living.</p>
                                     <span class="author" rel="author">Roman Krznaric</span>
