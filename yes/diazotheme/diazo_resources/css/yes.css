@@ -22,6 +22,19 @@ blockquote {
   margin-bottom: 0;
 }
 
+.col-xs-10\.5 .col-sm-10\.5 {
+  width: 87.5%;
+}
+
+.col-xs-offset-0\.5, .col-sm-offset-0\.5 {
+  margin-left: 4.166666667%;
+}
+
+
+.col-xs-offset-1\.5, .col-sm-offset-1\.5 {
+  margin-left: 12.5%;
+}
+
 .pull-gutter {
   margin-left: -10px;
 }
