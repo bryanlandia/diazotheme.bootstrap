@@ -124,7 +124,7 @@
 
                 <ul id="nav" class="nav navbar-nav navbar-left col-xs-6 col-sm-12">
                   <li class="active"><a href="/peace-justice">Peace &amp; Justice</a></li>
-                  <li><a href="/planet">Planet</a></li>
+                  <li><a href="/planet" class="active">Planet</a></li>
                   <li><a href="/new-economy">New Economy</a></li>
                   <li><a href="/people-power">People Power</a></li>
                   <li><a href="/happiness">Happiness</a></li>
@@ -195,8 +195,6 @@
                                 <div class="row">
                                   <div class="no-gutter-pad">
 
-
-
                                     <div class="row">
                                       <div id="homepage-carousel" class="carousel slide col-sm-offset-1 no-gutter-pad" data-ride="carousel">                                      
 
@@ -213,7 +211,7 @@
                                               <figure>
                                                 <a href="#"><img class="img-responsive" src="http://lorempixel.com/572/355/people" alt="" /></a>
                                                 <figcaption>
-                                                  <h5>From the Current Issue</h5>
+                                                  <h5 class="from-current">From the Current Issue</h5>
                                                   <h4><a href="#">Why the Kings of Bhutan Ride Bicycles</a></h4>
                                                   <a href="#">Bhutanese Prime Minister Jigmi Y. Thinley on Gross National Happiness,
                                                   his country's traditions, and the ideal of democracy.
@@ -230,8 +228,7 @@
                                             <article>
                                               <figure>
                                                 <a href="#"><img class="img-responsive" src="http://lorempixel.com/g/572/355" alt="" /></a>
-                                                <figcaption>
-                                                  <h5>From the Current Issue</h5>
+                                                <figcaption>                                                  
                                                   <h4>Lorem ipsum dolor sit amet</h4>
                                                   Ut enim ad minim veniam,
                                                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -246,7 +243,7 @@
                                               <figure>
                                                 <a href="#"><img class="img-responsive" src="http://lorempixel.com/572/355" alt="" /></a>
                                                 <figcaption>
-                                                  <h5>From the Current Issue</h5>
+                                                  <h5 class="from-current">From the Current Issue</h5>
                                                   <h4>Ut enim ad minim veniam,
                                                   quis nostrud.</h4>
                                                    Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -268,7 +265,50 @@
                                       <div class="leftcolborderedsection">
                                         <div class="row">
                                           <div class="col-sm-offset-1 no-gutter-pad"> 
-                                          Some other stuff
+
+                                            <article class="media row">
+                                              <div class="col-sm-5">
+                                                <a href="#">
+                                                  <img class="media-object img-responsive" src="http://lorempixel.com/448/278/people" 
+                                                  alt="image caption"></a>
+                                              </div>
+                                              <div class="media-body col-sm-7">
+                                                <header><a href="#">This Couple's Marriage Healed the Planet and Cost Just $3K</a></header>
+                                                <p>Produce auctions are getting fresh vegetables into food deserts, building community, and helping rural farmers earn a living.</p>
+                                                <span class="author" rel="author">Roman Krznaric</span>
+                                                <time pubdate class="published updated" datetime="2014-02-16" title="June 19, 2014">6/19/2014</time> 
+                                              </div>
+                                            </article>
+
+                                            <article class="media row">
+                                              <div class="col-sm-5">
+                                                <a href="#">
+                                                  <img class="media-object img-responsive" src="http://lorempixel.com/448/278/people" 
+                                                  alt="image caption"></a>
+                                              </div>
+                                              <div class="media-body col-sm-7">
+                                                <h5 class="from-current">From the Current Issue</h5>
+                                                <header><a href="#">This Couple's Marriage Healed the Planet and Cost Just $3K</a></header>
+                                                <p>Produce auctions are getting fresh vegetables into food deserts, building community, and helping rural farmers earn a living.</p>
+                                                <span class="author" rel="author">Roman Krznaric</span>
+                                                <time pubdate class="published updated" datetime="2014-02-16" title="June 19, 2014">6/19/2014</time> 
+                                              </div>
+                                            </article>                                            
+
+                                            <article class="media row">
+                                              <div class="col-sm-5">
+                                                <a href="#">
+                                                  <img class="media-object img-responsive" src="http://lorempixel.com/448/278/people" 
+                                                  alt="image caption"></a>
+                                              </div>
+                                              <div class="media-body col-sm-7">
+                                                <header><a href="#">This Couple's Marriage Healed the Planet and Cost Just $3K</a></header>
+                                                <p>Produce auctions are getting fresh vegetables into food deserts, building community, and helping rural farmers earn a living.</p>
+                                                <span class="author" rel="author">Roman Krznaric</span>
+                                                <time pubdate class="published updated" datetime="2014-02-16" title="June 19, 2014">6/19/2014</time> 
+                                              </div>
+                                            </article> 
+
                                           </div>
                                         </div>
                                       </div>
@@ -488,6 +528,7 @@
                                   <h5>More from the Winter 2014 Issue, How to Eat Like Our Lives Depend On It</h5>
                                 </div>
                               </header>
+                              <img src="http://lorempixel.com/132/172" alt="" />
                               <div class="row">
                                 <div class="col-xs-10"><a href="#">A popular article title goes here</a></div>
                                 <div class="col-xs-10"><a href="#">Another popular article title goes here</a></div>
@@ -726,88 +767,64 @@
 
                <footer role="navigation">
 
-                  <div id="address-info-wrapper" class="col-xs-12 col-sm-4">
+                  <div id="information" class="col-sm-2 hidden-xs"> <h5>About</h5>
+                    <ul id="information-list" class="list-unstyled">
+                      <li><a href="http://www.yesmagazine.org/about/staff/board-staff">Staff/Board</a></li> 
+                      <li><a href="http://www.yesmagazine.org/about/jobs-internships">Jobs &amp; Internships</a></li>
+                      <li><a title="Privacy Policy" href="http://www.yesmagazine.org/about/privacy-policy">Privacy Policy</a></li>
+                      <li><a href="http://www.yesmagazine.org/about/contact-us">Contact Us</a></li>           
+                    </ul>
+                  </div>
+                    
+                  <div id="support" class="col-sm-2 hidden-xs"><h5>Support Our Work</h5>
+                    <ul id="support-list" class="list-unstyled">
+                      <li><a href="http://store.yesmagazine.org/donate/?ica=Don_txt_DonateNow_multi&amp;icl=Footer_1750">Donate</a></li>
+                      <li><a href="http://www.yesmagazine.org/support-yes/name-yes-in-your-will-or-retirement-plan">Planned Giving</a></li>
+                    </ul>
+                  </div>
+                  <div id="services" class="col-sm-2 hidden-xs"><h5>Subscribe</h5>
+                    <ul id="services-list" class="list-unstyled">
+                      <li><a href="http://store.yesmagazine.org/account/login/?ica=Mnge_txt_ManageSubscription_multi&amp;icl=Footer_1750">My Subscription</a></li>  
+                      <li><a href="http://store.yesmagazine.org/gifts/?ica=Gift_txt_GiftSubscriptions_2for1&amp;icl=Footer_1750">Give a Gift</a></li>
+                      <li><a href="http://store.yesmagazine.org">YES! Store</a></li>
+                    </ul> 
+                  </div>
+                  <div id="follow" class="col-sm-2 hidden-xs"><h5>Follow Us</h5>
+                    <ul id="follow-list" class="list-unstyled">
+                      <li><a href="http://www.yesmagazine.org/whatcounts/signup.php?ica=Signup_txt_EmailNewsletter&amp;icl=Footer_1750">YES! by Email</a></li>
+                      <li><a href="http://www.facebook.com/yesmagazine">Facebook</a></li>
+                      <li><a href="http://twitter.com/yesmagazine">Twitter</a></li> 
+                      <li><a href="http://plus.google.com/+yesmagazine/posts">Google+</a></li> 
+                      <li><a href="http://www.yesmagazine.org/rss-feeds">RSS</a></li>
+                    </ul>
+                  </div>
 
-                    <div id="yesfooterlogo" class="hidden-xs">
-                      <img src="img/yes/yes_footer_logo.gif" width="82" height="72"
-                       alt="Yes! logo"/>
-                    </div>
+                  <div id="address-info-wrapper" class="col-sm-12">
 
                     <div id="address">
                       <div class="adr">
-                          <span class="fn org org-name">YES! is published by the Positive Futures Network</span>,
+                          <span class="fn org org-name">YES! Magazine</span>,
                           <span class="street-address">284 Madrona Way NE, Ste 116</span>,
-                          <span class="locality">Bainbridge Island</span>,<br>
+                          <span class="locality">Bainbridge Island</span>,
                           <span class="region">WA</span>
                           <span class="postal-code">98110-2870 800/937-4451</span>
                       </div>
                     </div>
 
                     <br/>
-                    <span class="plone-site-info hidden-xs">
+                    <span class="plone-site-info hidden">
                       <span>
-                        <a title="Site Credits" href="http://www.yesmagazine.org/about/site-credits">Site Credits</a>
-                        <a title="Privacy Policy" href="http://www.yesmagazine.org/about/privacy-policy"> :: Privacy Policy</a>
+                        <a title="Site Credits" href="http://www.yesmagazine.org/about/site-credits">Site Credits</a>                        
                       </span>
-
-                      <br/><br/>
                       <span id="powered-by-plone" class="hidden-xs">
-                        Powered by <a href="http://plone.org" title="This website is built on the Plone Content Management System. Click to learn more.">Plone</a> 
-
-                        <br><br>
+                        Powered by <a href="http://plone.org" title="This website is built on the Plone Content Management System. Click to learn more.">Plone</a>
+                        <br/><br/>
                         Please <span> <a href="mailto:webmaster@yesmagazine.org" title="Let us know if you come across a problem">report problems here</a>. </span>
                       </span>
                    </span> 
 
                   </div>
 
-                  <div id="information" class="col-sm-2 hidden-xs"> <h5>Information</h5>
-                    <ul id="information-list">
-                      <li><a href="http://www.yesmagazine.org/about">About Us</a></li>
-                      <li><a href="http://www.yesmagazine.org/about/staff/board-staff">Board/Staff</a></li> 
-                      <li><a href="http://www.yesmagazine.org/about/jobs-internships">Jobs &amp; Internships</a></li>
-                      <li><a href="http://www.yesmagazine.org/about/faq">FAQ</a></li>
-                      <li><a href="http://www.yesmagazine.org/about/press-room">Press Room</a></li>
-                      <li><a href="http://www.yesmagazine.org/about/reprints">Reprints</a></li> 
-                      <li><a href="http://www.yesmagazine.org/about/writers-guidelines">Writer's Guidelines</a></li>  
-                                  <li><a href="http://www.yesmagazine.org/about/contact-us">Contact Us</a></li>           
-                    </ul>
-                  </div>
-                    
-                  <div id="support" class="col-sm-2 hidden-xs"><h5>Support Our Work</h5>
-                    <ul id="support-list">
-                      <li><a href="http://store.yesmagazine.org/donate/?ica=Don_txt_DonateNow_multi&amp;icl=Footer_1750">Donate Now</a></li>
-                      <li><a href="http://www.yesmagazine.org/support-yes/give-stock-to-yes">Give Stock</a></li>
-                      <li><a href="http://www.yesmagazine.org/support-yes/invest-in-yes-through-workplace-giving">Workplace Giving</a></li> 
-                      <li><a href="http://www.yesmagazine.org/support-yes/name-yes-in-your-will-or-retirement-plan">Planned Giving</a></li>
-                                  <li><a href="http://www.yesmagazine.org/support-yes/give-to-yes-in-tribute-to-someone-you-love">Give in Tribute</a></li>
-                      <li><a href="http://www.yesmagazine.org/about/volunteer-opportunities">Volunteer</a></li>
-                      
-                                </ul>
-                  </div>
-                  <div id="services" class="col-sm-2 hidden-xs"><h5>Subscriber Services</h5>
-                    <ul id="services-list">
-                      <li><a href="http://store.yesmagazine.org/subscribe/?ica=Subs_txt_SubscribetoYES_15&amp;icl=Footer_1750">Subscribe to YES!</a></li>
-                      <li><a href="http://store.yesmagazine.org/renew/?ica=Rnw_txt_Renew&amp;icl=Footer_1750">Renew</a></li>  
-                      <li><a href="http://store.yesmagazine.org/gifts/?ica=Gift_txt_GiftSubscriptions_2for1&amp;icl=Footer_1750">Gift Subscriptions</a></li>
-                      <li><a href="http://store.yesmagazine.org/back-issues/?ica=Back_txt_BuyBackIssues&amp;icl=Footer_1750">Buy Back Issues</a></li>
-                      <li><a href="http://store.yesmagazine.org/account/login/?ica=Mnge_txt_ManageSubscription_multi&amp;icl=Footer_1750">Manage Subscription</a></li>  
-                      <li><a href="http://www.yesmagazine.org/about/faq#faq-customer-service">Subscription FAQs</a></li>              
-                    </ul> 
-                  </div>
-                  <div id="follow" class="col-sm-2 hidden-xs"><h5>Follow Us</h5>
-                    <ul id="follow-list">
-                      <li><a href="http://www.yesmagazine.org/whatcounts/signup.php?ica=Signup_txt_EmailNewsletter&amp;icl=Footer_1750">Email Newsletter</a></li>
-                      <li><a href="http://www.yesmagazine.org/rss-feeds">RSS</a></li>
-                      <li><a href="http://www.facebook.com/yesmagazine">Facebook</a></li>
-                      <li><a href="http://twitter.com/yesmagazine">Twitter</a></li> 
-                      <li><a href="http://plus.google.com/+yesmagazine/posts">Google+</a></li> 
-                      <li><a href="http://www.flickr.com/groups/yesmagazine-peace/">Flickr</a></li>
-                      
-                    </ul>
-
-
-                  </div>
                </footer> 
 
          </div> <!--! end of #container -->
