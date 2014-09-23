@@ -17,8 +17,21 @@ h2 {
   font-size: 16px;
 }
 
+h6 {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+
 a[role='tab']:focus {
   outline: none;
+}
+
+form {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+.btn-primary {
+  background-color: #000;
 }
 
 blockquote {
@@ -467,6 +480,10 @@ article time {
 .dog-eared,
 .nav-tabs li {
   background: rgb(227,225,209) url(../img/yes/dogear.png) top right no-repeat;
+}
+
+.dog-eared.green {
+  background-color: rgb(200,221,215);
 }
 
 .nav-tabs li.active,
@@ -918,6 +935,19 @@ h5.from-current {
     padding-top: 0;
   }
 
+  /* RIGHT COLUMN */
+
+  #newsletterform .dog-eared {
+    padding-bottom: 1em;
+  }
+
+  #newsletterform .input-group {
+    padding-left: 6%;
+  }
+
+  #newsletterform h6 {
+    font-weight: 600;
+  }
 
   .rightcolplainsection {
     margin-bottom: 24px; 
