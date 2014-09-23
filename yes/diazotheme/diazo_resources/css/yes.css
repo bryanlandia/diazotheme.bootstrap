@@ -1,6 +1,6 @@
 html {
-  font-size: 14px;
-  line-height: 1.42857143;
+  font-size: 13px;
+  line-height: 1.326530614;
 }
 
 body {
@@ -11,6 +11,10 @@ body {
 
 h1 {
   font-size: 27px;
+}
+
+h2 {
+  font-size: 16px;
 }
 
 a[role='tab']:focus {
@@ -421,6 +425,11 @@ article time {
   text-align: center;
 }
 
+.media {
+  font-size: 90%;
+  line-height: 1.193877553;
+}
+
 .media h4, .media h5, .media h6 {
   font-family: Merriweather, Times, serif;
 }
@@ -609,6 +618,11 @@ h5.from-current {
 
 
 @media screen and (min-width: 767px) {
+
+  html {
+    font-size: 14px;
+    line-height: 1.42857143;
+  }
 
   body {
     padding-top: 24px;
@@ -818,6 +832,10 @@ h5.from-current {
     height: 100px;
   }
 
+  h2.issue-title {
+    font-size: 30px;
+  }
+
 
   .byline .author {
     font-weight: normal;
@@ -928,6 +946,11 @@ h5.from-current {
 
   .tab-pane li {
     margin-bottom: 1em;
+  }
+
+  .media {
+    font-size: 100%;
+    line-height: 1.42857143;
   }
 
   .paging {
