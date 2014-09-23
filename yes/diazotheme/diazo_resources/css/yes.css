@@ -26,6 +26,9 @@ blockquote {
   margin-bottom: 0;
 }
 
+.pull-left {
+  padding-left: 0; 
+}
 .col-xs-10\.5 .col-sm-10\.5 {
   width: 87.5%;
 }
@@ -537,6 +540,39 @@ h5.from-current {
 
 #main .carousel .item a:hover {
   color: #c03d27;
+}
+
+.issue-header h2,
+.voices-header h2 {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-weight: 600; 
+  text-transform: uppercase;
+  margin-bottom: 0.25em;
+}
+
+.voices-header h2 {
+  margin-bottom: 0.5em;
+}
+
+.issue-header .issue-date {
+  font-style: italic;
+  font-size: 120%;
+}
+
+.voices-header {
+  background-color: rgb(243,242,234); 
+}
+
+.voices-header p {
+  font-size: 90%;
+}
+
+.voices-header  img {
+  -moz-opacity: 0.8;
+  -mx-opacity: 0.8;
+  -webkit-opacity: 0.8;
+  -o-opacity: 0.8;
+  opacity: 0.8;
 }
 
 .topic-header {
