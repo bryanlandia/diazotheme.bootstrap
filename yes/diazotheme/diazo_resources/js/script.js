@@ -71,6 +71,7 @@ $(document).ready(function () {
     gettwcount(url);
     getplusone(url);
 
+    // copy the above content sharebar to below content
     $('#below-content-sharebar').html($('#content-sharebar').html());
 
     $('.share').ShareLink({
@@ -81,6 +82,9 @@ $(document).ready(function () {
     $('.counter').ShareCounter({
       url: 'http://www.yesmagazine.org/happiness/an-astronomer-explains-why-this-is-the-best-moment-in-cosmic-history-to-be-alive'
     });
+
+    // copy the right col. newsletter form to below content
+    $('#below-newsletterform-holder').prepend($('#newsletterform form').clone());
     
 });
 

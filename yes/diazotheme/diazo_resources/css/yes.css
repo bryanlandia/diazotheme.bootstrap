@@ -30,9 +30,26 @@ form {
   font-family: 'Open Sans', Helvetica, sans-serif;
 }
 
+.form-control:focus {
+  border-color: rgb(158,197,196);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  background-color: rgb(95,155,155);
+}
+
 .btn-primary {
   background-color: #000;
 }
+
+.centered-floats {
+  text-align: center;
+}
+
 
 blockquote {
   color: rgb(144,147,147);
@@ -476,32 +493,9 @@ article time {
   color: #939598;
 }
 
-
-.dog-eared,
-.nav-tabs li {
-  background: rgb(227,225,209) url(../img/yes/dogear.png) top right no-repeat;
-}
-
-.dog-eared.green {
-  background-color: rgb(200,221,215);
-}
-
 .nav-tabs li.active,
 #topbuttonsnav li {
   background-image: none;
-}
-
-h4.dog-eared {
-  text-align: center;
-  height: 40px;
-  border-bottom: 1px solid #e4e4e5;
-  padding-top: 0.6em;
-
-}
-
-#right-column-content h4 {
-  font-weight: 600;
-  font-size: 110%;
 }
 
 .disqus .toggler {
@@ -631,6 +625,25 @@ h5.from-current {
   /*text-align: center;*/
   font-size: 120%;
   padding: 1em 0;
+}
+
+#newsletterform .dog-eared,
+#below-content-newsletter .dog-eared {
+  padding-bottom: 1em;
+}
+
+h4.dog-eared {
+  text-align: center;
+  height: 40px;
+  border-bottom: 1px solid #e4e4e5;
+  padding-top: 0.6em;
+
+}
+
+#right-column-content h4,
+#content + footer h4 {
+  font-weight: 600;
+  font-size: 110%;
 }
 
 
@@ -768,7 +781,6 @@ h5.from-current {
   .navbar-form .form-group-sm .form-control {
     max-height: 22px;
   }
-
 
   #searchinput input {
     width: 150px;
@@ -937,13 +949,16 @@ h5.from-current {
 
   /* RIGHT COLUMN */
 
-  #newsletterform .dog-eared {
-    padding-bottom: 1em;
-  }
+  .dog-eared,
+    .nav-tabs li {
+      background: rgb(227,225,209) url(../img/yes/dogear.png) top right no-repeat;
+    }
 
-  #newsletterform .input-group {
-    padding-left: 6%;
-  }
+    .dog-eared.green {
+      background-color: rgb(200,221,215);
+    }
+
+
 
   #newsletterform h6 {
     font-weight: 600;
