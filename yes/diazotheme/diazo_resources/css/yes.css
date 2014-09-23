@@ -289,6 +289,11 @@ aside a:hover,
   color: #c03d27; 
 }
 
+.leftcolborderedsection {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
 .byline .author {
   font-weight: bold;
 }
@@ -505,6 +510,7 @@ h4.dog-eared {
 
 .carousel figcaption {
   height: 150px;
+  margin-bottom: 1em;
 }
 
 .carousel figcaption {
@@ -851,6 +857,11 @@ h5.from-current {
     padding-bottom: 24px;
     border-bottom: 1px solid #e4e4e5;
     border-top: 1px solid #e4e4e5;
+  }
+
+  .leftcolborderedsection + .leftcolborderedsection {
+    border-top: 0;
+    padding-top: 0;
   }
 
 
