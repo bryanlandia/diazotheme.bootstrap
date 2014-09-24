@@ -21,6 +21,10 @@ h6 {
   font-family: 'Open Sans', Helvetica, sans-serif;
 }
 
+header h6 {
+  text-transform: uppercase; 
+}
+
 
 a[role='tab']:focus {
   outline: none;
@@ -46,7 +50,7 @@ form {
   background-color: #000;
 }
 
-.centered-floats {
+.centered-text {
   text-align: center;
 }
 
@@ -63,16 +67,16 @@ blockquote {
 .pull-left {
   padding-left: 0; 
 }
-.col-xs-10\.5 .col-sm-10\.5 {
+
+.col-xs-10\.5 {
   width: 87.5%;
 }
 
-.col-xs-offset-0\.5, .col-sm-offset-0\.5 {
+.col-xs-offset-0\.5{
   margin-left: 4.166666667%;
 }
 
-
-.col-xs-offset-1\.5, .col-sm-offset-1\.5 {
+.col-xs-offset-1\.5 {
   margin-left: 12.5%;
 }
 
@@ -287,10 +291,6 @@ figcaption, .caption {
   display: none;
 }
 
-#below-content-sharebar {
-    padding: 1em 0;
-}
-
 .byline {
   margin-bottom: 1.5em;
 }
@@ -424,7 +424,7 @@ article time {
   width: 100%;
 }
 
-.more-on-category,
+.more-on-topic,
 .disqus,
 .visible-xs.issue-article-inset {
   margin-top: 1.5em;
@@ -432,7 +432,7 @@ article time {
   border-top: 2px solid #e4e4e5;
 }
 
-.more-on-category header h5,
+.more-on-topic header h5,
 .issue-article-inset header.row h5 {
   text-transform: uppercase;
 }
@@ -647,6 +647,17 @@ h4.dog-eared {
 }
 
 
+/* TOPIC COLORS */
+
+span.planet {
+  color: rgb(163,191,88) !important;
+}
+
+span.people-power {
+  color: rgb(163,191,88) !important;
+}
+
+
 @media screen and (min-width: 767px) {
 
   html {
@@ -657,6 +668,19 @@ h4.dog-eared {
   body {
     padding-top: 24px;
   }
+
+
+  .col-sm-10\.5 {
+    width: 87.5%;
+  }
+
+  .col-sm-offset-0\.5{
+    margin-left: 4.166666667%;
+  }
+
+  .col-sm-offset-1\.5 {
+    margin-left: 12.5%;
+  }    
 
   .xs-no-gutter-pad {
     padding-left: 10px;
@@ -905,6 +929,12 @@ h4.dog-eared {
     margin-right: 0.5em;
   }
 
+
+  #below-content-sharebar {
+      padding: 1em 0;
+  }
+
+
   .follow-bar {
     margin-bottom: inherit;
   }
@@ -950,15 +980,13 @@ h4.dog-eared {
   /* RIGHT COLUMN */
 
   .dog-eared,
-    .nav-tabs li {
-      background: rgb(227,225,209) url(../img/yes/dogear.png) top right no-repeat;
-    }
+  .nav-tabs li {
+    background: rgb(227,225,209) url(../img/yes/dogear.png) top right no-repeat;
+  }
 
-    .dog-eared.green {
-      background-color: rgb(200,221,215);
-    }
-
-
+  .dog-eared.green {
+    background-color: rgb(200,221,215);
+  }
 
   #newsletterform h6 {
     font-weight: 600;
@@ -1028,6 +1056,15 @@ h4.dog-eared {
     border-top: 2px solid #e4e4e5;
   }
 
+  footer figcaption  {
+    font-family: 'Merriweather', Times, Serif;
+    font-weight: 600;
+  }  
+
+  footer .flexcontainer aside:last-child {
+    padding-bottom: 1em;
+  }
+
 
   /* HOME PAGE SPECIFIC */
 
@@ -1053,6 +1090,7 @@ h4.dog-eared {
 
 @media (max-width: 766px) {
 
+
   .flexcontainer {
     display: flex;
     display: -webkit-box;
@@ -1075,12 +1113,13 @@ h4.dog-eared {
   /* swap order of disqus and more on...  for mobile.  supported in:
   http://caniuse.com/#search=flex; */
 
-  .flexcontainer .more-on-category {
+  .flexcontainer .more-on-topic {
     -webkit-box-ordinal-group: 3;
     -moz-box-ordinal-group: 3;
     -ms-flex-order: 3;
     -webkit-order: 3;
     order: 3;
+    margin-top: 0;
     padding-bottom: 1em;
     border-top: 2px solid #e4e4e5;
   }
@@ -1096,6 +1135,17 @@ h4.dog-eared {
     padding-bottom: 1em;
   }
 
+  .flexcontainer .below-content-newsletter-wrapper {
+    -webkit-box-ordinal-group: 4;
+    -moz-box-ordinal-group: 4;
+    -ms-flex-order: 4;
+    -webkit-order: 4;
+    order: 4;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-top: 2px solid #e4e4e5;
+  }
+
   .flexcontainer .disqus {
     -webkit-box-ordinal-group: 1;
     -moz-box-ordinal-group: 1;
@@ -1105,5 +1155,6 @@ h4.dog-eared {
     border-top-width: 0;
     margin-top: 0;
     padding-top: 0;
+    padding-bottom: 1em;
   }
 }
