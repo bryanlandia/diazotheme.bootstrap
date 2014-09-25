@@ -832,7 +832,7 @@ span.people-power {
   }
 
   #tertiarynav li + li a:before {
-    content: "|  ";
+    content: "|\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
   }
 
   #issuenav {
