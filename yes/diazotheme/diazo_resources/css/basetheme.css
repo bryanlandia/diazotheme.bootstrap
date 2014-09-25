@@ -50,8 +50,8 @@ label .required {
 }
 
 #content-columns {
-    display:table;
-    vertical-align:top;
+    /*display:table;*/
+    /*vertical-align:top;*/
 }
 #left-column-content {
     padding:0 10px;
