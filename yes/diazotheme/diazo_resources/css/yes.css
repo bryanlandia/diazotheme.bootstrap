@@ -658,8 +658,9 @@ span.people-power {
 }
 
 
-@media screen and (min-width: 415px) {
-  /* 750px is portrait iPhone 6 Plus */
+@media screen and (min-width: 736px) {
+  /* 736px is landscape iPhone 6 Plus */
+  /* 667 is landscape iPhone 6 */
 
   html {
     font-size: 14px;
