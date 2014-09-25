@@ -658,7 +658,7 @@ span.people-power {
 }
 
 
-@media screen and (min-width: 736px) {
+@media screen and (min-width: 667px) {
   /* 736px is landscape iPhone 6 Plus */
   /* 667 is landscape iPhone 6 */
 
@@ -745,7 +745,7 @@ span.people-power {
 
   #nav {
     font-weight: 700;
-    font-size: 1.1rem;
+    
   }
 
   .yes #nav li a {
@@ -818,14 +818,13 @@ span.people-power {
   #topsearchbox button {
     padding-left: 0;
     margin-left: 0;
+    position: relative;
+    margin-bottom: -28px;
   }
 
   #topsearchbox {
     padding-right: 0;
     margin-right: 0;
-    position: relative;
-    top: -28px;
-    margin-bottom: -28px;
   }
 
   #tertiarynav {
@@ -1077,6 +1076,9 @@ span.people-power {
 }
 
 @media screen and (min-width: 992px) {
+  #nav {
+    font-size: 1.1rem;
+  }
 
   #nav li:first-child a {
     padding-left: 25px;
@@ -1102,6 +1104,12 @@ span.people-power {
   #topbuttonsnav {
     left: 189px;
     top: 124px;    
+  }
+
+  #topsearchbox {
+    position: relative;
+    top: -28px;
+    margin-bottom: -28px;
   }
 
   .carousel-indicators {
@@ -1185,6 +1193,7 @@ span.people-power {
 
   #rightcolcolumns .nav-tabs > li > a {
     padding: 10px 2px;
+    font-size: 88%;
   }
 
 }
