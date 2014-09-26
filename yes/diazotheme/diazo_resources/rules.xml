@@ -4,5 +4,105 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     >
-<theme href="base.html" css:if-content="#visual-portal-wrapper"/>
+    <replace theme="/html/head/title" content="/html/head/title" />
+
+    <!-- dialog boxes -->
+    <theme href="dialog.html" css:if-content="#content.dialog-wrapper"/>
+    <drop css:content="meta[http-equiv='X-UA-Compatible']"/>
+
+    <rules css:if-content="#content.dialog-wrapper">
+        <prepend theme="/html/head" content="/html/head/base"/>
+        <after css:theme="meta[http-equiv='X-UA-Compatible']" 
+            content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
+        <replace theme="/html/body"
+            content="/html/body"/>
+    </rules>
+    <!--    
+    <notheme if-content="html/head/link[@href='/manage_page_style.css']"/>
+    <notheme css:if-content="#content.dialog-wrapper"/>
+    <notheme css:if-content="body.popup"/>
+    -->
+
+    <theme href="base.html" css:if-content="#visual-portal-wrapper"/>
+    <prepend theme="/html/head" content="/html/head/base"/>
+
+    <after css:theme="meta[http-equiv='X-UA-Compatible']" 
+        content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
+
+
+    <!-- search -->
+    <!-- <copy css:theme="#topsearchbox" css:content="#portal-searchbox form" attributes="action"/>  -->
+    
+    <!-- content title -->
+    <replace css:theme-children="#content-title" css:content-children="h1.documentFirstHeading" />
+    
+    <!-- content subtitle -->
+    <replace css:theme-children="#content-description" css:content-children="#content .articleSubheadline" />
+
+    <!-- content byline -->
+    <replace css:theme-children="#content .byline .author" css:content="#content .articleByline .articleAuthor" />
+
+    <!-- content publish date -->
+    <replace css:theme-children="#content .byline time" css:content-children="#content .articleDate" />
+
+
+    <!-- content body -->
+    <replace css:theme-children="#story-content" css:content-children="#content #article-content" />
+
+
+    <!-- topic landing page -->
+    <rules css:if-not-content="#topic-slot-three">
+        <drop css:theme=".topic-header" />
+    </rules>    
+
+    <!-- issue page -->
+    <rules css:if-not-content="body.section-issues">
+        <drop css:theme=".issue-header" />
+    </rules>
+    <rules css:if-content="body.section-issues">
+        <replace css:theme-children=".issue-header .issue-title" css:content-children="#parent-fieldname-title" />      
+    </rules>    
+
+    <!-- voices landing page -->
+    <rules css:if-not-content="body.portaltype-topic.section-blogs">
+        <drop css:theme=".voices-header" />
+    </rules>
+
+
+    <!-- folder listings -->
+    <rules css:if-content=".folder-listing">
+      <replace css:content=".folder-listing .tileItem">
+        <article class="media row">
+            <div class="col-xs-3 col-sm-5 xs-no-gutter-pad">
+              <a href="#">
+                <div data-min-width-0='
+                &lt;img class="media-object img-responsive" src="http://lorempixel.com/159/99/people" 
+                alt="image caption"&gt;'
+                data-min-width-667='
+                &lt;img class="media-object img-responsive" src="http://lorempixel.com/448/278/people" 
+                alt="image caption"&gt;
+                '></div>
+              </a>
+            </div>
+            <div class="media-body col-xs-9 col-sm-7">
+              <header><a href="#">This Couple's Marriage Healed the Planet and Cost Just $3K</a></header>
+              <p>Produce auctions are getting fresh vegetables into food deserts, building community, and helping rural farmers earn a living.</p>
+              <span class="author hidden-xs" rel="author">Roman Krznaric</span>
+              <time pubdate="pubdate" class="hidden-xs published updated" datetime="2014-02-16" title="June 19, 2014">6/19/2014</time> 
+            </div>
+          </article>
+      </replace>  
+      <replace css:theme-children="#folder-listing-one" css:content=".folder-listing article"/>
+      <!-- <dl id="details">
+          <xsl:for-each css:select="table#details > tr">
+              <dt><xsl:copy-of select="td[1]/text()"/></dt>
+              <dd><xsl:copy-of select="td[2]/node()"/></dd>
+          </xsl:for-each>
+      </dl> -->
+    </rules>
+
+
+
+
+
 </rules>    
