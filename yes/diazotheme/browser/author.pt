@@ -84,7 +84,7 @@
                    tal:content="item_object/Title">[Program Title]</a><br />
                 <span tal:content="item_description">Lorem ipsum dolor sit
                     amet, consectetur adipiscing elit.</span><br />
-                <span class="blogdate">Posted 
+                <span class="blogdate">
                     <span tal:replace="python:toLocalizedTime(item_date)">
                         August 16, 2001
                     </span>

@@ -103,8 +103,8 @@
                tal:attributes="href item_object/absolute_url"
                tal:content="item_object/Title">[Program Title]</a><br />
             <span tal:content="item_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span><br />
-            <span class="blogdate">Posted 
-                <span tal:replace="python:toLocalizedTime(item_date)">
+            <span class="blogdate"
+                ><span tal:replace="python:toLocalizedTime(item_date)">
                     August 16, 2001
                 </span>
             </span>

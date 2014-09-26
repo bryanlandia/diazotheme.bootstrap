@@ -51,7 +51,7 @@
                                  anonymous_creator python:creator=='Anonymous User' or creator=='';
                                  mi python:not anonymous_creator and view.member_info(creator);
                                  fullname python: mi and mi['fullname'] or creator;" >
-                    <span i18n:translate="label_comment_by">Posted by</span>
+                    <span i18n:translate="label_comment_by"></span>
                     <span tal:content="fullname"
                           tal:condition="not:anonymous_creator">Poster Name</span>
                     <span i18n:translate="label_anonymous_user"

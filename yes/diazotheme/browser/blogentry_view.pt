@@ -32,7 +32,7 @@
             
             <tal:name tal:condition="item_creator"
                 tal:define="author python:context.portal_membership.getMemberInfo(item_creator)">
-              <span i18n:translate="label_by_author">Posted by
+              <span i18n:translate="label_by_author">
               <a href="#"
                  title="Read more posts by this author"
                  tal:attributes="href string:${context/portal_url}/author/${item_creator}"

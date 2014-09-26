@@ -204,7 +204,7 @@
                         
                             <div class="articleDate"
                                 tal:define="formattedDate python:toLocalizedTime(item_obj.Date())"
-                                tal:content="string:posted ${formattedDate}">
+                                tal:content="string:${formattedDate}">
                             </div>
                         </tal:block>                        
                         
