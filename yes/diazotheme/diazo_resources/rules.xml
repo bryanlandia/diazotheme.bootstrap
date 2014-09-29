@@ -69,37 +69,25 @@
     </rules>
 
 
-    <!-- folder listings -->
-    <rules css:if-content=".folder-listing">
-      <replace css:content=".folder-listing .tileItem">
-        <article class="media row">
-            <div class="col-xs-3 col-sm-5 xs-no-gutter-pad">
-              <a href="#">
-                <div data-min-width-0='
-                &lt;img class="media-object img-responsive" src="http://lorempixel.com/159/99/people" 
-                alt="image caption"&gt;'
-                data-min-width-667='
-                &lt;img class="media-object img-responsive" src="http://lorempixel.com/448/278/people" 
-                alt="image caption"&gt;
-                '></div>
-              </a>
-            </div>
-            <div class="media-body col-xs-9 col-sm-7">
-              <header><a href="#">This Couple's Marriage Healed the Planet and Cost Just $3K</a></header>
-              <p>Produce auctions are getting fresh vegetables into food deserts, building community, and helping rural farmers earn a living.</p>
-              <span class="author hidden-xs" rel="author">Roman Krznaric</span>
-              <time pubdate="pubdate" class="hidden-xs published updated" datetime="2014-02-16" title="June 19, 2014">6/19/2014</time> 
-            </div>
-          </article>
-      </replace>  
-      <replace css:theme-children="#folder-listing-one" css:content=".folder-listing article"/>
-      <!-- <dl id="details">
-          <xsl:for-each css:select="table#details > tr">
-              <dt><xsl:copy-of select="td[1]/text()"/></dt>
-              <dd><xsl:copy-of select="td[2]/node()"/></dd>
-          </xsl:for-each>
-      </dl> -->
+    <!-- listings -->
+    <rules css:if-content=".article-listing">
+      <replace css:theme-children="#folder-listing-one" css:content=".article-listing article"/>
     </rules>
+
+    <!-- make all article images responsive -->
+    <xsl:template css:match="article img">
+      <xsl:copy>
+          <xsl:attribute name="class">img-responsive</xsl:attribute>
+          <xsl:copy-of select="@*" />
+          <xsl:apply-templates />
+      </xsl:copy>
+    </xsl:template>
+
+    <!-- article listings:
+         put first three featured (or normal if fewer than three featured)
+         articles into a Carousel, and then every fourth to full-width image
+         format
+    -->
 
 
 

@@ -1,0 +1,79 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal">
+
+    <!-- takes a plone.app.contentlisting contentlistingObject called item -->
+    <metal:listing-macro define-macro="article_listing">
+        
+        <tal:articleitem define="featured item/getIs_featured;
+                                 lead_image_tag item/lead_image|nothing;
+                                 toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+    
+
+            <tal:featured-article condition="featured">
+
+                <div class="leftcolborderedsection row">
+                  <div class="col-sm-offset-0.5 col-sm-11 xs-no-gutter-pad">
+                    <article>
+                      <figure>
+                        <a tal:attributes="href item/getURL">
+                            <div tal:replace="structure lead_image_tag"></div>
+                        </a>
+                        <figcaption>
+                          <h5 class="from-current" tal:condition="nothing">From the Current Issue</h5>
+                          <h4><a tal:attributes="href item/getURL"
+                                 tal:content="item/Title">Why the Kings of Bhutan Ride Bicycles</a>
+                          </h4>
+                          <a tal:attributes="href item/getURL">
+                            <span tal:content="item/subheadline">
+                                Bhutanese Prime Minister Jigmi Y. Thinley on Gross National Happiness,
+                                his country's traditions, and the ideal of democracy.
+                            </span>
+                            <span class="author" rel="author" 
+                                tal:content="item/Creator">Roman Krznaric</span>
+                            <time pubdate="pubdate" class="hidden-xs published updated" 
+                            tal:attributes="datetime string:2014-02-16;
+                                            title string:June 19, 2014"
+                            tal:content="python:toLocalizedTime(item.created)">6/19/2014</time>
+                        </a>
+                        </figcaption>
+                      </figure>                                      
+                    </article>
+                  </div>
+                </div><!-- /.leftcolborderedsection.row -->
+
+            </tal:featured-article>
+            
+            <tal:normal-article condition="not:featured">
+                <article class="media row">
+
+                  <div class="col-xs-3 col-sm-5 xs-no-gutter-pad">
+                    <a tal:attributes="href item/getURL">
+                      <!-- this should get another data-min-width for smaller sizes -->  
+                      <div tal:replace="structure lead_image_tag"></div>
+                    </a>
+                  </div>
+                  <div class="media-body col-xs-9 col-sm-7">
+                    <header><a tal:attributes="href item/getURL" 
+                             tal:content="item/Title">This Couple's Marriage Healed the Planet and Cost Just $3K</a>
+                    </header>
+                    
+                    <p tal:content="item/subheadline">Produce auctions are getting fresh vegetables into food deserts, building community, and helping rural farmers earn a living.</p>
+
+                    <span class="author hidden-xs" rel="author" 
+                        tal:content="item/Creator">Roman Krznaric</span>
+
+                    <time pubdate="pubdate" class="hidden-xs published updated" 
+                        tal:attributes="datetime string:2014-02-16;
+                                        title string:June 19, 2014"
+                        tal:content="python:toLocalizedTime(item.created)">6/19/2014</time> 
+                  </div>
+
+                </article>
+            </tal:normal-article>
+
+        </tal:articleitem>
+        
+
+    </metal:listing-macro>    
+
+</html>

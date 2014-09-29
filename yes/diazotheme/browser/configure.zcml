@@ -154,15 +154,6 @@
 		layer=".interfaces.IThemeSpecific"
         />
 
-    <!-- The search box -->
-    <browser:viewlet
-        name="plone.searchbox"
-        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-        class=".viewlets.SearchBoxViewlet"
-        permission="zope2.View" 
-		layer=".interfaces.IThemeSpecific"
-        />
-
     <!-- Footer -->
     <browser:viewlet
         name="plone.footer"
@@ -385,7 +376,7 @@
        attribute="get_shares"
        />  
 
-<browser:page
+  <browser:page
        name="googleplusones"
        for="*"
        class=".helpers.GooglePlusGetter"
@@ -393,6 +384,12 @@
        attribute="get_plusones"
        />         
 
+  <browser:page 
+      name="articlesListing"
+      for="Products.CMFCore.interfaces._content.IFolderish"
+      class=".listing.ArticlesListing"
+      permission="zope2.View"
+  />    
 
 
       

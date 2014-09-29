@@ -10,10 +10,6 @@ from quintagroup.seoptimizer.browser.viewlets import TitleCommentNoframeViewlet
 from quintagroup.canonicalpath.interfaces import ICanonicalLink
 
 
-class SearchBoxViewlet(base.SearchBoxViewlet):
-    index = ViewPageTemplateFile('searchbox.pt')
-
-
 class GlobalSectionsViewlet(base.GlobalSectionsViewlet):
 	"""just needed an extra wrapper div"""
 	index = ViewPageTemplateFile('sections.pt')
