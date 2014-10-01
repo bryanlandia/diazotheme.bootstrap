@@ -1,79 +1,101 @@
 <html xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal">
 
+
+    <!-- common elements of all styles of article listings -->
+    <metal:listing-common define-macro="article_listing_common">  
+      <figure>
+        <a tal:attributes="href item/getURL">
+            <div tal:replace="structure lead_image_tag"></div>
+        </a>
+        <figcaption>
+          <!-- <h5 class="from-current">From the Current Issue</h5> -->
+          <h4><a tal:attributes="href item/getURL"
+                 tal:content="item/Title">Why the Kings of Bhutan Ride Bicycles</a>
+          </h4>
+          <a tal:attributes="href item/getURL">
+            <span tal:content="item/subheadline">
+                Bhutanese Prime Minister Jigmi Y. Thinley on Gross National Happiness,
+                his country's traditions, and the ideal of democracy.
+            </span>
+            <div metal:use-macro="context/listing_macros/macros/listing-byline" />
+        </a>
+        </figcaption>
+      </figure>              
+    </metal:listing-common>  
+
+
+    <metal:listing-byline define-macro="listing-byline">
+      <span class="author" rel="author" 
+                tal:content="item/Creator">Roman Krznaric</span>
+            <time pubdate="pubdate" class="hidden-xs published updated" 
+            tal:attributes="datetime string:2014-02-16;
+                            title string:June 19, 2014"
+            tal:content="python:toLocalizedTime(item.created)">6/19/2014</time>
+    </metal:listing-byline>  
+
+
+    <metal:listing-phone-top-feature define-macro="article_listing_phone_top_feature">
+      <article class="phone-top-feature">
+        <div metal:use-macro="context/listing_macros/macros/article_listing_common" />
+      </article>  
+
+    </metal:listing-phone-top-feature>
+
     <!-- takes a plone.app.contentlisting contentlistingObject called item -->
-    <metal:listing-macro define-macro="article_listing">
-        
-        <tal:articleitem define="featured item/getIs_featured;
-                                 lead_image_tag item/lead_image|nothing;
-                                 toLocalizedTime nocall:context/@@plone/toLocalizedTime">
-    
+    <metal:listing-carousel define-macro="article_listing_carousel">
+      <div tal:define="first repeat/item/start"
+           tal:attributes="class python:first and 'article-carousel item active' or 'article-carousel item'">
+        <article class="carousel">
+          <div metal:use-macro="context/listing_macros/macros/article_listing_common" />                        
+        </article>
+      </div><!-- /.item --> 
+    </metal:listing-carousel>  
 
-            <tal:featured-article condition="featured">
 
-                <div class="leftcolborderedsection row">
-                  <div class="col-sm-offset-0.5 col-sm-11 xs-no-gutter-pad">
-                    <article>
-                      <figure>
-                        <a tal:attributes="href item/getURL">
-                            <div tal:replace="structure lead_image_tag"></div>
-                        </a>
-                        <figcaption>
-                          <h5 class="from-current" tal:condition="nothing">From the Current Issue</h5>
-                          <h4><a tal:attributes="href item/getURL"
-                                 tal:content="item/Title">Why the Kings of Bhutan Ride Bicycles</a>
-                          </h4>
-                          <a tal:attributes="href item/getURL">
-                            <span tal:content="item/subheadline">
-                                Bhutanese Prime Minister Jigmi Y. Thinley on Gross National Happiness,
-                                his country's traditions, and the ideal of democracy.
-                            </span>
-                            <span class="author" rel="author" 
-                                tal:content="item/Creator">Roman Krznaric</span>
-                            <time pubdate="pubdate" class="hidden-xs published updated" 
-                            tal:attributes="datetime string:2014-02-16;
-                                            title string:June 19, 2014"
-                            tal:content="python:toLocalizedTime(item.created)">6/19/2014</time>
-                        </a>
-                        </figcaption>
-                      </figure>                                      
-                    </article>
-                  </div>
-                </div><!-- /.leftcolborderedsection.row -->
 
-            </tal:featured-article>
-            
-            <tal:normal-article condition="not:featured">
-                <article class="media row">
+    <metal:listing-featured define-macro="article_listing_featured">
 
-                  <div class="col-xs-3 col-sm-5 xs-no-gutter-pad">
-                    <a tal:attributes="href item/getURL">
-                      <!-- this should get another data-min-width for smaller sizes -->  
-                      <div tal:replace="structure lead_image_tag"></div>
-                    </a>
-                  </div>
-                  <div class="media-body col-xs-9 col-sm-7">
-                    <header><a tal:attributes="href item/getURL" 
-                             tal:content="item/Title">This Couple's Marriage Healed the Planet and Cost Just $3K</a>
-                    </header>
-                    
-                    <p tal:content="item/subheadline">Produce auctions are getting fresh vegetables into food deserts, building community, and helping rural farmers earn a living.</p>
+        <tal:articleitem>
+          <article class="featured">
+          <div class="leftcolborderedsection row">
+            <div class="col-sm-offset-0.5 col-sm-11 xs-no-gutter-pad">              
+                <div metal:use-macro="context/listing_macros/macros/article_listing_common" />                                      
+            </div>
+          </div><!-- /.leftcolborderedsection.row -->
+          </article>
 
-                    <span class="author hidden-xs" rel="author" 
-                        tal:content="item/Creator">Roman Krznaric</span>
+          </tal:articleitem>  
+    </metal:listing-featured> 
 
-                    <time pubdate="pubdate" class="hidden-xs published updated" 
-                        tal:attributes="datetime string:2014-02-16;
-                                        title string:June 19, 2014"
-                        tal:content="python:toLocalizedTime(item.created)">6/19/2014</time> 
-                  </div>
 
-                </article>
-            </tal:normal-article>
 
-        </tal:articleitem>
+    <metal:listing-normal define-macro="article_listing_normal">
+      <tal:normal-article>
+          <article class="normal media row">
+
+            <div class="col-xs-3 col-sm-5 xs-no-gutter-pad">
+              <a tal:attributes="href item/getURL">
+                <!-- this should get another data-min-width for smaller sizes -->  
+                <div tal:replace="structure lead_image_tag"></div>
+              </a>
+            </div>
+            <div class="media-body col-xs-9 col-sm-7">
+              <header><a tal:attributes="href item/getURL" 
+                       tal:content="item/Title">This Couple's Marriage Healed the Planet and Cost Just $3K</a>
+              </header>
+              
+              <p tal:content="item/subheadline">Produce auctions are getting fresh vegetables into food deserts, building community, and helping rural farmers earn a living.</p>
+
+              <div metal:use-macro="context/listing_macros/macros/listing-byline" />
+
+            </div>
+
+          </article>
+      </tal:normal-article>
+    </metal:listing-normal>
         
 
-    </metal:listing-macro>    
+       
 
 </html>

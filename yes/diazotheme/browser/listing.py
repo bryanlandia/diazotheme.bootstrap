@@ -15,20 +15,24 @@ class ArticlesListing(BrowserView):
         self.catalog = getToolByName(context, 'portal_catalog')
         self.context = context
 
-    def _get_catalog_results(self, featured=False, limit=0):
-        folder_path = '/'.join(self.context.getPhysicalPath())
-        path_q = {'query': folder_path}
+    def _get_catalog_results(self, featured=False, limit=0, **kw):
+        """ return catalog brains for published Articles and Blog Entries
+            inside the context on which it's called
+        """
+        if kw['context']:
+            kw['path'] = {'query': '/'.join(kw['context'].getPhysicalPath())}
+
         types = ('Article', 'Blog Entry', )
         states = ('published', )
         sort = 'Date'
         
-        results = self.catalog.searchResults(portal_types=types,
-                                             path=path_q,
+        results = self.catalog.searchResults(portal_type=types,
                                              review_state=states,
                                              is_featured=featured,
                                              sort_on=sort,  
                                              sort_order='descending',
-                                             sort_limit=limit)
+                                             sort_limit=limit,
+                                             **kw)
 
         return results[:limit]
 
@@ -47,10 +51,10 @@ class ArticlesListing(BrowserView):
         mixed = deque()
         featured = deque(featured)
         standard = deque(standard)
-
-        mixed.append(featured.pop())
-        mixed.append(featured.pop())
-        mixed.append(featured.pop())
+        
+        for i in range(1, 3):
+            if len(featured):
+                mixed.append(featured.pop())
 
         while len(featured):    
             mixed.append(standard.pop())
@@ -61,16 +65,16 @@ class ArticlesListing(BrowserView):
             mixed.append(standard.pop())
         return list(mixed)
 
-    def get_featured_listings(self, limit):
-        return self._get_catalog_results(featured=True, limit=limit)
+    def get_featured_listings(self, limit, **kw):
+        return self._get_catalog_results(featured=True, limit=limit, **kw)
 
-    def get_standard_listings(self, limit):
-        return self._get_catalog_results(limit=limit)
+    def get_standard_listings(self, limit, **kw):
+        return self._get_catalog_results(featured=False, limit=limit, **kw)
 
-    def __call__(self, limit):
-        featured = self.get_featured_listings(limit)
-        standard = self.get_standard_listings(limit)
-        results = self._sort_to_features_mix(featured, standard)
+    def __call__(self, limit, **kw):
+        featured = self.get_featured_listings(limit, **kw)
+        standard = self.get_standard_listings(limit, **kw)
+        results = self._sort_to_features_mix(featured, standard)[:limit]
 
         if results:
             contentlist = IContentListing(results)

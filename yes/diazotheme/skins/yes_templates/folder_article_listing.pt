@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+<metal:main fill-slot="main">
+
+    <metal:main-macro define-macro="main"
+           tal:define="templateId template/getId;">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+        <ul class="article-listing" tal:define="results python:context.restrictedTraverse('@@articlesListing')(limit=15, context=context)">
+          <tal:item tal:repeat="item results">
+            <tal:article tal:define="featured item/getIs_featured;
+                                     lead_image_tag item/lead_image|nothing;
+                                     toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+
+              <div tal:condition="not:featured" metal:use-macro="context/listing_macros/macros/article_listing_normal">
+                normal presentation
+              </div>
+
+              <div tal:condition="python:featured and repeat['item'].start" 
+                metal:use-macro="context/listing_macros/macros/article_listing_phone_top_feature">top feature
+                for phone presentation
+              </div>
+
+
+              <div tal:condition="python:featured and repeat['item'].index &lt; 3">
+                <ul class="carousel-indicator">
+                  <li data-target="#homepage-carousel" 
+                    tal:attributes="data-slide-to repeat/item/index;
+                                    class python:repeat['item'].start and 'active' or ''">
+                  </li>
+                </ul>
+                <div metal:use-macro="context/listing_macros/macros/article_listing_carousel">carousel presentation</div>
+              </div>
+
+
+              <div tal:condition="python:featured and repeat['item'].number in (2,3)">
+                <div class="listing-phone-only visible-xs">
+                  <div metal:use-macro="context/listing_macros/macros/article_listing_normal">
+                  repeat the 2nd and 3rd features for phone... they become normal presentation listings
+                  </div>
+                </div>
+              </div>
+
+              <div tal:condition="python:featured and repeat['item'].index &gt;= 3" 
+                metal:use-macro="context/listing_macros/macros/article_listing_featured">
+                featured presentation
+              </div>
+              
+            </tal:article>
+          </tal:item> 
+        </ul>
+            
+    </metal:main-macro>
+</metal:main>
+
+</body>
+</html>

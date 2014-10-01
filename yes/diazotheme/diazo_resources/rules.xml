@@ -71,8 +71,15 @@
 
     <!-- listings -->
     <rules css:if-content=".article-listing">
-      <replace css:theme-children="#folder-listing-one" css:content=".article-listing article"/>
+      <replace css:theme-children="#phone-carousel-sub" css:content=".article-listing article.phone-top-feature"/>
+      <replace css:theme-children="ol.carousel-indicators" css:content="ul.carousel-indicator li" />
+      <replace css:theme="#carousel-items" css:content=".article-listing .article-carousel"/> 
+      <replace css:theme-children="#folder-listing-one" css:content=".article-listing article.featured, .article-listing > article.normal, .article-listing .listing-phone-only"/>
     </rules>
+
+    <!-- drop sample html -->
+    <drop css:theme="#sample-featured" />
+    <drop css:theme="#folder-listing-two" />
 
     <!-- make all article images responsive -->
     <xsl:template css:match="article img">
@@ -83,11 +90,12 @@
       </xsl:copy>
     </xsl:template>
 
-    <!-- article listings:
-         put first three featured (or normal if fewer than three featured)
-         articles into a Carousel, and then every fourth to full-width image
-         format
-    -->
+
+    <!-- only include Disqus on articles -->
+    <rules css:if-not-content="body.template-article_view">
+      <drop css:theme="aside.disqus" />
+    </rules>  
+    
 
 
 
