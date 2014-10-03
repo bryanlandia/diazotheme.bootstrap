@@ -671,6 +671,12 @@ span.people-power {
   display: none;
 } 
 
+/* NO ADMIN */
+#edit-bar-wrapper {
+    display: none;
+}
+
+
 
 @media screen and (min-width: 667px) {
   /* 736px is landscape iPhone 6 Plus */
@@ -1110,6 +1116,54 @@ span.people-power {
   body.section-voices #nav li a.voices {
     color: rgb(190,192,191);
   }
+
+  /* ADMIN INTERFACE */
+
+  #edit-bar-wrapper {
+    display: block;
+  }
+
+  #edit-bar-wrapper,
+  #edit-bar,
+  #content-views,
+  #contentActionMenus,
+  #contentActionMenus dl.actionMenu a,
+  #contentActionMenus dl.actionMenu.activated dd,
+  #edit-bar-wrapper #portal-personaltools,
+  #edit-bar-wrapper #portal-personaltools dd {
+      background-color: #333;
+      border-color: #333;
+  }
+
+  #edit-bar-wrapper {
+      position: relative;
+      z-index: 1000;
+      top: -23px;
+  }
+
+  #edit-bar {
+      font-size: 0.75em;
+      margin-bottom: 0;
+      border-radius: 0;
+  }
+
+  #edit-bar li {
+    display: inline-block !important;
+  }
+
+  #portal-personaltools {
+      margin-top: 0.25em;
+      font-size: 80%;
+  }
+
+  #portal-personaltools a {
+      color: white !important;
+  }
+
+  #portlet-prefs ul {
+      list-style-image: none;
+      list-style-type: none;
+  }  
 
 
 }

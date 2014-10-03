@@ -19,17 +19,41 @@
         <replace theme="/html/body"
             content="/html/body"/>
     </rules>
-    <!--    
+    
     <notheme if-content="html/head/link[@href='/manage_page_style.css']"/>
     <notheme css:if-content="#content.dialog-wrapper"/>
     <notheme css:if-content="body.popup"/>
-    -->
+    <!-- ensure TinyMCE popups never get themed -->
+    <notheme if-path="presentation_view"/>
+    <notheme if-path="source_editor.htm"/>
+    <notheme if-path="ploneimage.htm"/>
+    <notheme if-path="plonelink.htm"/>
+    <notheme if-path="anchor.htm"/>
+    <notheme if-path="table.htm"/>
+    <notheme if-path="attributes.htm"/>
+    <notheme if-path="media.htm"/>
 
     <theme href="base.html" css:if-content="#visual-portal-wrapper"/>
     <prepend theme="/html/head" content="/html/head/base"/>
 
     <after css:theme="meta[http-equiv='X-UA-Compatible']" 
         content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
+
+
+    <!-- move editing tools to the top -->
+    <!-- <drop css:content="#edit-bar" />
+    <drop css:content="#portal-personaltools-wrapper" /> -->
+    
+    <rules css:if-content="#portal-personaltools-wrapper">
+      <prepend css:theme="body">
+          <div id="edit-bar-wrapper">
+            <xsl:copy-of select="//div[@id='portal-header']//div[@id='portal-personaltools-wrapper']" method="raw" />
+            <xsl:copy-of select="//div[@id='edit-bar']" method="raw" />
+            <div class="visualClear"></div>
+          </div>
+      </prepend>
+    </rules>
+
 
     <!-- logo -->
     <copy attributes="href" css:theme="a.navbar-brand" css:content="a#portal-logo" />
@@ -113,10 +137,10 @@
     </xsl:template>
 
 
-    <!-- only include Disqus on articles -->
     <rules css:if-not-content="body.template-article_view">
-      <!-- <drop css:theme="#main > article" /> -->
+      <drop css:theme="#main > article" />
       <drop css:theme="aside.disqus" />
+      <drop css:theme="#pagination" />
     </rules>  
 
 
@@ -134,6 +158,8 @@
         <drop css:theme=".article-lead-image" />
       </rules>  
       <copy attributes="src alt title" css:theme="article footer address a[rel=author] img" css:content="#article-attribution img" />
+      <copy attributes="href" css:theme="article footer address a[rel=author]" 
+        css:content="#content .articleByline .articleAuthor" />
       <rules css:if-not-content="#article-attribution img">
         <drop css:theme="footer address .article-author-photo" />
       </rules>  
@@ -147,9 +173,8 @@
 
     </rules><!-- /rules .template-article_view -->
 
-    <!-- don't mess with the whitespace around the xsl:attributes in this block -->
+    
     <xsl:template css:match="#relatedItemBox dd">
-
         <!-- get the string value of the contained img -->
         <xsl:variable name="img-string">
           <xsl:apply-templates select=".//img" mode="serialize"/>
@@ -157,7 +182,7 @@
 
         <div class="more-item col-xs-10 col-sm-4">
           <figure>
-            <a>
+            <a><!-- don't mess with the whitespace around the xsl:attributes in this block -->
               <xsl:attribute name="href"><xsl:value-of select=".//a/@href" /></xsl:attribute>
               <div><xsl:attribute name="class">hidden-xs</xsl:attribute><xsl:attribute name="data-min-width-667">
                  <xsl:copy-of select="$img-string" />
@@ -173,6 +198,17 @@
 
     <!-- portlets -->
     
+    <rules css:if-not-content=".portlet-collection-most-recent">
+      <drop css:theme="li#tab-most-recent" />
+      <drop css:theme="#most-recent" />
+    </rules>    
+
+    <rules css:if-not-content=".portletPopular">
+      <drop css:theme="li#tab-most-popular" />
+      <drop css:theme="#most-popular" />
+    </rules>    
+
+
     <replace css:content=".portlet-collection-most-recent dd a">
       <li>
         <xsl:copy-of select="." />
@@ -187,11 +223,11 @@
 
 
     <!-- XSLT UTILITIES  -->
-    <!-- for serializing tags to data-min-width attr values -->
+    <!-- for serializing tags to Response.js data-min-width attr values -->
     <xsl:template match="img" mode="serialize">
       <xsl:text>&lt;</xsl:text><xsl:value-of select="name(.)"/><xsl:text> </xsl:text>
       <xsl:apply-templates select="@*" mode="serialize"/>
-      <xsl:text>class="img-responsive" </xsl:text>
+      <xsl:text>class="img-responsive" </xsl:text> <!--- XXX this shouldn't be here -->
       <xsl:text>/&gt;</xsl:text>
     </xsl:template>
 

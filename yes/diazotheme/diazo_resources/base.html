@@ -81,7 +81,7 @@
                     <input class="form-control" name="SearchableText" placeholder="Search" autocomplete="off"/>
                   </div>
                   <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#searchinputxs"
-                    ><span class="fa fa-search fa-lg"/></button>
+                    ><span class="fa fa-search fa-lg">&nbsp;</span></button>
               </form>
 
             </div><!-- /navbar-header -->
@@ -137,7 +137,7 @@
                     <input class="form-control" name="SearchableText" placeholder="Search" autocomplete="off"/>
                   </div>
                   <button type="button" class="icon" data-toggle="collapse" data-target="#searchinput"
-                    ><img src="++theme++yes.diazotheme/img/yes/search_icon.png" /></button>
+                    ><img src="++theme++yes.diazotheme/img/yes/search_icon.png" alt="search"/></button>
                 </form>
                 
                 <div id="buttonsnavmobilewrapper" class="visible-xs">
@@ -154,11 +154,11 @@
 
 
                 <ul id="tertiarynav" class="hidden-xs nav navbar-nav navbar-right">
-                  <li><a href="#">Infographics</a></li>
-                  <li><a href="#">Magazine Issues</a></li>
-                  <li><a href="#">For Teachers</a></li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Store</a></li>  
+                  <li><a href="/for-teachers/infographics-and-posters">Infographics</a></li>
+                  <li><a href="/issues">Magazine Issues</a></li>
+                  <li><a href="/for-teachers">For Teachers</a></li>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="http://store.yesmagazine.org">Store</a></li>  
                 </ul>  
               </div><!-- /navbar-bottom -->
 
@@ -686,8 +686,8 @@
                               <!-- below content portlets -->
                               <aside class="col-sm-offset-1 col-sm-10 centered-text" >
                                 <img data-src667="http://lorempixel.com/409/89"
-                                     data-src0="" alt=""
-                                     src=""
+                                     data-src0="" alt=""  
+                                     src=""                                   
                                      />
                               </aside>
                             </div>                            
@@ -813,7 +813,7 @@
                               <div class="no-gutter-pad col-sm-offset-1 col-xs-offset-0.5 col-xs-11 col-sm-11 dog-eared green">
                                 <h4 class="centered-text"><big>Get Our Newsletter</big></h4>
                                 <h6 class="centered-text">Powerful Ideas, Practical Actions Weekly</h6>
-                                <form name="newsletterform" class="form-inline">
+                                <form name="newsletterformform" class="form-inline">
                                   <div class="centered-text">
                                     <div class="input-group">
                                       <label class="sr-only" for="email">Email address</label><!-- screen reader only -->
@@ -862,9 +862,9 @@
                               <div class="col-sm-offset-1 col-sm-10 no-gutter-pad">
 
                                 <ul class="nav nav-tabs" role="tablist">
-                                  <li class="active"><a href="#mostpopular" role="tab" data-toggle="tab"
+                                  <li id="tab-most-popular" class="active"><a href="#mostpopular" role="tab" data-toggle="tab"
                                     >Most Popular</a></li>
-                                  <li><a href="#mostrecent" role="tab" data-toggle="tab">Most Recent</a></li>
+                                  <li id="tab-most-recent" ><a href="#mostrecent" role="tab" data-toggle="tab">Most Recent</a></li>
                                 </ul>
 
                                 <div class="tab-content">
@@ -1049,7 +1049,7 @@
             </script>
             <script defer src="js/response.min.js"></script>
             <script defer src="js/plugins.js"></script>
-            <script defer src="js/libs/jquery.twbsPagination.min.js"></script>
+            <script id="twbspagination" defer src="js/libs/jquery.twbsPagination.min.js"></script>
             <!-- <script defer src="openid-selector/js/openid-jquery.js"></script> -->
             <!-- <script defer src="js/libs/jquery.sharrre.js"></script> -->
             <script defer src="js/libs/SocialShare.js"></script/>
