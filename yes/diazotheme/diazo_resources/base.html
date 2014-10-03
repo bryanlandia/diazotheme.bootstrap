@@ -75,17 +75,14 @@
                 <span class="icon-bar">&nbsp;</span>
               </button>
 
-              <div data-min-width-667=""
-                data-min-width-0='  
-                <form id="topsearchbox" class="mobile navbar-form navbar-right form-horizontal" role="search">
-                  <div class="form-group-sm collapse width" id="searchinput">
+              <form id="topsearchbox" class="visible-xs mobile navbar-form navbar-right form-horizontal" role="search">
+                  <div class="form-group-sm collapse width" id="searchinputmobxs">
                     <label class="sr-only" for="SearchableText">Search</label><!-- screen reader only -->
-                    <input class="form-control" name="SearchableText" placeholder="Search"/>
+                    <input class="form-control" name="SearchableText" placeholder="Search" autocomplete="off"/>
                   </div>
-                  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#searchinput"
-                    ><span class="fa fa-search fa-lg"></button>
-                </form>'>
-              </div> 
+                  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#searchinputxs"
+                    ><span class="fa fa-search fa-lg"/></button>
+              </form>
 
             </div><!-- /navbar-header -->
 
@@ -107,11 +104,10 @@
                   <li><small><a href="#">My Subscription</a></small></li>
                 </ul>
 
-                <div data-min-width-667='
                 <ul id="topbuttonsnav" class="nav navbar-nav nav-tabs navbar-left">
                   <li><a href="#">Subscribe</a></li>
                   <li><a href="#">Donate</a></li>
-                </ul>'></div>
+                </ul>
 
               </div>
 
@@ -134,28 +130,27 @@
                   <li class="hidden-xs"><a href="/voices">Voices</a></li>
                 </ul>
 
-                <div data-min-width-667='
-                  <form id="topsearchbox" class="navbar-form navbar-right form-horizontal" role="search">
-                    <div class="form-group-sm collapse width" id="searchinput">
-                      <label class="sr-only" for="SearchableText">Search</label><!-- screen reader only -->
-                      <input class="form-control" name="SearchableText" placeholder="Search"/>
-                    </div>
-                    <button type="button" class="icon" data-toggle="collapse" data-target="#searchinput"
-                      ><img src="++theme++yes.diazotheme/img/yes/search_icon.png" /></button>
-                  </form>
-                </div>'></div>
+              
+                <form id="topsearchbox" class="hidden-xs navbar-form navbar-right form-horizontal" role="search">
+                  <div class="form-group-sm collapse width" id="searchinput">
+                    <label class="sr-only" for="SearchableText">Search</label><!-- screen reader only -->
+                    <input class="form-control" name="SearchableText" placeholder="Search" autocomplete="off"/>
+                  </div>
+                  <button type="button" class="icon" data-toggle="collapse" data-target="#searchinput"
+                    ><img src="++theme++yes.diazotheme/img/yes/search_icon.png" /></button>
+                </form>
+                
+                <div id="buttonsnavmobilewrapper" class="visible-xs">
+                  <ul id="topbuttonsnav" class="nav navbar-nav navbar-left col-xs-6">
+                    <li><a href="#">Subscribe</a></li>
+                    <li><a href="#">Donate</a></li>
+                  </ul>
 
-                <div data-min-width-0='<div id="buttonsnavmobilewrapper">
-                <ul id="topbuttonsnav" class="nav navbar-nav navbar-left col-xs-6">
-                  <li><a href="#">Subscribe</a></li>
-                  <li><a href="#">Donate</a></li>
-                </ul>
-
-                <ul id="topbuttonsnavmobile" class="visible-xs-block nav navbar-nav navbar-left col-xs-6">
-                  <li><a href="#">Yes! By Email</a></li>
-                  <li><a href="#">Store</a></li>
-                </ul></div>'
-                data-min-width-667=''></div>  
+                  <ul id="topbuttonsnavmobile" class="visible-xs-block nav navbar-nav navbar-left col-xs-6">
+                    <li><a href="#">Yes! By Email</a></li>
+                    <li><a href="#">Store</a></li>
+                  </ul>
+                </div>
 
 
                 <ul id="tertiarynav" class="hidden-xs nav navbar-nav navbar-right">
@@ -319,7 +314,7 @@
                             </div>  
                           </div><!-- /.leftcolborderedsection.row -->  
 
-                          <div class="row leftcolborderedsection">
+                          <div id="listings" class="row leftcolborderedsection">
 
                               <div id="folder-listing-one" class="col-xs-offset-0.5 col-xs-11 xs-no-gutter-pad"> 
 
@@ -633,12 +628,12 @@
                           <footer>
                             <div class="vcard row">
                               <address rel="author" class="author">
-                                <div class="col-sm-offset-1 col-xs-4 col-sm-2">
+                                <div class="article-author-photo col-sm-offset-1 col-xs-4 col-sm-2">
                                   <a rel="author" class="url" href="http://newurbanhabitat.com"><img 
                                     class="photo img-responsive" src="http://lorempixel.com/g/78/93/people" 
                                  width="78" height="93" alt="photo of Abby Quillen" /></a>
                                </div>
-                               <div class="col-xs-8">
+                               <div id="article-attribution" class="col-xs-8">
                                 <span class="fn">Abby Quillen</span> wrote this article for 
                                 <a href="#">How to Eat Like Our Lives Depended On It</a>, the Winter
                                 2014 issue of <span class="org">YES! Magazine</span>. Abby is a 
@@ -725,12 +720,13 @@
                             <aside class="more-on-topic row">
                               <div class="no-gutter-pad col-xs-offset-0.5 col-xs-11">
                                 <div data-min-width-0='
-                                <header><h5>More on <span class="planet">Planet</span></h5></header>
+                                <header><h5>Read More
                                 '
-                                data-min-width-667='<header><h6>More on <span class="planet">Planet</span></h6></header>'></div>
+                                data-min-width-667='<header><h6>Read More</h6></header>'></div>
                                 <!-- more from topic -->
                                 <div class="row">
-                                  <div class="col-sm-4">
+
+                                  <div class="more-item col-sm-4">
                                     <figure>
                                     <div class="hidden-xs" data-min-width-667='
                                       <a href="#"><img class="img-responsive" src="http://lorempixel.com/183/112" width="183" height="112" alt="" /></a>
@@ -738,7 +734,8 @@
                                     <figcaption><a href="#">Worker Owned Window Factory Opens For Business</a></figcaption>
                                     </figure>
                                   </div>
-                                  <div class="col-xs-10 col-sm-4">
+
+                                  <div class="more-item col-xs-10 col-sm-4">
                                     <figure>
                                       <div class="hidden-xs" data-min-width-667='
                                         <a href="#"><img class="img-responsive" src="http://lorempixel.com/183/112" width="183" height="112" alt="" /></a>
@@ -746,7 +743,8 @@
                                     <figcaption><a href="#">Green Housing: In Buffalo, It's Not Just for Rich People Anymore</a></figcaption>
                                     </figure>
                                   </div>
-                                  <div class="col-xs-10 col-sm-4">
+
+                                  <div class="more-item col-xs-10 col-sm-4">
                                     <figure>
                                       <div class="hidden-xs" data-min-width-667='
                                       <a href="#"><img class="img-responsive" src="http://lorempixel.com/183/112" width="183" height="112" alt="" /></a>
@@ -755,6 +753,7 @@
                                     </figure>
                                   </div>
                                 </div>
+
                               </div>
                             </aside> 
 
@@ -769,7 +768,7 @@
                                   ></div>
                                 </header>
                                 <div id="disqus_thread" class="collapse collapse-mobile"></div>
-                                <script type="text/javascript">
+                                <script id="disqus_sample" type="text/javascript">
                                   var disqus_url = "http://www.yesmagazine.org/issues/the-end-of-poverty/the-antidote-to-mansplaining/";
                                   var disqus_identifier = '2eb843d58d1d4241b699fcfeadddafb2';
                                   var disqus_developer = 1;
@@ -1036,7 +1035,7 @@
          <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
          <script>window.jQuery || document.write('<script src="js/libs/jquery-1.9.1.min.js"><\/script>')</script>
          -->
-
+            <script id="page_url"></script> 
             <script src="js/libs/jquery-1.9.1.js"></script>
             <!-- <script src="js/libs/jquery-1.9.1.min.js"></script> -->
             <script src="bootstrap/js/bootstrap.js"></script>

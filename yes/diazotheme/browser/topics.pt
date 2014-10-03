@@ -5,12 +5,16 @@
 	<ul>
 	    <tal:block tal:repeat="topic topics">
     	    <li>
-    	        <a tal:attributes="href string:${portal_url}/${topic/getId}"
+    	        <a tal:attributes="href string:${portal_url}/${topic/getId};
+                                   class string:${topic/getId}"
     	           tal:content="topic/getTermValue">
     	           Power
     	        </a>
     		</li>
     	</tal:block>
+        <li>
+           <a class="voices" tal:attributes="href string:${portal_url}/voices">Voices</a> 
+        </li>    
 	</ul>
 
 </div>

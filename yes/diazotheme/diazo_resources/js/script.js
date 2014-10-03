@@ -66,10 +66,9 @@ $(document).ready(function () {
     prepPagination();
 
     // get followers/likes/plusones
-    var url = "http://www.yesmagazine.org";
-    getfbcount(url);
-    gettwcount(url);
-    getplusone(url);
+    getfbcount('http://www.yesmagazine.org/');
+    gettwcount('http://www.yesmagazine.org/');
+    getplusone('http://www.yesmagazine.org/');
 
     // copy the above content sharebar to below content
     $('#below-content-sharebar').html($('#content-sharebar').html());
@@ -77,10 +76,10 @@ $(document).ready(function () {
     $('.share').ShareLink({
       title: document.title,
       text: document.title,
-      url: 'http://www.yesmagazine.org/happiness/an-astronomer-explains-why-this-is-the-best-moment-in-cosmic-history-to-be-alive'
+      url: disqus_url //uses canonical link
     });
     $('.counter').ShareCounter({
-      url: 'http://www.yesmagazine.org/happiness/an-astronomer-explains-why-this-is-the-best-moment-in-cosmic-history-to-be-alive'
+      url: disqus_url //uses canonical link
     });
 
     // copy the right col. newsletter form to below content

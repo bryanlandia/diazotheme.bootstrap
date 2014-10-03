@@ -6,6 +6,8 @@
     >
     <replace theme="/html/head/title" content="/html/head/title" />
 
+    <merge attributes="class" css:theme="body" css:content="body" />
+
     <!-- dialog boxes -->
     <theme href="dialog.html" css:if-content="#content.dialog-wrapper"/>
     <drop css:content="meta[http-equiv='X-UA-Compatible']"/>
@@ -29,9 +31,21 @@
     <after css:theme="meta[http-equiv='X-UA-Compatible']" 
         content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
 
+    <!-- logo -->
+    <copy attributes="href" css:theme="a.navbar-brand" css:content="a#portal-logo" />
+
+    <!-- top nav -->
+    <replace css:theme-children="ul#nav" css:content-children="#vocabulary ul" />
+
+    <!-- top right nav -->
+    <replace css:theme-children="#issuenav" css:content="#topright ul li.list" />
+
+    <!-- top tabs -->
+    <replace css:theme-children="#topbuttonsnav" css:content="#topright ul li.toptab" />
 
     <!-- search -->
-    <!-- <copy css:theme="#topsearchbox" css:content="#portal-searchbox form" attributes="action"/>  -->
+    <copy attributes="action" css:theme="#topsearchbox" css:content="#portal-searchbox form"/>
+    <append css:theme="form#topsearchbox" css:content=".LSResult" />
     
     <!-- content title -->
     <replace css:theme-children="#content-title" css:content-children="h1.documentFirstHeading" />
@@ -47,7 +61,7 @@
 
 
     <!-- content body -->
-    <replace css:theme-children="#story-content" css:content-children="#content #article-content" />
+    
 
 
     <!-- topic landing page -->
@@ -77,7 +91,15 @@
       <replace css:theme-children="#folder-listing-one" css:content=".article-listing article.featured, .article-listing > article.normal, .article-listing .listing-phone-only"/>
     </rules>
 
-    <!-- drop sample html -->
+    <rules css:if-not-content=".article-listing">
+      <drop css:theme="#homepage-content" />
+      <drop css:theme="#listings" />
+      <drop css:theme="#phone-carousel-sub" />
+      <drop css:theme="#homepage-carousel" />
+      <drop css:theme="#folder-listing-one" />  
+    </rules>
+
+    <!-- drop sample-only html -->
     <drop css:theme="#sample-featured" />
     <drop css:theme="#folder-listing-two" />
 
@@ -93,12 +115,94 @@
 
     <!-- only include Disqus on articles -->
     <rules css:if-not-content="body.template-article_view">
+      <!-- <drop css:theme="#main > article" /> -->
       <drop css:theme="aside.disqus" />
     </rules>  
+
+
+    <!-- always drop the disqus sample script tag -->
+    <drop css:theme="script#disqus_sample"/>
+
+
+    <!-- article views -->
+    <rules css:if-content="body.template-article_view">
+
+      <replace css:theme="figure.article-lead-image img" css:content-children="#article-lead-image" />
+      <replace css:theme-children=".article-lead-image figcaption div" css:content-children="#article-lead-caption" />
+      <replace css:theme-children="#story-content" css:content-children="#article-content" />
+      <rules css:if-not-content="#article-lead-image img">
+        <drop css:theme=".article-lead-image" />
+      </rules>  
+      <copy attributes="src alt title" css:theme="article footer address a[rel=author] img" css:content="#article-attribution img" />
+      <rules css:if-not-content="#article-attribution img">
+        <drop css:theme="footer address .article-author-photo" />
+      </rules>  
+      <replace css:theme-children="#article-attribution" 
+        content="//div[@id='article-attribution']/p/node()[not(self::img)]|text()" />
+
+      <!-- related items -->  
+      <replace css:theme-children="aside.more-on-topic.row div.row">
+        <xsl:apply-templates css:select="#relatedItemBox dd"/>
+      </replace>  
+
+    </rules><!-- /rules .template-article_view -->
+
+    <!-- don't mess with the whitespace around the xsl:attributes in this block -->
+    <xsl:template css:match="#relatedItemBox dd">
+
+        <!-- get the string value of the contained img -->
+        <xsl:variable name="img-string">
+          <xsl:apply-templates select=".//img" mode="serialize"/>
+        </xsl:variable>
+
+        <div class="more-item col-xs-10 col-sm-4">
+          <figure>
+            <a>
+              <xsl:attribute name="href"><xsl:value-of select=".//a/@href" /></xsl:attribute>
+              <div><xsl:attribute name="class">hidden-xs</xsl:attribute><xsl:attribute name="data-min-width-667">
+                 <xsl:copy-of select="$img-string" />
+              </xsl:attribute></div>
+            </a>
+            <figcaption>
+              <xsl:copy-of select=".//a" />
+            </figcaption>  
+          </figure>
+        </div>    
+    </xsl:template>
+
+
+    <!-- portlets -->
     
+    <replace css:content=".portlet-collection-most-recent dd a">
+      <li>
+        <xsl:copy-of select="." />
+      </li>
+    </replace>
+    <xsl:template css:match=".portlet-collection-most-recent a .portletItemDetails" />
+    <!-- <drop css:content=".portlet-collection-most-recent .portletItemDetails" /> -->
+    <replace css:theme-children="#mostrecent ul" css:content-children=".portlet-collection-most-recent dd" />
+    <replace css:theme-children="#mostpopular ul" css:content=".portletPopular dd li" />
+
+    <!-- javascript -->
 
 
+    <!-- XSLT UTILITIES  -->
+    <!-- for serializing tags to data-min-width attr values -->
+    <xsl:template match="img" mode="serialize">
+      <xsl:text>&lt;</xsl:text><xsl:value-of select="name(.)"/><xsl:text> </xsl:text>
+      <xsl:apply-templates select="@*" mode="serialize"/>
+      <xsl:text>class="img-responsive" </xsl:text>
+      <xsl:text>/&gt;</xsl:text>
+    </xsl:template>
 
+    <xsl:template match="@*" mode="serialize">
+      <xsl:value-of select="name(.)"/><xsl:text>='</xsl:text><xsl:value-of select="."/><xsl:text>' </xsl:text>
+    </xsl:template>
+
+    <xsl:template match="text()" mode="serialize">
+      <xsl:value-of select="."/>
+    </xsl:template>
+    
 
 
 </rules>    
