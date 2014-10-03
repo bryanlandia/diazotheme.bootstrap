@@ -36,14 +36,23 @@
     <theme href="base.html" css:if-content="#visual-portal-wrapper"/>
     <prepend theme="/html/head" content="/html/head/base"/>
 
+    <!-- https://github.com/sunew/diazo-bootstrap/blob/master/rules-plone.xml -->
+    <drop css:content="link[href$='public.css']" />
+    <drop css:content="link[href$='columns.css']" />
+    <drop css:content="link[href$='portlets.css']" />
+    <drop css:content="link[href$='discussion.css']" />
+    <drop css:content="link[href$='ploneKss.css']" />
+    <drop css:content="link[href$='member.css']" />
+    <drop css:content="link[href$='print.css']" />
+    <drop css:content="link[href$='mobile.css']" />
+    <drop css:content="link[href*='base-cachekey']" />
+    <drop css:content="link[href$='favicon.ico']" />
+
     <after css:theme="meta[http-equiv='X-UA-Compatible']" 
         content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
 
 
-    <!-- move editing tools to the top -->
-    <!-- <drop css:content="#edit-bar" />
-    <drop css:content="#portal-personaltools-wrapper" /> -->
-    
+    <!-- move editing tools to the top -->  
     <rules css:if-content="#portal-personaltools-wrapper">
       <prepend css:theme="body">
           <div id="edit-bar-wrapper">
@@ -83,11 +92,6 @@
     <!-- content publish date -->
     <replace css:theme-children="#content .byline time" css:content-children="#content .articleDate" />
 
-
-    <!-- content body -->
-    
-
-
     <!-- topic landing page -->
     <rules css:if-not-content="#topic-slot-three">
         <drop css:theme=".topic-header" />
@@ -120,8 +124,17 @@
       <drop css:theme="#listings" />
       <drop css:theme="#phone-carousel-sub" />
       <drop css:theme="#homepage-carousel" />
-      <drop css:theme="#folder-listing-one" />  
+      <drop css:theme="#folder-listing-one" />
     </rules>
+
+    <rules css:if-not-content="body.template-article_view">
+      <replace css:theme-children="#story-content" css:content-children="#content-core" />    
+      <drop css:theme="#article-lead-image-row" />
+      <drop css:theme="#content-sharebar" />
+      <drop css:theme="aside.disqus" />
+      <drop css:theme="#pagination" />
+      <drop css:theme="#main > article > footer" />
+    </rules>  
 
     <!-- drop sample-only html -->
     <drop css:theme="#sample-featured" />
@@ -135,14 +148,6 @@
           <xsl:apply-templates />
       </xsl:copy>
     </xsl:template>
-
-
-    <rules css:if-not-content="body.template-article_view">
-      <drop css:theme="#main > article" />
-      <drop css:theme="aside.disqus" />
-      <drop css:theme="#pagination" />
-    </rules>  
-
 
     <!-- always drop the disqus sample script tag -->
     <drop css:theme="script#disqus_sample"/>
@@ -197,7 +202,14 @@
 
 
     <!-- portlets -->
-    
+
+    <!-- if there are no right column portlets then drop theme right col -->
+    <rules css:if-not-content="#portal-column-two">
+      <drop css:theme="#right-column"/>
+      <!-- increase width of left column by dropping class -->
+      <drop attributes="class" css:theme="#center-column" />
+    </rules>
+
     <rules css:if-not-content=".portlet-collection-most-recent">
       <drop css:theme="li#tab-most-recent" />
       <drop css:theme="#most-recent" />
