@@ -46,7 +46,7 @@
     <drop css:content="link[href$='print.css']" />
     <drop css:content="link[href$='mobile.css']" />
     <drop css:content="link[href*='base-cachekey']" />
-    <drop css:content="link[href$='favicon.ico']" />
+    <!-- <drop css:content="link[href$='favicon.ico']" /> -->
 
     <after css:theme="meta[http-equiv='X-UA-Compatible']" 
         content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
@@ -80,17 +80,6 @@
     <copy attributes="action" css:theme="#topsearchbox" css:content="#portal-searchbox form"/>
     <append css:theme="form#topsearchbox" css:content=".LSResult" />
     
-    <!-- content title -->
-    <replace css:theme-children="#content-title" css:content-children="h1.documentFirstHeading" />
-    
-    <!-- content subtitle -->
-    <replace css:theme-children="#content-description" css:content-children="#content .articleSubheadline" />
-
-    <!-- content byline -->
-    <replace css:theme-children="#content .byline .author" css:content="#content .articleByline .articleAuthor" />
-
-    <!-- content publish date -->
-    <replace css:theme-children="#content .byline time" css:content-children="#content .articleDate" />
 
     <!-- topic landing page -->
     <rules css:if-not-content="#topic-slot-three">
@@ -117,6 +106,7 @@
       <replace css:theme-children="ol.carousel-indicators" css:content="ul.carousel-indicator li" />
       <replace css:theme="#carousel-items" css:content=".article-listing .article-carousel"/> 
       <replace css:theme-children="#folder-listing-one" css:content=".article-listing article.featured, .article-listing > article.normal, .article-listing .listing-phone-only"/>
+      <drop css:theme="#main > article" />
     </rules>
 
     <rules css:if-not-content=".article-listing">
@@ -128,7 +118,12 @@
     </rules>
 
     <rules css:if-not-content="body.template-article_view">
-      <replace css:theme-children="#story-content" css:content-children="#content-core" />    
+      <rules css:if-not-content=".article-listing">
+        <replace css:theme-children="#story-content" css:content-children="#content" />    
+      </rules>
+      <drop css:theme="#content-title" />
+      <drop css:theme="#content-description" />
+      <drop css:theme="#content .byline" />
       <drop css:theme="#article-lead-image-row" />
       <drop css:theme="#content-sharebar" />
       <drop css:theme="aside.disqus" />
@@ -155,6 +150,18 @@
 
     <!-- article views -->
     <rules css:if-content="body.template-article_view">
+
+      <!-- content title -->
+      <replace css:theme-children="#content-title" css:content-children="h1.documentFirstHeading" />
+      
+      <!-- content subtitle -->
+      <replace css:theme-children="#content-description" css:content-children="#content .articleSubheadline" />
+
+      <!-- content byline -->
+      <replace css:theme-children="#content .byline .author" css:content="#content .articleByline .articleAuthor" />
+
+      <!-- content publish date -->
+      <replace css:theme-children="#content .byline time" css:content-children="#content .articleDate" />
 
       <replace css:theme="figure.article-lead-image img" css:content-children="#article-lead-image" />
       <replace css:theme-children=".article-lead-image figcaption div" css:content-children="#article-lead-caption" />
