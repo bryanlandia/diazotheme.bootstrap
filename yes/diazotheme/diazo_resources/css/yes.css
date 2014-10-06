@@ -1128,7 +1128,7 @@ span.people-power {
     max-height: 34px;
     display: block;
     font-family: 'Open Sans', Helvetica, sans-serif;
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
   }
 
   #edit-bar-wrapper,
@@ -1145,7 +1145,7 @@ span.people-power {
 
   #edit-bar-wrapper {
       position: relative;
-      z-index: 1000;
+      z-index: 1001;
       top: -23px;
   }
 
@@ -1155,8 +1155,13 @@ span.people-power {
       border-radius: 0;
   }
 
-  #edit-bar li {
+  #edit-bar ul#content-views > li,
+  #edit-bar ul#contentActionMenus > li {
     display: inline-block !important;
+  }
+
+  #edit-bar ul#contentActionMenus {
+    height: 20px;
   }
 
   #portal-personaltools {
