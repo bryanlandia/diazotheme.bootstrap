@@ -210,12 +210,45 @@
 
     <!-- portlets -->
 
-    <!-- if there are no right column portlets then drop theme right col -->
-    <rules css:if-not-content="#portal-column-two">
+    <!-- if there are no left or right column portlets then drop theme right col -->
+    <rules css:if-not-content="#portal-column-two, #portal-column-one ">
       <drop css:theme="#right-column"/>
       <!-- increase width of left column by dropping class -->
       <drop attributes="class" css:theme="#center-column" />
     </rules>
+
+    <xsl:template match="*[@id='portal-columns']/*[contains(@class, 'cell')]//*[contains(@class, 'portletWrapper')]">
+      <xsl:choose>
+        <!-- we treat these two portlets differently because they are tabbed -->
+        <xsl:when test="descendant::*[contains(@class, 'portlet-collection-most-recent')]"></xsl:when>
+        <xsl:when test="descendant::*[contains(@class, 'portletPopular')]"></xsl:when>
+        <!-- and drop this portlet altogether... became part of the theme -->
+        <xsl:when test="descendant::*[contains(@id, 'portlet-email-capture')]"></xsl:when>
+        <!-- ... same with this one -->
+        <xsl:when test="descendant::*[contains(@class, 'portlet-static-social-media-share')]"></xsl:when>
+        <xsl:otherwise>
+          <div>
+            <xsl:attribute name="id"><xsl:value-of select=".//*[contains(@class, 'portlet')]/@id" /></xsl:attribute><!-- if id exists -->
+            <xsl:attribute name="class">hidden-xs row rightcolborderedsection</xsl:attribute>
+            
+            <div class="no-gutter-pad col-sm-offset-1 col-sm-10">
+              <xsl:if test=".//dt"><h4 class="dog-eared"><xsl:value-of select=".//dt/."/></h4></xsl:if><!-- transform portlet header -->
+              <xsl:copy-of select=".//dl[contains(@class, 'portlet')]/dd" />
+              <xsl:copy-of select=".//div[contains(@class, 'portlet')]" />
+            </div>
+          </div>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:template>
+
+    <rules css:if-content="#portal-column-two">
+      <append css:theme="#right-column-content" css:content-children="#portal-column-two" />
+    </rules>
+
+    <rules css:if-content="#portal-column-one">
+      <append css:theme="#right-column-content" css:content-children="#portal-column-one" />
+    </rules>
+
 
     <rules css:if-not-content=".portlet-collection-most-recent">
       <drop css:theme="li#tab-most-recent" />
@@ -233,11 +266,20 @@
         <xsl:copy-of select="." />
       </li>
     </replace>
+
     <xsl:template css:match=".portlet-collection-most-recent a .portletItemDetails" />
     <!-- <drop css:content=".portlet-collection-most-recent .portletItemDetails" /> -->
     <replace css:theme-children="#mostrecent ul" css:content-children=".portlet-collection-most-recent dd" />
     <replace css:theme-children="#mostpopular ul" css:content=".portletPopular dd li" />
 
+    <!-- if both popular and recent portlets are present, add 'active' class to popular -->
+    <rules css:if-content=".portletPopular">
+      <drop attributes="class" css:theme="#tab-most-recent" />
+      <replace attributes="class" css:theme="#mostrecent">tab-pane</replace>
+      <!-- <copy attributes="class" css:theme="#mostrecent">tab-pane</copy> -->
+    </rules>  
+      
+ 
     <!-- javascript -->
 
 

@@ -9,10 +9,6 @@
    <head>
       <meta charset="utf-8"/>
 
-      <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-      More info: h5bp.com/b/378 -->
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-
       <title></title>
       <meta name="description" content=""/>
       <meta name="author" content=""/>
@@ -22,6 +18,39 @@
 
       <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+      <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+      <!-- 
+      Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+      For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+      <script src="js/libs/modernizr-2.0.6.min.js"></script>
+      <script id="page_url"></script> 
+      <!-- <script src="js/libs/jquery-1.9.1.js"></script> -->
+      <!-- <script src="js/libs/jquery-1.9.1.min.js"></script> -->
+      
+
+      <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+      More info: h5bp.com/b/378 -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>      
+      <!-- js from Plone gets inserted here -->
+
+
+      <script src="bootstrap/js/bootstrap.js"></script>
+      <!-- Plone relies on jQuery < 1.9 right now... 
+         this restores some deprecated functions  -->
+      <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"/>
+      <script defer>
+         // var jQuery19 = jQuery;
+         // $ = jQuery14;
+         // jQuery = jQuery14;
+      </script>
+      <script defer src="js/response.min.js"></script>
+      <script defer src="js/plugins.js"></script>
+      <script id="twbspagination" defer src="js/libs/jquery.twbsPagination.min.js"></script>
+      <!-- <script defer src="js/libs/jquery.sharrre.js"></script> -->
+      <script defer src="js/libs/SocialShare.js"></script/>
+      <script defer src="js/script.js"></script>
 
       <!-- CSS: implied media=all -->
       <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,700italic,700,600,600italic" />
@@ -35,17 +64,8 @@
       <link rel="stylesheet" href="openid-selector/css/openid.css"/>
       <link rel="stylesheet" href="css/basetheme.css"/>
       <link rel="stylesheet" href="css/yes.css"/>
-      <link rel="stylesheet" href="jqueryui/css/eggplant/jquery-ui-1.8.5.custom.css"/>
+      <link rel="stylesheet" href="jqueryui/css/eggplant/jquery-ui-1.8.5.custom.css"/>      
       <!-- end CSS-->
-
-
-
-      <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
-
-         <!-- All JavaScript at the bottom, except for Modernizr / Respond.
-         Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
-         For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
-         <script src="js/libs/modernizr-2.0.6.min.js"></script>
 
       </head>
 
@@ -865,7 +885,7 @@
                                 <ul class="nav nav-tabs" role="tablist">
                                   <li id="tab-most-popular" class="active"><a href="#mostpopular" role="tab" data-toggle="tab"
                                     >Most Popular</a></li>
-                                  <li id="tab-most-recent" ><a href="#mostrecent" role="tab" data-toggle="tab">Most Recent</a></li>
+                                  <li id="tab-most-recent"  class="active"><a href="#mostrecent" role="tab" data-toggle="tab">Most Recent</a></li>
                                 </ul>
 
                                 <div class="tab-content">
@@ -885,7 +905,7 @@
                                     </ul>
                                   </div><!-- /#mostpopular -->
 
-                                  <div class="tab-pane" id="mostrecent">
+                                  <div class="tab-pane active" id="mostrecent">
                                     <ul class="list-unstyled">
                                       <li>
                                         <a href="#">Beyond Keystone XL: 8 Reasons for Optimism on Climate Change</a>
@@ -1030,33 +1050,6 @@
          </div> <!--! end of #container -->
 
 
-         <!-- JavaScript at the bottom for fast page loading -->
-
-         <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline 
-         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-         <script>window.jQuery || document.write('<script src="js/libs/jquery-1.9.1.min.js"><\/script>')</script>
-         -->
-            <script id="page_url"></script> 
-            <script src="js/libs/jquery-1.9.1.js"></script>
-            <!-- <script src="js/libs/jquery-1.9.1.min.js"></script> -->
-            <script src="bootstrap/js/bootstrap.js"></script>
-            <script>
-               // var jQuery17 = jQuery;
-               // $ = jQuery14;
-               // jQuery = jQuery14;
-               // jQuery17(document).ready(function () {
-               //    jQuery17('.dropdown-toggle').dropdown();
-               // });
-            </script>
-            <script defer src="js/response.min.js"></script>
-            <script defer src="js/plugins.js"></script>
-            <script id="twbspagination" defer src="js/libs/jquery.twbsPagination.min.js"></script>
-            <!-- <script defer src="openid-selector/js/openid-jquery.js"></script> -->
-            <!-- <script defer src="js/libs/jquery.sharrre.js"></script> -->
-            <script defer src="js/libs/SocialShare.js"></script/>
-            <!-- <script defer src="js/openid-providers.js"></script> -->
-            <!-- <script defer src="js/openid-wrapper.js"></script> -->
-            <script defer src="js/script.js"></script>
             <div id="site-scripts"></div>
 
             <!-- end scripts-->

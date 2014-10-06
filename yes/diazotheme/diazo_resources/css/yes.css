@@ -539,6 +539,10 @@ article time {
   margin: 0 7px;
 }
 
+.carousel figure img {
+  min-height: 350px;
+}
+
 .carousel figcaption {
   height: 150px;
   margin-bottom: 1em;
