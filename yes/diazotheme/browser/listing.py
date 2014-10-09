@@ -75,42 +75,10 @@ class ArticlesListing(BrowserView):
 
     def __call__(self, batch=True, b_size=15, b_start=0, orphan=0, 
                  **kw):
-
         self.batch = batch
         self.b_size = b_size
         self.b_start = b_start
         self.orphan = orphan
-        featured = self.get_featured_listings(**kw)
-        standard = self.get_standard_listings(**kw)
-        results = self._sort_to_features_mix(featured, standard)
-
-        if results:
-            contentlist = IContentListing(results)
-            return contentlist
-        else:
-            return []
-
-
-class CollectionArticlesListing(ArticlesListing):
-
-    def ATTopic_query(self, **kw):
-        """ pass parameters appropriately to ATTopic.queryCatalog method
-            (REQUEST=None, batch=False, b_size=None,full_objects=False, **kw)
-        """
-        return self.context.queryCatalog(self.context.REQUEST, 
-                                         False, # no batch here
-                                         None,  # no b_size here
-                                         False,
-                                         **kw)
-
-    def __call__(self, batch=True, b_size=15, b_start=0, orphan=0, 
-                 **kw):
-        self.batch = batch
-        self.b_size = b_size
-        self.b_start = b_start
-        self.orphan = orphan
-        self.qrymethod = self.ATTopic_query
-        del kw['context']  # don't want to limit to context as w/ folders
         featured = self.get_featured_listings(**kw)
         standard = self.get_standard_listings(**kw)
         results = self._sort_to_features_mix(featured, standard)
@@ -125,3 +93,22 @@ class CollectionArticlesListing(ArticlesListing):
 
         else:
             return Batch([], 0)
+
+
+class CollectionArticlesListing(ArticlesListing):
+
+    def __init__(self, context, request):
+        self.catalog = getToolByName(context, 'portal_catalog')
+        self.context = context
+        self.qrymethod = self._ATTopic_query
+
+    def _ATTopic_query(self, **kw):
+        """ pass parameters appropriately to ATTopic.queryCatalog method
+            (REQUEST=None, batch=False, b_size=None,full_objects=False, **kw)
+        """
+        del kw['context']  # don't want to limit to context as w/ folders
+        return self.context.queryCatalog(self.context.REQUEST, 
+                                         False,  # no batch here
+                                         None,  # no b_size here
+                                         False,
+                                         **kw)
