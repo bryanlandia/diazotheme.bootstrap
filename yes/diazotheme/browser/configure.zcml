@@ -80,16 +80,6 @@
         permission="zope2.View"
         />
 
-
-    <!-- addthis javascript in head -->
-    <browser:viewlet
-        name="yes.adthis.head"
-        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
-        template="addthis.head.pt"
-        permission="zope.Public"
-        layer=".interfaces.IThemeSpecific"
-        />
-
     <!-- Google Analytics javascript in head -->
     <browser:viewlet
         name="yes.ga.head"

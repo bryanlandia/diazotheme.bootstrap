@@ -35,15 +35,7 @@
                         </tal:action>
                       </a>
                   </li>
-                  
-                  <li id="document-action-share">
-                      <a href="http://www.addthis.com/bookmark.php" 
-                              onmouseover="return addthis_open(this, '', '[URL]', '[TITLE]');"
-                              onmouseout="addthis_close();"
-                              onclick="return addthis_sendto();"
-                      ><img tal:attributes="src string:${context/portal_url}/addthis.gif" width="16" height="16" style="border: 0;" alt="Share"/>&nbsp;Share</a>
-                  </li>
-                                    
+                                                      
             </ul>
         </tal:docactions>
 
