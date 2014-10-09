@@ -15,14 +15,6 @@
         directory="jbot-template_overrides"
         layer=".interfaces.IThemeSpecific" />
 
-    <!-- custom Carousel template -->
-    <browser:page
-      for="*"
-      name="features"
-      template="features.pt"
-      permission="zope.Public"
-      />
-      
     <!-- remove some copyright elements not wanted by YES! and render html -->  
     <browser:page
        name="copyright_byline_view"
@@ -126,14 +118,6 @@
 		layer=".interfaces.IThemeSpecific"
         />
 
-    <!-- The breadcrumbs -->
-    <browser:viewlet
-        name="plone.path_bar"
-        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
-        class=".viewlets.PathBarViewlet"
-        permission="zope2.View" 
-		layer=".interfaces.IThemeSpecific"
-        />
 
     <!-- The personal bar -->
     <browser:viewlet
@@ -240,27 +224,7 @@
         layer=".interfaces.IThemeSpecific"
         />
         
-  <!-- Move like button to the below content body viewlet -->
-  
-  <browser:viewlet
-    name="collective.simplesocial.likebutton"
-    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
-    class="collective.simplesocial.likebutton.likebutton.LikeButtonViewlet"
-    permission="zope2.View"
-	  layer=".interfaces.IThemeSpecific"
-	  view="plone.app.layout.globals.interfaces.IViewView"
-    />
         
-  <!-- Like button viewlet for document actions -->
-  
-    <browser:viewlet
-      name="yes.documentactions.likebutton"
-      manager="plone.app.layout.viewlets.interfaces.IDocumentActions"
-      class=".viewlets.DocumentActionsLikeButtonViewlet"
-      permission="zope2.View"
-		  layer=".interfaces.IThemeSpecific"
-      />
-
   <!-- Disqus viewlet to belowcontentbody -->    
   <browser:viewlet
       name="collective.disqus"

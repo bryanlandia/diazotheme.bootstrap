@@ -14,18 +14,6 @@ class GlobalSectionsViewlet(base.GlobalSectionsViewlet):
 	"""just needed an extra wrapper div"""
 	index = ViewPageTemplateFile('sections.pt')
 
-	
-class PathBarViewlet(base.PathBarViewlet):
-    index = ViewPageTemplateFile('path_bar.pt')	
-
-
-class DocumentActionsLikeButtonViewlet(likebutton.LikeButtonViewlet):
-    """
-    Customized like button viewlet for display in document actions.
-    """
-    
-    index = ViewPageTemplateFile('likebutton.pt')
-
     
 class YESTitleCommentNoframeViewlet(TitleCommentNoframeViewlet):
     """ quintagroup.seoptimizer html title viewlet which also uses author
