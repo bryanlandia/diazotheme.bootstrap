@@ -72,15 +72,6 @@
         permission="zope2.View"
         />
 
-    <!-- Google Analytics javascript in head -->
-    <browser:viewlet
-        name="yes.ga.head"
-        manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
-        template="ga.head.pt"
-        permission="zope.Public" 
-	      layer=".interfaces.IThemeSpecific"
-        />
-
     <!-- customized GA tracking viewlet brought in from p_view_customizations 
      of Plone 3.3.5 site -->
     <browser:viewlet  
@@ -224,7 +215,7 @@
         layer=".interfaces.IThemeSpecific"
         />
         
-        
+
   <!-- Disqus viewlet to belowcontentbody -->    
   <browser:viewlet
       name="collective.disqus"
