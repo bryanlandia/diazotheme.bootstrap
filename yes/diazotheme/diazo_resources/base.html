@@ -39,7 +39,7 @@
       <script src="bootstrap/js/bootstrap.js"></script>
       <!-- Plone relies on jQuery < 1.9 right now... 
          this restores some deprecated functions  -->
-      <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"/>
+      <!-- <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"/> -->
       <script defer>
          // var jQuery19 = jQuery;
          // $ = jQuery14;
@@ -399,6 +399,15 @@
                                   </div>
                                 </article> 
 
+                                <div class="row paging">
+                                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-7 col-sm-4">
+                                    <ul id="pagination" class="pagination" data-total-pages="4"></ul>
+                                    <div><a href="javascript:void(0);">View as single page</a></div>
+                                    <noscript><!-- provide a way for search engines to get the rest of the content -->
+                                      <a rel="next" href="#">Next page</a>
+                                    </noscript>  
+                                  </div>
+                                </div><!-- /.row.paging -->
 
                               </div><!-- /.col-sm-offset-1.5 -->
                             </div><!-- /.row.leftcolborderedsection -->  
@@ -491,7 +500,7 @@
                                   <span class="hidden-xs author" rel="author">Roman Krznaric</span>
                                   <time pubdate class="hidden-xs published updated" datetime="2014-02-16" title="June 19, 2014">6/19/2014</time> 
                                 </div>
-                              </article> 
+                              </article>                         
 
 
                             </div><!-- /.col-sm-offset-1.5 -->

@@ -2,6 +2,7 @@ from collections import deque
 
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone import Batch
 
 from plone.app.contentlisting.interfaces import IContentListing
 
@@ -14,27 +15,27 @@ class ArticlesListing(BrowserView):
     def __init__(self, context, request):
         self.catalog = getToolByName(context, 'portal_catalog')
         self.context = context
+        self.qrymethod = self.catalog.searchResults
 
-    def _get_catalog_results(self, featured=False, limit=0, **kw):
+    def _get_catalog_results(self, featured=False, **kw):
         """ return catalog brains for published Articles and Blog Entries
             inside the context on which it's called
         """
-        if kw['context']:
+        if getattr(kw, 'context', None):
             kw['path'] = {'query': '/'.join(kw['context'].getPhysicalPath())}
 
         types = ('Article', 'Blog Entry', )
         states = ('published', )
         sort = 'Date'
         
-        results = self.catalog.searchResults(portal_type=types,
-                                             review_state=states,
-                                             is_featured=featured,
-                                             sort_on=sort,  
-                                             sort_order='descending',
-                                             sort_limit=limit,
-                                             **kw)
+        results = self.qrymethod(portal_type=types,
+                                 review_state=states,
+                                 is_featured=featured,
+                                 sort_on=sort,  
+                                 sort_order='descending',
+                                 **kw)
 
-        return results[:limit]
+        return results
 
     def _sort_to_features_mix(self, featured, standard):
         """ Sort items thusly:
@@ -63,21 +64,64 @@ class ArticlesListing(BrowserView):
             mixed.append(featured.pop())
         while len(standard):
             mixed.append(standard.pop())
+        # now prune the list down to the batch size
         return list(mixed)
 
-    def get_featured_listings(self, limit, **kw):
-        return self._get_catalog_results(featured=True, limit=limit, **kw)
+    def get_featured_listings(self, **kw):
+        return self._get_catalog_results(featured=True, **kw)
 
-    def get_standard_listings(self, limit, **kw):
-        return self._get_catalog_results(featured=False, limit=limit, **kw)
+    def get_standard_listings(self, **kw):
+        return self._get_catalog_results(featured=False, **kw)
 
-    def __call__(self, limit, **kw):
-        featured = self.get_featured_listings(limit, **kw)
-        standard = self.get_standard_listings(limit, **kw)
-        results = self._sort_to_features_mix(featured, standard)[:limit]
+    def __call__(self, batch=True, b_size=15, b_start=0, orphan=0, 
+                 **kw):
+
+        self.batch = batch
+        self.b_size = b_size
+        self.b_start = b_start
+        self.orphan = orphan
+        featured = self.get_featured_listings(**kw)
+        standard = self.get_standard_listings(**kw)
+        results = self._sort_to_features_mix(featured, standard)
 
         if results:
             contentlist = IContentListing(results)
             return contentlist
         else:
             return []
+
+
+class CollectionArticlesListing(ArticlesListing):
+
+    def ATTopic_query(self, **kw):
+        """ pass parameters appropriately to ATTopic.queryCatalog method
+            (REQUEST=None, batch=False, b_size=None,full_objects=False, **kw)
+        """
+        return self.context.queryCatalog(self.context.REQUEST, 
+                                         False, # no batch here
+                                         None,  # no b_size here
+                                         False,
+                                         **kw)
+
+    def __call__(self, batch=True, b_size=15, b_start=0, orphan=0, 
+                 **kw):
+        self.batch = batch
+        self.b_size = b_size
+        self.b_start = b_start
+        self.orphan = orphan
+        self.qrymethod = self.ATTopic_query
+        del kw['context']  # don't want to limit to context as w/ folders
+        featured = self.get_featured_listings(**kw)
+        standard = self.get_standard_listings(**kw)
+        results = self._sort_to_features_mix(featured, standard)
+
+        if results:
+            # prune the results down to b_size 
+            contentlist = IContentListing(results)
+            if self.batch:
+                batch = Batch(contentlist, b_size, b_start, orphan=3, 
+                              pagerange=1)
+                return batch
+
+        else:
+            return Batch([], 0)

@@ -48,24 +48,24 @@ $(document).ready(function () {
 
     if ($('.carousel').length) $('.carousel').carousel();
 
-    if ($('#pagination').length) {
-      $('#pagination').twbsPagination({
-          totalPages: $('#pagination').data("total-pages"),
-          visiblePages: 1,
-          href: 'javascript:void(0);',
-          hrefVariable: 'Page {{number}}',
-          first: 'First',
-          prev: '&lt;',
-          next: '&gt;',
-          last: 'Last',
-          onPageClick: function (event, page) {
-              $('#content').html('Sample Lipsum');
-              prepPagination();
-          }
-      });
+    // if ($('#pagination').length) {
+    //   $('#pagination').twbsPagination({
+    //       totalPages: $('#pagination').data("total-pages"),
+    //       visiblePages: 1,
+    //       href: 'javascript:void(0);',
+    //       hrefVariable: 'Page {{number}}',
+    //       first: 'First',
+    //       prev: '&lt;',
+    //       next: '&gt;',
+    //       last: 'Last',
+    //       onPageClick: function (event, page) {
+    //           $('#content').html('Sample Lipsum');
+    //           prepPagination();
+    //       }
+    //   });
 
-      prepPagination();
-    }  
+    //   prepPagination();
+    // }  
 
     // get followers/likes/plusones
     getfbcount('http://www.yesmagazine.org/');

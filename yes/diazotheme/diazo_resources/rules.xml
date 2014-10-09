@@ -99,13 +99,32 @@
         <drop css:theme=".voices-header" />
     </rules>
 
+    <!-- pagination -->
+    <xsl:template css:match="div.pagination">
+      <div class="row paging">
+          <div class="col-xs-offset-1 col-xs-10 col-sm-offset-7 col-sm-4">
+            <xsl:apply-templates />
+            <ul>
+              <xsl:attribute name="id">pagination</xsl:attribute>
+              <xsl:attribute name="class">pagination</xsl:attribute>
+              <!-- <xsl:attribute name="data-total-pages">4</xsl:attribute> -->
+            </ul>
+            <!-- <div><a href="javascript:void(0);">View as single page</a></div> -->
+            <!-- <noscript>  provide a way for search engines to get the rest of the content -->
+            <!--  <a rel="next" href="#">Next page</a>
+            </noscript> -->  
+          </div>
+        </div><!-- /.row.paging -->
+    </xsl:template>  
+
 
     <!-- listings -->
     <rules css:if-content=".article-listing">
       <replace css:theme-children="#phone-carousel-sub" css:content=".article-listing article.phone-top-feature"/>
       <replace css:theme-children="ol.carousel-indicators" css:content="ul.carousel-indicator li" />
       <replace css:theme="#carousel-items" css:content=".article-listing .article-carousel"/> 
-      <replace css:theme-children="#folder-listing-one" css:content=".article-listing article.featured, .article-listing > article.normal, .article-listing .listing-phone-only"/>
+      <!-- <replace css:theme-children="#pagination" css:content-children=".pagination" /> -->
+      <replace css:theme-children="#folder-listing-one" css:content=".article-listing article.featured, .article-listing > article.normal, .article-listing .listing-phone-only, .pagination"/>
       <drop css:theme="#main > article" />
     </rules>
 
@@ -127,7 +146,7 @@
       <drop css:theme="#article-lead-image-row" />
       <drop css:theme="#content-sharebar" />
       <drop css:theme="aside.disqus" />
-      <drop css:theme="#pagination" />
+      <!-- <drop css:theme="#pagination" /> -->
       <drop css:theme="#main > article > footer" />
     </rules>  
 

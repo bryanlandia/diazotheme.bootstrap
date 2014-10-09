@@ -16,9 +16,23 @@
         <div tal:replace="structure provider:plone.abovecontenttitle" />
         <div tal:replace="structure provider:plone.belowcontenttitle" />
         <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <tal:comment condition="nothing">
+          We use these for Folders and ATTopics (old Collections). Folders
+          won't have a text field
+        </tal:comment>
+        <div tal:on-error="nothing" class="article-listing-body-text">
+          <div tal:replace="structure python:context.widget('text', mode='view')" />
+        </div>
+
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
-        <ul class="article-listing" tal:define="results python:context.restrictedTraverse('@@articlesListing')(limit=15, context=context)">
+        <ul class="article-listing" 
+          tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                      b_size python:int(request.get('b_size', 15));
+                      b_start python:int(request.get('b_start', 0));
+                      results python:context.restrictedTraverse('@@articlesListing')(context=context, batch=True, b_size=b_size, b_start=b_start);
+                      batch results;">
           <tal:item tal:repeat="item results">
             <tal:article tal:define="featured item/getIs_featured;
                                      lead_image_tag item/lead_image|nothing;
@@ -60,6 +74,9 @@
               
             </tal:article>
           </tal:item> 
+
+           <div metal:use-macro="context/batch_macros/macros/navigation" />
+
         </ul>
             
     </metal:main-macro>

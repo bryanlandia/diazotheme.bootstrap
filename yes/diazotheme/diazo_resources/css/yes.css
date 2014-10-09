@@ -715,6 +715,11 @@ span.people-power {
 
   /* TOP NAV */
 
+  .navbar-header {
+    position: relative;
+    z-index: 3000;
+  }
+
   .navbar-nav {
   /* restore bootstrap margins for tablet/desktop */
     margin: 7.5px -10;

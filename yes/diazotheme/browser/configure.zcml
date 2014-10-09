@@ -391,6 +391,22 @@
       permission="zope2.View"
   />    
 
+  <browser:page 
+      name="articlesListing"
+      for="Products.ATContentTypes.interfaces.topic.IATTopic"
+      class=".listing.CollectionArticlesListing"
+      permission="zope2.View"
+  /> 
+
+  <!-- use plone.batching's Twitter bootstrap style batchnavigation template -->
+  <browser:page
+    name="batchnavigation"
+    for="*"
+    permission="zope.Public"
+    class="plone.batching.browser.PloneBatchView"
+    layer=".interfaces.IThemeSpecific"
+    template="batchnavigation_bootstrap.pt"
+    />   
 
       
 </configure>
