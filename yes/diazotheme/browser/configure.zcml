@@ -185,7 +185,7 @@
         
 
   <!-- Disqus viewlet to belowcontentbody -->    
-  <browser:viewlet
+    <browser:viewlet
       name="collective.disqus"
       for="Products.CMFCore.interfaces.IContentish"
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
@@ -203,6 +203,16 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope2.View" 
       />
+
+    <browser:viewlet
+        name="yes.diazotheme.viewlets.topic_section"
+        for="yes.content.interfaces.IYesContent"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+        class=".viewlets.TopicSectionViewlet"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />
+
 			
 <!-- custom Scrawl blogentry_view -->
   <browser:page

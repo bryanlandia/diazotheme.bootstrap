@@ -3,11 +3,13 @@ from cgi import escape
 from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFPlone.utils import safe_unicode
+from Products.CMFCore.utils import getToolByName
 from plone.app.layout.viewlets import common as base
 
-from collective.simplesocial.likebutton import likebutton
 from quintagroup.seoptimizer.browser.viewlets import TitleCommentNoframeViewlet
 from quintagroup.canonicalpath.interfaces import ICanonicalLink
+
+from yes.content.config import TOP_LEVEL_TOPIC_SECTIONS
 
 
 class GlobalSectionsViewlet(base.GlobalSectionsViewlet):
@@ -74,3 +76,21 @@ class DisqusJSHeadViewlet(base.ViewletBase):
     
     def getCanonicalLink(self):
         return ICanonicalLink(self.context).getProp()
+
+
+class TopicSectionViewlet(base.ViewletBase):
+
+    index = ViewPageTemplateFile('topic_section.pt')
+
+    def topicSection(self):
+        path = self.context.getPhysicalPath()
+        ptool = getToolByName(self.context, 'portal_url')
+        siterootpath = ptool.getPortalObject().getPhysicalPath()
+        toplevelpath = path[len(siterootpath)]
+        if toplevelpath in TOP_LEVEL_TOPIC_SECTIONS:
+            return toplevelpath
+        else:
+            return None
+
+
+

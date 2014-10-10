@@ -102,7 +102,7 @@
     <replace css:theme="#issuenavimg" css:content="#issue-cover" />
 
     <!-- topic landing page -->
-    <replace css:theme-children=".topic-header .cell" css:content="" />
+    <replace css:theme-children=".topic-header .cell" css:content-children="#top-level-topic-id" />
     <rules css:if-not-content="body.section-planet, body.section-happiness, body.section-new-economy, body.section-peace-justice, body.section-people-power">
         <drop css:theme=".topic-header" />
     </rules>    
