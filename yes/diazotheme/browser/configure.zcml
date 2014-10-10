@@ -54,15 +54,6 @@
         layer=".interfaces.IThemeSpecific"
         />
     
-
-    <!-- <browser:viewlet
-        name="plone.htmlhead.title"
-        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
-        class=".common.YESTitleViewlet"
-    layer=".interfaces.IThemeSpecific"
-        permission="zope2.View" 
-        /> -->
-
 	  <!-- Render the custom browser title based on qSEOptimizer -->        
     <browser:viewlet
         name="plone.htmlhead.title"
@@ -72,23 +63,12 @@
         permission="zope2.View"
         />
 
-    <!-- customized GA tracking viewlet brought in from p_view_customizations 
-     of Plone 3.3.5 site -->
     <browser:viewlet  
         name="collective.googleanalytics.tracking"
         manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
         class="collective.googleanalytics.viewlets.tracking.AnalyticsTrackingViewlet"
         layer=".interfaces.IThemeSpecific"
         permission="zope2.View" 
-        />
-
-    <!-- The top right box of links and magazine cover -->
-    <browser:viewlet
-        name="yes.topright"
-        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
-        template="topright.pt"
-        permission="zope2.View" 
-		layer=".interfaces.IThemeSpecific"
         />
 
     <!-- The top-level topic links -->
@@ -169,20 +149,10 @@
         permission="zope.Public"
         />
     
-    <!-- customized keywords viewlet -->
-    <browser:viewlet
-        name="yes.diazotheme.viewlets.keywords"
-        for="*"
-        manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
-        permission="zope2.View"
-        layer=".interfaces.IThemeSpecific"
-        template="keywords.pt"
-        />
-
     <!-- issue banner viewlet -->
     <browser:viewlet
         name="yes.diazotheme.viewlets.issue_banner"
-        for="yes.content.interfaces.IArticle"
+        for="*"
         view="plone.app.layout.globals.interfaces.IViewView"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
         class=".issue_banner.IssueBannerViewlet"
@@ -191,8 +161,6 @@
         layer=".interfaces.IThemeSpecific"
         />
 
-
-    
     <!-- donation banner viewlet -->
     <browser:viewlet
         name="yes.diazotheme.viewlets.donation_banner"

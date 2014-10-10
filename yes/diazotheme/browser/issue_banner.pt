@@ -1,10 +1,11 @@
 <tal:block
     tal:define="issue view/issue"
     tal:condition="nocall:issue">
-    
-    <a href=""
+    <div id="issue-cover">
+        <a href=""
         tal:attributes="href issue/absolute_url;
-                        title issue/Title">
-        <tal:image tal:replace="structure issue/banner_tag"/>
-    </a>
+                        title string:The Current Issue:: ${issue/Title}">
+        <tal:image tal:replace="structure python:issue.tag(width=115, height=146)"/>
+        </a>
+    </div>
 </tal:block>

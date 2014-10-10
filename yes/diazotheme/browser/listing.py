@@ -2,7 +2,7 @@ from collections import deque
 
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone import Batch
+from plone.batching.batch import Batch
 
 from plone.app.contentlisting.interfaces import IContentListing
 
