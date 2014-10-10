@@ -87,10 +87,7 @@ class TopicSectionViewlet(base.ViewletBase):
         ptool = getToolByName(self.context, 'portal_url')
         siterootpath = ptool.getPortalObject().getPhysicalPath()
         toplevelpath = path[len(siterootpath)]
-        if toplevelpath in TOP_LEVEL_TOPIC_SECTIONS:
-            return toplevelpath
+        if toplevelpath in TOP_LEVEL_TOPIC_SECTIONS.keys():
+            return TOP_LEVEL_TOPIC_SECTIONS[toplevelpath]
         else:
             return None
-
-
-

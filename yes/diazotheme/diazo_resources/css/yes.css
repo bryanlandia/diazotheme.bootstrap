@@ -622,7 +622,11 @@ h5.from-current {
   margin-top: 0.5em;
 }
 
-.topic-header.planet {
+.section-planet .topic-header,
+.section-happiness .topic-header,
+.section-new-economy .topic-header,
+.section-people-power .topic-header,
+.section-peace-justice .topic-header {
   background-color: rgb(163,191,88);
 }
 
@@ -678,6 +682,17 @@ span.people-power {
 /* NO ADMIN */
 #edit-bar-wrapper {
     display: none;
+}
+
+/* ADMIN OVERRIDES */
+/* override collision between Plone's .label class and Bootstrap's */
+div.formQuestion.label {
+  display: inherit;
+  padding: inherit;
+  color: inherit;
+  font-size: inherit;
+  text-align: inherit;
+  white-space: inherit;
 }
 
 

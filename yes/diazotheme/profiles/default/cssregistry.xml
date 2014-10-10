@@ -7,4 +7,37 @@
      id="public.css"
      />
 
+ <stylesheet 
+    expression="not: request/HTTP_X_THEME_ENABLED | nothing" id="columns.css"
+ />
+
+ <stylesheet
+    expression="not: request/HTTP_X_THEME_ENABLED | nothing" id="base.css"
+ />
+
+ <stylesheet
+    expression="not: request/HTTP_X_THEME_ENABLED | nothing" id="portlets.css"
+ />
+
+ <stylesheet
+    expression="not: request/HTTP_X_THEME_ENABLED | nothing" id="navtree.css"
+ />
+
+ <stylesheet
+    expression="not: request/HTTP_X_THEME_ENABLED | nothing" id="forms.css"
+ />
+
+ <stylesheet remove="True"
+    id="++resource++jquery.ui.all.css" media="screen" rel="stylesheet"
+ />
+
+<stylesheet remove="True"
+    id="kupustyles.css" media="screen" rel="stylesheet"
+ />
+
+<stylesheet remove="True"
+    id="kupudrawerstyles.css" media="screen" rel="stylesheet"
+ />
+
+
 </object>
