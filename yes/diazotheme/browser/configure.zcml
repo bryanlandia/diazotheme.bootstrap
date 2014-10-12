@@ -213,6 +213,15 @@
         layer=".interfaces.IThemeSpecific"
         />
 
+
+  <browser:viewlet
+      name="yes.diazotheme.viewlets.issue_subtitle"
+      for="yes.content.interfaces.IIssue"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+      template="issue_subtitle.pt"
+      permission="zope2.View"
+      layer=".interfaces.IThemeSpecific"
+      />
 			
 <!-- custom Scrawl blogentry_view -->
   <browser:page

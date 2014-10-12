@@ -21,7 +21,7 @@ class ArticlesListing(BrowserView):
         """ return catalog brains for published Articles and Blog Entries
             inside the context on which it's called
         """
-        if getattr(kw, 'context', None):
+        if 'context' in kw.keys():
             kw['path'] = {'query': '/'.join(kw['context'].getPhysicalPath())}
 
         types = ('Article', 'Blog Entry', )
@@ -64,7 +64,6 @@ class ArticlesListing(BrowserView):
             mixed.append(featured.pop())
         while len(standard):
             mixed.append(standard.pop())
-        # now prune the list down to the batch size
         return list(mixed)
 
     def get_featured_listings(self, **kw):
@@ -73,8 +72,7 @@ class ArticlesListing(BrowserView):
     def get_standard_listings(self, **kw):
         return self._get_catalog_results(featured=False, **kw)
 
-    def __call__(self, batch=True, b_size=15, b_start=0, orphan=0, 
-                 **kw):
+    def __call__(self, batch=True, b_size=15, b_start=0, orphan=0, **kw):
         self.batch = batch
         self.b_size = b_size
         self.b_start = b_start
@@ -106,7 +104,7 @@ class CollectionArticlesListing(ArticlesListing):
         """ pass parameters appropriately to ATTopic.queryCatalog method
             (REQUEST=None, batch=False, b_size=None,full_objects=False, **kw)
         """
-        del kw['context']  # don't want to limit to context as w/ folders
+        del kw['path']  # don't want to limit to context as w/ folders
         return self.context.queryCatalog(self.context.REQUEST, 
                                          False,  # no batch here
                                          None,  # no b_size here

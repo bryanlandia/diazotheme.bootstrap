@@ -14,6 +14,9 @@
            tal:define="templateId template/getId;">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
+        <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">
+          Generic KSS Title. Is rendered with class="documentFirstHeading".
+        </h1>
         <div tal:replace="structure provider:plone.belowcontenttitle" />
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
@@ -31,7 +34,7 @@
           tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                       b_size python:int(request.get('b_size', 15));
                       b_start python:int(request.get('b_start', 0));
-                      results python:context.restrictedTraverse('@@articlesListing')(context=context, batch=True, b_size=b_size, b_start=b_start);
+                      results python:context.restrictedTraverse('@@articlesListing')(batch=True, b_size=b_size, b_start=b_start, context=context);
                       batch results;">
           <tal:item tal:repeat="item results">
             <tal:article tal:define="featured item/getIs_featured;

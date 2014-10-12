@@ -112,12 +112,13 @@
 
 
     <!-- issue page -->
-    <rules css:if-not-content="body.section-issues">
+    <rules css:if-not-content="body.portaltype-issue">
         <drop css:theme=".issue-header" />
     </rules>
-    <rules css:if-content="body.section-issues">
+    <rules css:if-content="body.portaltype-issue">
         <replace css:theme-children=".issue-header .issue-title" css:content-children="#parent-fieldname-title" />      
-    </rules>    
+        <replace css:theme-children=".issue-header .issue-date" css:content-children=".issue-subtitle" />
+    </rules>
 
     <!-- voices landing page -->
     <rules css:if-not-content="body.portaltype-topic.section-blogs">
@@ -175,7 +176,7 @@
       <drop css:theme="#main > article > footer" />
     </rules>  
 
-    <!-- drop sample-only html -->
+    <!-- drop mockup-only html -->
     <drop css:theme="#sample-featured" />
     <drop css:theme="#folder-listing-two" />
 

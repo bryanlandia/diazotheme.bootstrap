@@ -622,13 +622,17 @@ h5.from-current {
   margin-top: 0.5em;
 }
 
+.section-peace-justice .topic-header {
+  background-color: rgb(116,153,161);
+}
+
 .section-planet .topic-header,
 .section-happiness .topic-header,
 .section-new-economy .topic-header,
-.section-people-power .topic-header,
-.section-peace-justice .topic-header {
+.section-people-power .topic-header {
   background-color: rgb(163,191,88);
 }
+   
 
 .topic-header div.cell {
   display: table-cell;

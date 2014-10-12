@@ -9,7 +9,8 @@
             <div tal:replace="structure lead_image_tag"></div>
         </a>
         <figcaption>
-          <!-- <h5 class="from-current">From the Current Issue</h5> -->
+          <h5 class="from-current" tal:condition="item/content_issue_label"
+            tal:content="item/content_issue_label">From the Current Issue</h5>
           <h4><a tal:attributes="href item/getURL"
                  tal:content="item/Title">Why the Kings of Bhutan Ride Bicycles</a>
           </h4>
@@ -81,6 +82,8 @@
               </a>
             </div>
             <div class="media-body col-xs-9 col-sm-7">
+              <h5 class="from-current" tal:condition="item/content_issue_label"
+              tal:content="item/content_issue_label">From the Current Issue</h5>
               <header><a tal:attributes="href item/getURL" 
                        tal:content="item/Title">This Couple's Marriage Healed the Planet and Cost Just $3K</a>
               </header>

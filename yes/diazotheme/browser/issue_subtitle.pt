@@ -1,0 +1,5 @@
+<div class="issue-subtitle">Issue 
+    <span tal:content="here/issue_number">69</span>
+    <span tal:content="here/season">Spring</span>
+    <span tal:content="here/year">2014</span>
+</div>
