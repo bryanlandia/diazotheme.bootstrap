@@ -125,6 +125,31 @@
         <drop css:theme=".voices-header" />
     </rules>
 
+    <!-- voices portlet -->
+    <xsl:template css:match=".portletVoices dd">
+      <div class="media">
+        <a>
+          <xsl:attribute name="class">pull-left</xsl:attribute>
+          <xsl:attribute name="href"><xsl:value-of select=".//a/@href"/></xsl:attribute>
+          <img>
+            <xsl:attribute name="class">media-object</xsl:attribute>
+            <xsl:attribute name="src"><xsl:value-of select="./img/@src" /></xsl:attribute>
+            <xsl:attribute name="alt"><xsl:value-of select=".//span[@class='author-name']/text()" /></xsl:attribute>
+          </img>
+        </a>
+        <div class="media-body">
+          <h5 class="media-heading"><xsl:value-of select=".//span[@class='author-name']/text()" /></h5>
+          <a>
+            <xsl:attribute name="class">pull-left</xsl:attribute>
+            <xsl:attribute name="href"><xsl:value-of select=".//a/@href"/></xsl:attribute>
+            <xsl:attribute name="title"><xsl:value-of select=".//a/@title"/></xsl:attribute>
+            <xsl:value-of select=".//a/text()" />
+          </a>
+        </div>
+      </div>
+    </xsl:template>
+    <replace css:theme-children="#voicesfromyes #voices-rows" css:content=".portletVoices dd" />
+
     <!-- pagination -->
     <xsl:template css:match="div.pagination">
       <div class="row paging">
@@ -267,6 +292,7 @@
         <!-- we treat these two portlets differently because they are tabbed -->
         <xsl:when test="descendant::*[contains(@class, 'portlet-collection-most-recent')]"></xsl:when>
         <xsl:when test="descendant::*[contains(@class, 'portletPopular')]"></xsl:when>
+        <xsl:when test="descendant::*[contains(@class, 'portletVoices')]"></xsl:when>
         <!-- and drop this portlet altogether... became part of the theme -->
         <xsl:when test="descendant::*[contains(@id, 'portlet-email-capture')]"></xsl:when>
         <!-- ... same with this one -->
