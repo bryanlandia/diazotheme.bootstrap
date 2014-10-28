@@ -3,19 +3,22 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:cmf="http://namespaces.zope.org/cmf"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="yes.diazotheme">
 
-   <!-- <five:registerPackage package="." initialize=".initialize" /> -->
+    <configure zcml:condition="not-installed yes.plonetheme">
+      <!-- need to accommodate having this package in the same site as
+           yes.plonetheme during migration -->
+      <include package=".browser" />
+    </configure>
 
-   <include package=".browser" />
+     <include file="profiles.zcml" />
+     <include file="skins.zcml" />
 
-   <include file="profiles.zcml" />
-   <include file="skins.zcml" />
-
-  <plone:static
-    directory="diazo_resources"
-    type="theme"
-    />
+    <plone:static
+      directory="diazo_resources"
+      type="theme"
+      />
 
 
 </configure>

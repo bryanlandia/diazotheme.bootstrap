@@ -347,11 +347,16 @@
     <rules css:if-content=".portletPopular">
       <drop attributes="class" css:theme="#tab-most-recent" />
       <replace attributes="class" css:theme="#mostrecent">tab-pane</replace>
-      <!-- <copy attributes="class" css:theme="#mostrecent">tab-pane</copy> -->
     </rules>  
       
  
     <!-- javascript -->
+
+
+    <!-- TinyMCE macros -->
+    <replace css:content=".inset-from-issue">
+        <xsl:apply-templates select="document('@@more-from-issue', $diazo-base-document)//*[@class = 'inset-from-issue']/node()" mode="raw"/>
+    </replace>
 
 
     <!-- XSLT UTILITIES  -->

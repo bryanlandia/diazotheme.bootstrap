@@ -330,6 +330,13 @@
       permission="zope2.View"
   /> 
 
+  <browser:page
+      name="more-from-issue"
+      for="yes.content.interfaces.IYesContent"
+      class=".issue_more.MoreFromIssueView"
+      permission="zope2.View"
+  />
+
   <!-- use plone.batching's Twitter bootstrap style batchnavigation template -->
   <browser:page
     name="batchnavigation"

@@ -1,0 +1,17 @@
+<div class="more-from-issue">
+    <header tal:define="issue view/issue">
+    <h4>From <span tal:content="issue/season">Winter</span> 
+        <span tal:content="issue/year">2014</span> Issue</h4>
+        How to Eat Like Our Lives Depend On It</header>
+    <img tal:replace="issue/image/tag" src="http://lorempixel.com/132/173" alt="alt" />
+    <div><h6>More from this issue:</h6>
+        <ul class="list-unstyled">
+          <tal:article_link tal:repeat="article view/articles">
+            <li><a tal:attributes="href article/URL;
+                                   title article/Description"
+                   tal:content="article/Title"
+                   >A popular article title goes here</a></li>
+          </tal:article_link>
+        </ul>
+    </div>
+</div>
